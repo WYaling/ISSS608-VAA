@@ -29,15 +29,15 @@ This data set contains 322 student data, with 7 data for each student. Four cate
 
 ggplot2 is a part of the `tidyverse` family specially designed for visual exploration and communication.
 
-## 2.1 R Graphics VS ggplot
+## *2.1 R Graphics VS ggplot*
 
-### **R Graphics**
+### ***R Graphics***
 
 ```{r}
 hist(exam_data$MATHS)
 ```
 
-### ggplot
+### *ggplot*
 
 ```{r}
 ggplot(data=exam_data, aes(x = MATHS)) +
@@ -56,9 +56,9 @@ add the below code before ggplot()
 
 -   to only show plot: **`#| echo: false`**
 
-# 3 Essential Grammatical Elements in ggplot2
+# *3 Essential Grammatical Elements in ggplot2*
 
-## 3.1 Data
+## *3.1 Data*
 
 ```{r}
 ggplot(data=exam_data)
@@ -74,7 +74,7 @@ ggplot(data=exam_data)
 
 -   If the data set is not already a data.frame, it will be converted to one by **`.fortify()`**
 
-## 3.2 Aesthetic mappings
+## *3.2 Aesthetic mappings*
 
 Here for showing the x-axis and y-axis of the plot. The aesthetic mappings take attributes of the data. For example, Class, Gender, Race, English, Maths, Science.
 
@@ -83,11 +83,11 @@ ggplot(data=exam_data,
        aes(x= MATHS))
 ```
 
-## 3.3 geom
+## *3.3 geom*
 
 ![](images/image6.jpg)
 
-### 3.3.1 geom_bar()
+### *3.3.1 geom_bar()*
 
 ```{r}
 ggplot(data = exam_data,
@@ -95,7 +95,7 @@ ggplot(data = exam_data,
   geom_bar()
 ```
 
-### 3.3.2 geom_dotplot()
+### *3.3.2 geom_dotplot()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -114,7 +114,7 @@ ggplot(data=exam_data,
                      breaks = NULL)  
 ```
 
-### 3.3.3 geom_histogram()
+### *3.3.3 geom_histogram()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -140,7 +140,7 @@ ggplot(data=exam_data,
                  color="black")
 ```
 
-### 3.3.4 geom_density()
+### *3.3.4 geom_density()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -148,7 +148,7 @@ ggplot(data=exam_data,
   geom_density()           
 ```
 
-**Two kernel density**
+***Two kernel density***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -157,7 +157,7 @@ ggplot(data=exam_data,
   geom_density()
 ```
 
-### 3.3.5 geom_boxplot
+### *3.3.5 geom_boxplot*
 
 **`geom_boxplot()`** displays continuous value list. It visualizes five summary statistics (the median, two hinges and two whiskers), and all “outlying” points individually.
 
@@ -177,7 +177,7 @@ ggplot(data=exam_data,
   geom_boxplot(notch=TRUE)
 ```
 
-### 3.3.6 geom_violin()
+### *3.3.6 geom_violin()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -186,7 +186,7 @@ ggplot(data=exam_data,
   geom_violin()
 ```
 
-### 3.3.7 geom_point()
+### *3.3.7 geom_point()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -195,7 +195,7 @@ ggplot(data=exam_data,
   geom_point()            
 ```
 
-### 3.3.8 Combine geom objects
+### *3.3.8 Combine geom objects*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -208,11 +208,11 @@ ggplot(data=exam_data,
 
 **Note**: `position="jitter"` introduces small random displacements to the positions of data points to prevent overlapping on the chart.
 
-## 3.4 stat
+## *3.4 stat*
 
-### 3.4.1 Statistic dot value
+### *3.4.1 Statistic dot value*
 
-**stat_summary()**
+***stat_summary()***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -224,7 +224,7 @@ ggplot(data=exam_data,
                size=2)               
 ```
 
-**geom_point(stat = "summary")**
+***geom_point(stat = "summary")***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -236,7 +236,7 @@ ggplot(data=exam_data,
              size=2)          
 ```
 
-### 3.4.2 Fit curve
+### *3.4.2 Fit curve*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -255,9 +255,9 @@ ggplot(data=exam_data,
   geom_smooth(formula = y~x , method=lm, linewidth=0.5)
 ```
 
-## 3.5 Facets
+## *3.5 Facets*
 
-### 3.5.1 facet_wrap()
+### *3.5.1 facet_wrap()*
 
 Putting multiple plot together. Showing 2d difference.
 
@@ -268,7 +268,7 @@ ggplot(data=exam_data,
     facet_wrap(~ CLASS)
 ```
 
-### 3.5.2 facet_grid()
+### *3.5.2 facet_grid()*
 
 ```{r}
 ggplot(data=exam_data, 
@@ -277,9 +277,9 @@ ggplot(data=exam_data,
     facet_grid(~ CLASS)
 ```
 
-## 3.6 Coordinates
+## *3.6 Coordinates*
 
-### 3.6.1 Changing orientation
+### *3.6.1 Changing orientation*
 
 Flip the horizontal bar chart into vertical bar chart by using **`coord_flip()`**
 
@@ -290,7 +290,7 @@ ggplot(data=exam_data,
   coord_flip()
 ```
 
-### **3.6.2 Changing the data range**
+### ***3.6.2 Changing the data range***
 
 Change the y-axis and x-axis range by using **`coord_cartesian()`**
 
@@ -302,7 +302,7 @@ ggplot(data=exam_data,
   coord_cartesian(xlim=c(0,100), ylim=c(0,100))
 ```
 
-## 3.7 Themes
+## *3.7 Themes*
 
 Built-in themes include: `-.(default)`, `-.theme_gray()`, `-.theme_bw()`, `-.theme_classic()`, `-.theme_minimal()`
 
