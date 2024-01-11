@@ -1,0 +1,35 @@
+---
+title: "Hands-on Exercise 1"
+author: "Wang Yaling"
+---
+
+# ***Getting Started***
+
+## ***1. Install and launch R packages***
+
+The code chunk below use p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.
+
+```{r}
+pacman::p_load(tidyverse)
+```
+
+## ***2. Importing the data***
+
+```{r}
+exam_data <- read.csv("data/Exam_data.csv")
+glimpse(exam_data)
+```
+
+# ***Plotting a simple bar chart***
+
+```{r}
+ggplot(data = exam_data,
+       aes(x = RACE)) + 
+  geom_bar(fill="darkblue")
+```
+
+Note: add the below code in the first line
+
+to only show code: **#\| eval: false**
+
+to only show plot: **#\| echo: false**
