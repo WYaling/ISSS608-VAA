@@ -2,8 +2,16 @@ project:
   type: website
 
 website:
-  title: "ISSS608-VAA"
+  title: "Yaling"
+  image: "Name_logo.png"
+  favicon: "Web_image.jpeg"
+  page-navigation: true
+  page-footer: Copyright 2024![](Name_Logo(1).png){fig-alt="Name_logo(1)" width=100px}
   navbar:
+    logo: "Name_logo.png"
+    title: false
+    collapse-below: lg
+    search: true
     left:
     - text: "Hands-on Exercise"
       menu:
