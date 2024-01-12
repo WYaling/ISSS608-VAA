@@ -1,7 +1,13 @@
 ---
-title: "Hands-on Exercise 1:
-A Layered Grammar of Graphics: ggplot2 methods"
+title: "1 A Layered Grammar of Graphics: ggplot2 methods"
+title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
+email: "yalingsayhi@gmail.com"
+published-title: "Last Modified"
+date: last-modified
+date-format: full
+abstract: 
+    This blog is maily introducing different plots by using ggplot() in R.
 ---
 
 # ***1 Getting Started***
@@ -27,17 +33,20 @@ This data set contains 322 student data, with 7 data for each student. Four cate
 
 # ***2 Introducing ggplot***
 
+![](images/ggplot2.png){fig-align="center"}
+
 ggplot2 is a part of the `tidyverse` family specially designed for visual exploration and communication.
 
 ## *2.1 R Graphics VS ggplot*
 
+::: panel-tabset
 ### ***R Graphics***
 
 ```{r}
 hist(exam_data$MATHS)
 ```
 
-### *ggplot*
+### ***ggplot***
 
 ```{r}
 ggplot(data=exam_data, aes(x = MATHS)) +
@@ -47,14 +56,15 @@ ggplot(data=exam_data, aes(x = MATHS)) +
                  fill="grey") +
   ggtitle("Distribution of Maths scores")
 ```
+:::
 
-**Note**:
-
+::: callout-note
 add the below code before ggplot()
 
 -   to only show code: **`#| eval: false`**
 
 -   to only show plot: **`#| echo: false`**
+:::
 
 # *3 Essential Grammatical Elements in ggplot2*
 
@@ -64,8 +74,7 @@ add the below code before ggplot()
 ggplot(data=exam_data)
 ```
 
-**Note:**
-
+::: callout-note
 -   A blank canvas appears.
 
 -   **`ggplot()`** initializes a ggplot object.
@@ -73,6 +82,7 @@ ggplot(data=exam_data)
 -   The data argument defines the data set to be used for plotting.
 
 -   If the data set is not already a data.frame, it will be converted to one by **`.fortify()`**
+:::
 
 ## *3.2 Aesthetic mappings*
 
@@ -142,13 +152,16 @@ ggplot(data=exam_data,
 
 ### *3.3.4 geom_density()*
 
+::: panel-tabset
+### ***One kernel density***
+
 ```{r}
 ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_density()           
 ```
 
-***Two kernel density***
+### ***Two kernel density***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -156,6 +169,7 @@ ggplot(data=exam_data,
            colour = GENDER)) +
   geom_density()
 ```
+:::
 
 ### *3.3.5 geom_boxplot*
 
@@ -206,13 +220,16 @@ ggplot(data=exam_data,
              size = 0.5)        
 ```
 
-**Note**: `position="jitter"` introduces small random displacements to the positions of data points to prevent overlapping on the chart.
+::: callout-note
+`position="jitter"` introduces small random displacements to the positions of data points to prevent overlapping on the chart.
+:::
 
 ## *3.4 stat*
 
 ### *3.4.1 Statistic dot value*
 
-***stat_summary()***
+::: panel-tabset
+### ***stat_summary()***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -224,7 +241,7 @@ ggplot(data=exam_data,
                size=2)               
 ```
 
-***geom_point(stat = "summary")***
+### ***geom_point(stat = "summary")***
 
 ```{r}
 ggplot(data=exam_data, 
@@ -235,6 +252,7 @@ ggplot(data=exam_data,
              colour ="red",          
              size=2)          
 ```
+:::
 
 ### *3.4.2 Fit curve*
 
@@ -306,6 +324,9 @@ ggplot(data=exam_data,
 
 Built-in themes include: `-.(default)`, `-.theme_gray()`, `-.theme_bw()`, `-.theme_classic()`, `-.theme_minimal()`
 
+::: panel-tabset
+## theme_gray
+
 ```{r}
 ggplot(data=exam_data, 
        aes(x=RACE)) +
@@ -313,6 +334,8 @@ ggplot(data=exam_data,
   coord_flip() +
   theme_gray()
 ```
+
+## theme_bw
 
 ```{r}
 ggplot(data=exam_data, 
@@ -322,6 +345,8 @@ ggplot(data=exam_data,
   theme_bw()
 ```
 
+## theme_classic
+
 ```{r}
 ggplot(data=exam_data, 
        aes(x=RACE)) +
@@ -330,6 +355,8 @@ ggplot(data=exam_data,
   theme_classic()
 ```
 
+## theme_minimal
+
 ```{r}
 ggplot(data=exam_data, 
        aes(x=RACE)) +
@@ -337,3 +364,6 @@ ggplot(data=exam_data,
   coord_flip() +
   theme_minimal()
 ```
+:::
+
+![](/images/thank.png){fig-align="center" width="587"}

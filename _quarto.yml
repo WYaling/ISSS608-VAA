@@ -3,25 +3,59 @@ project:
 
 website:
   title: "Yaling"
-  image: "Name_logo.png"
-  favicon: "Web_image.jpeg"
+  favicon: "images/Web_logo.png"
   page-navigation: true
-  page-footer: Copyright 2024![](Name_Logo(1).png){fig-alt="Name_logo(1)" width=100px}
+  page-footer: Copyright 2024![](images/Name_Logo(1).png){fig-alt="images/Name_logo(1)" width=100px}
+  back-to-top-navigation: true
+  reader-mode: true
+  repo-url: https://github.com/WYaling/ISSS608-VAA
+  repo-actions: [edit, issue]
   navbar:
-    logo: "Name_logo.png"
+    logo: "images/Name_logo.png"
     title: false
     collapse-below: lg
     search: true
     left:
     - text: "Hands-on Exercise"
       menu:
-        - text: "Hands-on Exercise 1"
+        - text: "1. A Layered Grammar of Graphics: ggplot2 methods"
           href: "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html"
-         
+        - text: "2"
+        - text: "3"
+        - text: "4"
+        - text: "5"
+        - text: "6"
+        - text: "7"
+        - text: "8"
+        - text: "9"
+    - text: "In-class Exercise"
+      menu:
+        - text: "1"
+        - text: "2"
+        - text: "3"
+        - text: "4"
+        - text: "5"
+        - text: "6"
+        - text: "7"
+        - text: "8"
+        - text: "9"
+    - text: "Take-home Exercise"
+      menu:
+        - text: "1"
+        - text: "2"
+        - text: "3"
+        - text: "4"
+    - text: "Project"
+      menu:
+        - text: "introduction"
     right:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About me
+      - icon: github
+        href: https://github.com/WYaling/ISSS608-VAA
+        aria-label: Github
 
 format:
   html:
