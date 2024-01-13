@@ -7,13 +7,6 @@
     "text": "At the moment, this website is dedicated to presenting coursework for ISSS608 Visual Analytics and Applications. Thanks for visiting, and please kindly let me know if anything needs to be amended.\n\n\n Back to top"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
     "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
     "title": "1 A Layered Grammar of Graphics: ggplot2 methods",
@@ -89,5 +82,33 @@
     "title": "1 A Layered Grammar of Graphics: ggplot2 methods",
     "section": "3.7 Themes",
     "text": "3.7 Themes\nBuilt-in themes include: -.(default), -.theme_gray(), -.theme_bw(), -.theme_classic(), -.theme_minimal()\n\ntheme_graytheme_bwtheme_classictheme_minimal\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_gray()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_bw()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_classic()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
+    "title": "1 Now You See It!",
+    "section": "",
+    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
+    "title": "1 Now You See It!",
+    "section": "",
+    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-sata",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-sata",
+    "title": "1 Now You See It!",
+    "section": "Importing PISA sata",
+    "text": "Importing PISA sata\nThe code chunk below uses read_sas() of haven to import PISA data into environment.\n\nstu_qqq&lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nFilter the table using filter()\n\nstu_qqq_SG &lt;- stu_qqq %&gt;%\n  filter(CNT == \"SGP\")\n\nWrite records into the data file.\n\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\n\n\nstu_qqq_SG &lt;- \n  read_rds(\"data/stu_qqq_SG.rds\")"
   }
 ]

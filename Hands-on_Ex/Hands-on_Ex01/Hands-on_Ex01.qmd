@@ -2,9 +2,14 @@
 title: "1 A Layered Grammar of Graphics: ggplot2 methods"
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
-date: Jan 11, 2024
+date: "Jan 11, 2024"
 date-modified: last-modified
 date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
 abstract: 
     This blog is maily introducing different plots by using ggplot() in R.
 ---

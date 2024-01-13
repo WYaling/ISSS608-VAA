@@ -8,7 +8,6 @@ about:
   links:
     - icon: github
       text: Github
-      href: https://github.com/WYaling/ISSS608-VAA
       aria-label: Github
     - icon: Email
       text: Email
