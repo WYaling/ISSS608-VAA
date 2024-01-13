@@ -2,17 +2,13 @@ project:
   type: website
 
 website:
-  title: "Yaling"
   favicon: "images/Web_logo.png"
-  page-navigation: true
-  page-footer: Copyright 2024![](images/Name_Logo(1).png){fig-alt="images/Name_logo(1)" width=100px}
-  back-to-top-navigation: true
-  reader-mode: true
+  site-url: https://isss608-vaa-wyaling.netlify.app
+  title: "Yaling"
   navbar:
-    logo: "images/Name_logo.png"
     title: false
-    collapse-below: lg
-    search: true
+    logo: "images/Name_logo.png"
+    pinned: true
     left:
     - text: "Hands-on Exercise"
       menu:
@@ -29,7 +25,7 @@ website:
         - text: "9"
     - text: "In-class Exercise"
       menu:
-        - text: "1 Now You See it!"
+        - text: "1. Importing Data"
           href: "In-class_Ex/In-class_Ex01/In-class_Ex01.html"
         - text: "2"
         - text: "3"
@@ -41,30 +37,60 @@ website:
         - text: "9"
     - text: "Take-home Exercise"
       menu:
-        - text: "1"
+        - text: "1 Creating data visualisation beyond default"
+          href: "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html"
         - text: "2"
         - text: "3"
-        - text: "4"
     - text: "Project"
       menu:
         - text: "introduction"
+    - sidebar:Hands-on Exercise
+    - sidebar:In-class Exercise
+    - sidebar:Take-home Exercise
+    - sidebar:Project
     right:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About me
+      - text: "Home"
+        href: index.qmd
+      - text: "About me"
+        href: about.qmd
+    tools:
+      - icon: linkedin
+        aria-label: Linkedin
       - icon: github
         aria-label: Github
+        menu:
+          - text: Source Code
+          - text: Report a bug
+ 
+  sidebar:
+    - id: Hands-on_Ex
+      title: "Hands-on Exercise"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - Hands-on_Ex01.html
+        
+  search: 
+    location: navbar
+    type: overlay
+    copy-button: true
+  page-navigation: true
+  back-to-top-navigation: true
+  page-footer: 
+    border: true
+    right: Copyright 2024![](images/Name_Logo(1).png){width=100px}
+
 
 format:
   html:
+    toc: true
     theme: zephyr
     mainfont: Georgia
-    fontsize: 1em
-    linestretch: 2
-    margin-left: 5% 0
+    fontsize: 1.2em
+    linestretch: 1.5
+    html-math-method: katex
     css: styles.css
-    toc: true
 
 editor: visual
 

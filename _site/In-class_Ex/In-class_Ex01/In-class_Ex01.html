@@ -8,7 +8,7 @@
 
 <meta name="author" content="Wang Yaling">
 
-<title>Yaling - 1 Now You See It!</title>
+<title>Yaling - 1. Importing Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -77,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
-  "copy-button": false,
+  "copy-button": true,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
@@ -152,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercise">    
         <li>
     <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="" target="">
- <span class="dropdown-text">1 Now You See it!</span></a>
+ <span class="dropdown-text">1. Importing Data</span></a>
   </li>  
         <li class="dropdown-header">2</li>
         <li class="dropdown-header">3</li>
@@ -169,10 +168,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Take-home Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
-        <li class="dropdown-header">1</li>
+        <li>
+    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
+ <span class="dropdown-text">1 Creating data visualisation beyond default</span></a>
+  </li>  
         <li class="dropdown-header">2</li>
         <li class="dropdown-header">3</li>
-        <li class="dropdown-header">4</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -195,11 +196,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
+    <a href="" rel="" title="" class="quarto-navigation-tool px-1" aria-label="Linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Github"><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="">
+            Report a bug
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -209,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">1 Now You See It!</h1>
+      <h1 class="title">1. Importing Data</h1>
                       </div>
   </div>
     
@@ -242,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Abstract</div>
-      This document is the learning result for in-class exercise 1.
+      This lecture teached how to importing .sas data into R environment and how to filter data, by using tidyverse and haven packages.
     </div>
   </div>
   
@@ -255,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#loading-r-packages" id="toc-loading-r-packages" class="nav-link active" data-scroll-target="#loading-r-packages">Loading R packages</a></li>
-  <li><a href="#importing-pisa-sata" id="toc-importing-pisa-sata" class="nav-link" data-scroll-target="#importing-pisa-sata">Importing PISA sata</a></li>
+  <li><a href="#importing-pisa-data" id="toc-importing-pisa-data" class="nav-link" data-scroll-target="#importing-pisa-data">Importing PISA data</a></li>
   </ul>
 </nav>
     </div>
@@ -273,9 +285,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,haven)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importing-pisa-sata" class="level2">
-<h2 class="anchored" data-anchor-id="importing-pisa-sata">Importing PISA sata</h2>
-<p>The code chunk below uses <a href="https://haven.tidyverse.org/reference/read_sas.html"><code>read_sas()</code></a> of haven to import <a href="https://www.oecd.org/pisa/data/2022database/">PISA</a> data into environment.</p>
+<section id="importing-pisa-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-pisa-data">Importing PISA data</h2>
+<p>The code chunk below uses <a href="https://haven.tidyverse.org/reference/read_sas.html"><code>read_sas()</code></a> of haven to import <a href="https://www.oecd.org/pisa/data/2022database/">PISA</a> data (<a href="https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip">Student questionnaire data file</a>) into environment.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>stu_qqq<span class="ot">&lt;-</span> <span class="fu">read_sas</span>(<span class="st">"data/cy08msp_stu_qqq.sas7bdat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -288,9 +300,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(stu_qqq_SG, <span class="st">"data/stu_qqq_SG.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Read data file.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stu_qqq_SG <span class="ot">&lt;-</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_rds</span>(<span class="st">"data/stu_qqq_SG.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/End.gif" class="img-fluid figure-img"></p>
+</figure>
 </div>
 
 
@@ -536,10 +554,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024<img src="images/Name_Logo(1).png" class="img-fluid" alt="images/Name_logo(1)" width="100"></div>
-    <div class="nav-footer-right">
+    <div class="nav-footer-center">
       &nbsp;
     </div>
+    <div class="nav-footer-right">Copyright 2024<img src="images/Name_Logo(1).png" class="img-fluid" width="100"></div>
   </div>
 </footer>
 

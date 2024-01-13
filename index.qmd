@@ -8,10 +8,30 @@ about:
   links:
     - icon: github
       text: Github
-      aria-label: Github
     - icon: Email
       text: Email
       href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
+
+listing:
+  - id: hands-on
+    type: table
+    contents: 
+      - "Hands-on_Ex/*/*.qmd"
+      - "In-class_Ex/*/*.qmd"
+      - "Take-home_Ex/*/*.qmd"
+    fields: [title, filename, date, file-modified ]
+    sort: "file-modified"
+    table-striped: true
+    table-hover: true
+    max-items: 5
 ---
 
-At the moment, this website is dedicated to presenting coursework for ***ISSS608 Visual Analytics and Applications***. Thanks for visiting, and please kindly let me know if anything needs to be amended.
+At present, this website is for showcasing coursework of
+
+**ISSS608 Visual Analytics and Applications**.
+
+Thanks for visiting, and please kindly let me know if anything needs to be amended.
+
+------------------------------------------------------------------------
+
+![](images/New_post.gif){fig-align="center" width="266"}

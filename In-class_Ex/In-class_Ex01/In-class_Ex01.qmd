@@ -1,5 +1,5 @@
 ---
-title: "1 Now You See It!"
+title: "1. Importing Data "
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
 date: "Jan 13, 2024"
@@ -11,7 +11,7 @@ excute:
   warning: false
 editor: visual
 abstract: 
-    This document is the learning result for in-class exercise 1.
+    This lecture teached how to importing .sas data into R environment and how to filter data, by using tidyverse and haven packages.
 ---
 
 ## Loading R packages
@@ -24,9 +24,9 @@ The code chunk used is as follows:
 pacman::p_load(tidyverse,haven)
 ```
 
-## Importing PISA sata
+## Importing PISA data
 
-The code chunk below uses [`read_sas()`](https://haven.tidyverse.org/reference/read_sas.html) of haven to import [PISA](https://www.oecd.org/pisa/data/2022database/) data into environment.
+The code chunk below uses [`read_sas()`](https://haven.tidyverse.org/reference/read_sas.html) of haven to import [PISA](https://www.oecd.org/pisa/data/2022database/) data ([Student questionnaire data file](https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip)) into environment.
 
 ```{r}
 #| eval: false
@@ -49,7 +49,11 @@ Write records into the data file.
 write_rds(stu_qqq_SG, "data/stu_qqq_SG.rds")
 ```
 
+Read data file.
+
 ```{r}
 stu_qqq_SG <- 
   read_rds("data/stu_qqq_SG.rds")
 ```
+
+![](images/End.gif){fig-align="center"}

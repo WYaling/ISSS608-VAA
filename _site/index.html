@@ -24,13 +24,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/Web_logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
-  "copy-button": false,
+  "copy-button": true,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
@@ -59,12 +60,57 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-hands-on .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-filename','listing-date','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-hands-on'] = new List('listing-hands-on', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -110,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercise">    
         <li>
     <a class="dropdown-item" href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="" target="">
- <span class="dropdown-text">1 Now You See it!</span></a>
+ <span class="dropdown-text">1. Importing Data</span></a>
   </li>  
         <li class="dropdown-header">2</li>
         <li class="dropdown-header">3</li>
@@ -127,10 +173,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Take-home Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
-        <li class="dropdown-header">1</li>
+        <li>
+    <a class="dropdown-item" href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
+ <span class="dropdown-text">1 Creating data visualisation beyond default</span></a>
+  </li>  
         <li class="dropdown-header">2</li>
         <li class="dropdown-header">3</li>
-        <li class="dropdown-header">4</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -141,6 +189,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">introduction</li>
     </ul>
   </li>
+  <li class="dropdown-header">
+ <span class="menu-text">sidebar:Hands-on Exercise</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">sidebar:In-class Exercise</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">sidebar:Take-home Exercise</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">sidebar:Project</span></li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -153,19 +209,50 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
+    <a href="" rel="" title="" class="quarto-navigation-tool px-1" aria-label="Linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Github"><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="">
+            Report a bug
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Welcome to Yaling’s Visual Analysis Wonderland!</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">Hands-on_Ex01.html</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -179,10 +266,94 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>At the moment, this website is dedicated to presenting coursework for <strong><em>ISSS608 Visual Analytics and Applications</em></strong>. Thanks for visiting, and please kindly let me know if anything needs to be amended.</p>
+<p>At present, this website is for showcasing coursework of</p>
+<p><strong>ISSS608 Visual Analytics and Applications</strong>.</p>
+<p>Thanks for visiting, and please kindly let me know if anything needs to be amended.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/New_post.gif" class="img-fluid figure-img" width="266"></p>
+</figure>
+</div>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
+<div class="quarto-listing quarto-listing-container-table" id="listing-hands-on">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-hands-on-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-hands-on'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table table-striped table-hover">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+File Name
+</th>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+<th>
+Modified
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705157234149" data-listing-date-modified-sort="1705157234000" data-listing-reading-time-sort="7" data-listing-title-sort="1. A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">1. A Layered Grammar of Graphics: ggplot2 methods</a>
+</td>
+<td>
+<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
+</td>
+<td>
+<span class="listing-date">Jan 11, 2024</span>
+</td>
+<td>
+<span class="listing-file-modified">1/13/24, 10:47:14 PM</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705157234261" data-listing-date-modified-sort="1705157234000" data-listing-reading-time-sort="1" data-listing-title-sort="1. Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">1. Importing Data</a>
+</td>
+<td>
+<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
+</td>
+<td>
+<span class="listing-date">Jan 13, 2024</span>
+</td>
+<td>
+<span class="listing-file-modified">1/13/24, 10:47:14 PM</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
   <hr class="about-sep">
    <div class="about-links">
   <a href="" class="about-link" rel="" target="">
@@ -428,10 +599,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024<img src="images/Name_Logo(1).png" class="img-fluid" alt="images/Name_logo(1)" width="100"></div>
-    <div class="nav-footer-right">
+    <div class="nav-footer-center">
       &nbsp;
     </div>
+    <div class="nav-footer-right">Copyright 2024<img src="images/Name_Logo(1).png" class="img-fluid" width="100"></div>
   </div>
 </footer>
 
