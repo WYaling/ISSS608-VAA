@@ -4,7 +4,7 @@ project:
 website:
   favicon: "images/Web_logo.png"
   site-url: https://isss608-vaa-wyaling.netlify.app
-  title: "Yaling"
+  title: "ISSS608-VAA-Yaling"
   navbar:
     title: false
     logo: "images/Name_logo.png"
@@ -44,37 +44,35 @@ website:
     - text: "Project"
       menu:
         - text: "introduction"
-    - sidebar:Hands-on Exercise
-    - sidebar:In-class Exercise
-    - sidebar:Take-home Exercise
-    - sidebar:Project
     right:
       - text: "Home"
         href: index.qmd
-      - text: "About me"
+      - text: "About"
         href: about.qmd
     tools:
       - icon: linkedin
-        aria-label: Linkedin
       - icon: github
-        aria-label: Github
         menu:
           - text: Source Code
           - text: Report a bug
- 
+          
   sidebar:
-    - id: Hands-on_Ex
-      title: "Hands-on Exercise"
-      style: "docked"
-      background: light
-      collapse-level: 2
-      contents: 
-        - Hands-on_Ex01.html
-        
+    contents: auto
+    location: sidebar
+    title: "Yaling's Journey"
+    style: "docked"
+    search: true
+    background: secondary
+    foreground: primary
+    alignment: left
+    pinned: false
+
+
   search: 
-    location: navbar
+    location: sidebar
     type: overlay
     copy-button: true
+
   page-navigation: true
   back-to-top-navigation: true
   page-footer: 
@@ -85,10 +83,15 @@ website:
 format:
   html:
     toc: true
-    theme: zephyr
-    mainfont: Georgia
+    theme: cerulean
+    mainfont: Comic Sans MS
     fontsize: 1.2em
     linestretch: 1.5
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
     html-math-method: katex
     css: styles.css
 

@@ -1,5 +1,9 @@
 ---
 title: "Welcome to Yaling's Visual Analysis Wonderland!"
+page-layout: full
+sidebar: false
+body-width: 1500px
+
 about:
   template: jolla
   image: images/Hello.gif
@@ -11,7 +15,6 @@ about:
     - icon: Email
       text: Email
       href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
-
 listing:
   - id: hands-on
     type: table
@@ -30,7 +33,7 @@ At present, this website is for showcasing coursework of
 
 **ISSS608 Visual Analytics and Applications**.
 
-Thanks for visiting, and please kindly let me know if anything needs to be amended.
+Thanks for visiting. Please kindly let me know if anything needs to be amended.
 
 ------------------------------------------------------------------------
 

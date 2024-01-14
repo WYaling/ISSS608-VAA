@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Welcome to Yaling’s Visual Analysis Wonderland!",
     "section": "",
-    "text": "At present, this website is for showcasing coursework of\nISSS608 Visual Analytics and Applications.\nThanks for visiting, and please kindly let me know if anything needs to be amended.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nFile Name\n\n\nDate\n\n\nModified\n\n\n\n\n\n\n1. A Layered Grammar of Graphics: ggplot2 methods\n\n\nHands-on_Ex01.qmd\n\n\nJan 11, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n1. Importing Data\n\n\nIn-class_Ex01.qmd\n\n\nJan 13, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "At present, this website is for showcasing coursework of\nISSS608 Visual Analytics and Applications.\nThanks for visiting. Please kindly let me know if anything needs to be amended.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nFile Name\n\n\nDate\n\n\nModified\n\n\n\n\n\n\n1. A Layered Grammar of Graphics: ggplot2 methods\n\n\nHands-on_Ex01.qmd\n\n\nJan 11, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n1. Importing Data\n\n\nIn-class_Ex01.qmd\n\n\nJan 13, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
@@ -103,20 +103,6 @@
     "title": "1. Importing Data",
     "section": "",
     "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
-  },
-  {
-    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-sata",
-    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-sata",
-    "title": "1. Now You See It!",
-    "section": "Importing PISA sata",
-    "text": "Importing PISA sata\nThe code chunk below uses read_sas() of haven to import PISA data into environment.\n\nstu_qqq&lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nFilter the table using filter()\n\nstu_qqq_SG &lt;- stu_qqq %&gt;%\n  filter(CNT == \"SGP\")\n\nWrite records into the data file.\n\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\n\n\nstu_qqq_SG &lt;- \n  read_rds(\"data/stu_qqq_SG.rds\")"
-  },
-  {
-    "objectID": "index.html#latest",
-    "href": "index.html#latest",
-    "title": "Welcome to Yaling’s Visual Analysis Wonderland!",
-    "section": "Latest",
-    "text": "Latest"
   },
   {
     "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
