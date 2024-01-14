@@ -1,87 +1,52 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Yaling’s Visual Analysis Wonderland!",
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html",
+    "title": "Creating Data Visualisation Beyond Default",
     "section": "",
-    "text": "At present, this website is for showcasing coursework of\nISSS608 Visual Analytics and Applications.\nThanks for visiting. Please kindly let me know if anything needs to be amended.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nFile Name\n\n\nDate\n\n\nModified\n\n\n\n\n\n\n1. A Layered Grammar of Graphics: ggplot2 methods\n\n\nHands-on_Ex01.qmd\n\n\nJan 11, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n1. Importing Data\n\n\nIn-class_Ex01.qmd\n\n\nJan 13, 2024\n\n\n1/13/24, 10:47:14 PM\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "For this practice, tidyverse and haven packages will be loaded and utilized. The data set under analysis is derived from PISA data (Student questionnaire data file). The original data set is a SAS data set, and it needs to be read using read.sas().\n\n\nShow the code\npacman::p_load(tidyverse, haven)\nstu_qqq &lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\ndimensions &lt;- dim(stu_qqq)\ncat(\"Rows:\", dimensions[1], \" Columns:\", dimensions[2])\n\n\nRows: 613744  Columns: 1279\n\n\nThe original data set has a total of 613744 rows and 1279 columns."
   },
   {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#loading-packages-and-reading-data",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#loading-packages-and-reading-data",
+    "title": "Creating Data Visualisation Beyond Default",
     "section": "",
-    "text": "The code chunk below use p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.\n\npacman::p_load(tidyverse)\n\nThe tidyverse is a package in R which includes a collection of packages for tasks such as data processing, visualization, statistical modeling, and more. Some commonly used packages within the tidyverse are ggplot2, dplyr, tidyr, readr, tibble, and purrr.\n\n\n\n\nexam_data &lt;- read.csv(\"data/Exam_data.csv\")\nglimpse(exam_data)\n\nRows: 322\nColumns: 7\n$ ID      &lt;chr&gt; \"Student321\", \"Student305\", \"Student289\", \"Student227\", \"Stude…\n$ CLASS   &lt;chr&gt; \"3I\", \"3I\", \"3H\", \"3F\", \"3I\", \"3I\", \"3I\", \"3I\", \"3I\", \"3H\", \"3…\n$ GENDER  &lt;chr&gt; \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Female\", \"Male\", \"M…\n$ RACE    &lt;chr&gt; \"Malay\", \"Malay\", \"Chinese\", \"Chinese\", \"Malay\", \"Malay\", \"Chi…\n$ ENGLISH &lt;int&gt; 21, 24, 26, 27, 27, 31, 31, 31, 33, 34, 34, 36, 36, 36, 37, 38…\n$ MATHS   &lt;int&gt; 9, 22, 16, 77, 11, 16, 21, 18, 19, 49, 39, 35, 23, 36, 49, 30,…\n$ SCIENCE &lt;int&gt; 15, 16, 16, 31, 25, 16, 25, 27, 15, 37, 42, 22, 32, 36, 35, 45…\n\n\nThis data set contains 322 student data, with 7 data for each student. Four categorical attributes: ID, class, gender, race. Three continuous attributes: English score, Math scores, Science score."
+    "text": "For this practice, tidyverse and haven packages will be loaded and utilized. The data set under analysis is derived from PISA data (Student questionnaire data file). The original data set is a SAS data set, and it needs to be read using read.sas().\n\n\nShow the code\npacman::p_load(tidyverse, haven)\nstu_qqq &lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\ndimensions &lt;- dim(stu_qqq)\ncat(\"Rows:\", dimensions[1], \" Columns:\", dimensions[2])\n\n\nRows: 613744  Columns: 1279\n\n\nThe original data set has a total of 613744 rows and 1279 columns."
   },
   {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#installing-and-loading-required-libraries",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#installing-and-loading-required-libraries",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#filter-sg-student-records",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#filter-sg-student-records",
+    "title": "Creating Data Visualisation Beyond Default",
+    "section": "2. Filter SG student records",
+    "text": "2. Filter SG student records\nIn this practice, only Singapore students will be visually analysed. Therefore, the first step is to filter SG student records.\n\n\nShow the code\nstu_qqq_SG &lt;- stu_qqq %&gt;% filter(CNT == \"SGP\")\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\nstu_qqq_SG &lt;- read_rds(\"data/stu_qqq_SG.rds\")\ndimensions_SG &lt;- dim(stu_qqq_SG)\ncat(\"Rows:\", dimensions_SG[1], \" Columns:\", dimensions_SG[2])\n\n\nRows: 6606  Columns: 1279\n\n\nThe filtered records has 6606 rows and 1279 columns, which means there is a number of 6606 SG students, each of them has 1279 information related."
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#student-performance",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html#student-performance",
+    "title": "Creating Data Visualisation Beyond Default",
+    "section": "3. Student Performance",
+    "text": "3. Student Performance"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
+    "title": "Importing Data",
     "section": "",
-    "text": "The code chunk below use p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.\n\npacman::p_load(tidyverse)\n\nThe tidyverse is a package in R which includes a collection of packages for tasks such as data processing, visualization, statistical modeling, and more. Some commonly used packages within the tidyverse are ggplot2, dplyr, tidyr, readr, tibble, and purrr."
+    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
   },
   {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#importing-data",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#importing-data",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
+    "title": "Importing Data",
     "section": "",
-    "text": "exam_data &lt;- read.csv(\"data/Exam_data.csv\")\nglimpse(exam_data)\n\nRows: 322\nColumns: 7\n$ ID      &lt;chr&gt; \"Student321\", \"Student305\", \"Student289\", \"Student227\", \"Stude…\n$ CLASS   &lt;chr&gt; \"3I\", \"3I\", \"3H\", \"3F\", \"3I\", \"3I\", \"3I\", \"3I\", \"3I\", \"3H\", \"3…\n$ GENDER  &lt;chr&gt; \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Female\", \"Male\", \"M…\n$ RACE    &lt;chr&gt; \"Malay\", \"Malay\", \"Chinese\", \"Chinese\", \"Malay\", \"Malay\", \"Chi…\n$ ENGLISH &lt;int&gt; 21, 24, 26, 27, 27, 31, 31, 31, 33, 34, 34, 36, 36, 36, 37, 38…\n$ MATHS   &lt;int&gt; 9, 22, 16, 77, 11, 16, 21, 18, 19, 49, 39, 35, 23, 36, 49, 30,…\n$ SCIENCE &lt;int&gt; 15, 16, 16, 31, 25, 16, 25, 27, 15, 37, 42, 22, 32, 36, 35, 45…\n\n\nThis data set contains 322 student data, with 7 data for each student. Four categorical attributes: ID, class, gender, race. Three continuous attributes: English score, Math scores, Science score."
+    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
   },
   {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#r-graphics-vs-ggplot",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#r-graphics-vs-ggplot",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "2.1 R Graphics VS ggplot",
-    "text": "2.1 R Graphics VS ggplot\n\nR Graphicsggplot\n\n\n\nhist(exam_data$MATHS)\n\n\n\n\n\n\n\nggplot(data=exam_data, aes(x = MATHS)) +\n  geom_histogram(bins=10, \n                 boundary = 100,\n                 color=\"black\", \n                 fill=\"grey\") +\n  ggtitle(\"Distribution of Maths scores\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nadd the below code before ggplot()\n\nto only show code: #| eval: false\nto only show plot: #| echo: false"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#data",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#data",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.1 Data",
-    "text": "3.1 Data\n\nggplot(data=exam_data)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nA blank canvas appears.\nggplot() initializes a ggplot object.\nThe data argument defines the data set to be used for plotting.\nIf the data set is not already a data.frame, it will be converted to one by .fortify()"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#aesthetic-mappings",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#aesthetic-mappings",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.2 Aesthetic mappings",
-    "text": "3.2 Aesthetic mappings\nHere for showing the x-axis and y-axis of the plot. The aesthetic mappings take attributes of the data. For example, Class, Gender, Race, English, Maths, Science.\n\nggplot(data=exam_data, \n       aes(x= MATHS))"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#geom",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#geom",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.3 geom",
-    "text": "3.3 geom\n\n\n3.3.1 geom_bar()\n\nggplot(data = exam_data,\n       aes(x=RACE))+\n  geom_bar()\n\n\n\n\n\n\n3.3.2 geom_dotplot()\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot(dotsize = 0.5)\n\nBin width defaults to 1/30 of the range of the data. Pick better value with\n`binwidth`.\n\n\n\n\n\nThe y scale above is very misleading. Next step is to turn-off y scale using scale_y_continuous() and change the binwidth to 2.5\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot(binwidth=2.5,         \n               dotsize = 0.5) +      \n  scale_y_continuous(NULL,           \n                     breaks = NULL)  \n\n\n\n\n\n\n3.3.3 geom_histogram()\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_histogram()       \n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nModify histogram\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20,            \n                 color=\"black\",      \n                 fill=\"lightblue\")  \n\n\n\n\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           fill = GENDER)) +\n  geom_histogram(bins=20, \n                 color=\"black\")\n\n\n\n\n\n\n3.3.4 geom_density()\n\nOne kernel densityTwo kernel density\n\n\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_density()           \n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x = MATHS, \n           colour = GENDER)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\n3.3.5 geom_boxplot\ngeom_boxplot() displays continuous value list. It visualizes five summary statistics (the median, two hinges and two whiskers), and all “outlying” points individually.\n\nggplot(data=exam_data, \n       aes(y = MATHS,       \n           x= GENDER)) +    \n  geom_boxplot()            \n\n\n\n\nIf the median value is similar, use geom_boxplot(notch=TRUE) to get a clear difference.\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_boxplot(notch=TRUE)\n\n\n\n\n\n\n3.3.6 geom_violin()\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_violin()\n\n\n\n\n\n\n3.3.7 geom_point()\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           y=ENGLISH)) +\n  geom_point()            \n\n\n\n\n\n\n3.3.8 Combine geom objects\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_boxplot() +                    \n  geom_point(position=\"jitter\", \n             size = 0.5)        \n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nposition=\"jitter\" introduces small random displacements to the positions of data points to prevent overlapping on the chart."
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#stat",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#stat",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.4 stat",
-    "text": "3.4 stat\n\n3.4.1 Statistic dot value\n\nstat_summary()geom_point(stat = “summary”)\n\n\n\nggplot(data=exam_data, \n       aes(y = MATHS, x= GENDER)) +\n  geom_boxplot() +\n  stat_summary(geom = \"point\",       \n               fun=\"mean\",         \n               colour =\"red\",        \n               size=2)               \n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(y = MATHS, x= GENDER)) +\n  geom_boxplot() +\n  geom_point(stat=\"summary\",        \n             fun=\"mean\",           \n             colour =\"red\",          \n             size=2)          \n\n\n\n\n\n\n\n\n\n3.4.2 Fit curve\n\nggplot(data=exam_data, \n       aes(x= MATHS, y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , linewidth=0.5)\n\n`geom_smooth()` using method = 'loess'\n\n\n\n\n\nChange the line method. The default method is loess. Change it to lm.\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , method=lm, linewidth=0.5)"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#facets",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#facets",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.5 Facets",
-    "text": "3.5 Facets\n\n3.5.1 facet_wrap()\nPutting multiple plot together. Showing 2d difference.\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20) +\n    facet_wrap(~ CLASS)\n\n\n\n\n\n\n3.5.2 facet_grid()\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20) +\n    facet_grid(~ CLASS)"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#coordinates",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#coordinates",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.6 Coordinates",
-    "text": "3.6 Coordinates\n\n3.6.1 Changing orientation\nFlip the horizontal bar chart into vertical bar chart by using coord_flip()\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip()\n\n\n\n\n\n\n3.6.2 Changing the data range\nChange the y-axis and x-axis range by using coord_cartesian()\n\nggplot(data=exam_data, \n       aes(x= MATHS, y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , method=lm, linewidth=0.5) +  \n  coord_cartesian(xlim=c(0,100), ylim=c(0,100))"
-  },
-  {
-    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#themes",
-    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#themes",
-    "title": "1. A Layered Grammar of Graphics: ggplot2 methods",
-    "section": "3.7 Themes",
-    "text": "3.7 Themes\nBuilt-in themes include: -.(default), -.theme_gray(), -.theme_bw(), -.theme_classic(), -.theme_minimal()\n\ntheme_graytheme_bwtheme_classictheme_minimal\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_gray()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_bw()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_classic()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_minimal()"
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
+    "title": "Importing Data",
+    "section": "Importing PISA data",
+    "text": "Importing PISA data\nThe code chunk below uses read_sas() of haven to import PISA data (Student questionnaire data file) into environment.\n\nstu_qqq&lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nFilter the table using filter()\n\nstu_qqq_SG &lt;- stu_qqq %&gt;% filter(CNT == \"SGP\")\n\nWrite records into the data file.\n\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\n\nRead data file.\n\nstu_qqq_SG &lt;- read_rds(\"data/stu_qqq_SG.rds\")"
   },
   {
     "objectID": "about.html",
@@ -91,24 +56,87 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
-    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
-    "title": "1. Importing Data",
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
     "section": "",
-    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
+    "text": "The code chunk below use p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.\n\npacman::p_load(tidyverse)\n\nThe tidyverse is a package in R which includes a collection of packages for tasks such as data processing, visualization, statistical modeling, and more. Some commonly used packages within the tidyverse are ggplot2, dplyr, tidyr, readr, tibble, and purrr.\n\n\n\n\nexam_data &lt;- read.csv(\"data/Exam_data.csv\")\nglimpse(exam_data)\n\nRows: 322\nColumns: 7\n$ ID      &lt;chr&gt; \"Student321\", \"Student305\", \"Student289\", \"Student227\", \"Stude…\n$ CLASS   &lt;chr&gt; \"3I\", \"3I\", \"3H\", \"3F\", \"3I\", \"3I\", \"3I\", \"3I\", \"3I\", \"3H\", \"3…\n$ GENDER  &lt;chr&gt; \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Female\", \"Male\", \"M…\n$ RACE    &lt;chr&gt; \"Malay\", \"Malay\", \"Chinese\", \"Chinese\", \"Malay\", \"Malay\", \"Chi…\n$ ENGLISH &lt;int&gt; 21, 24, 26, 27, 27, 31, 31, 31, 33, 34, 34, 36, 36, 36, 37, 38…\n$ MATHS   &lt;int&gt; 9, 22, 16, 77, 11, 16, 21, 18, 19, 49, 39, 35, 23, 36, 49, 30,…\n$ SCIENCE &lt;int&gt; 15, 16, 16, 31, 25, 16, 25, 27, 15, 37, 42, 22, 32, 36, 35, 45…\n\n\nThis data set contains 322 student data, with 7 data for each student. Four categorical attributes: ID, class, gender, race. Three continuous attributes: English score, Math scores, Science score."
   },
   {
-    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
-    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
-    "title": "1. Importing Data",
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#installing-and-loading-required-libraries",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#installing-and-loading-required-libraries",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
     "section": "",
-    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
+    "text": "The code chunk below use p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.\n\npacman::p_load(tidyverse)\n\nThe tidyverse is a package in R which includes a collection of packages for tasks such as data processing, visualization, statistical modeling, and more. Some commonly used packages within the tidyverse are ggplot2, dplyr, tidyr, readr, tibble, and purrr."
   },
   {
-    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
-    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
-    "title": "1. Importing Data",
-    "section": "Importing PISA data",
-    "text": "Importing PISA data\nThe code chunk below uses read_sas() of haven to import PISA data (Student questionnaire data file) into environment.\n\nstu_qqq&lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nFilter the table using filter()\n\nstu_qqq_SG &lt;- stu_qqq %&gt;%\n  filter(CNT == \"SGP\")\n\nWrite records into the data file.\n\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\n\nRead data file.\n\nstu_qqq_SG &lt;- \n  read_rds(\"data/stu_qqq_SG.rds\")"
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#importing-data",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#importing-data",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "",
+    "text": "exam_data &lt;- read.csv(\"data/Exam_data.csv\")\nglimpse(exam_data)\n\nRows: 322\nColumns: 7\n$ ID      &lt;chr&gt; \"Student321\", \"Student305\", \"Student289\", \"Student227\", \"Stude…\n$ CLASS   &lt;chr&gt; \"3I\", \"3I\", \"3H\", \"3F\", \"3I\", \"3I\", \"3I\", \"3I\", \"3I\", \"3H\", \"3…\n$ GENDER  &lt;chr&gt; \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Female\", \"Male\", \"M…\n$ RACE    &lt;chr&gt; \"Malay\", \"Malay\", \"Chinese\", \"Chinese\", \"Malay\", \"Malay\", \"Chi…\n$ ENGLISH &lt;int&gt; 21, 24, 26, 27, 27, 31, 31, 31, 33, 34, 34, 36, 36, 36, 37, 38…\n$ MATHS   &lt;int&gt; 9, 22, 16, 77, 11, 16, 21, 18, 19, 49, 39, 35, 23, 36, 49, 30,…\n$ SCIENCE &lt;int&gt; 15, 16, 16, 31, 25, 16, 25, 27, 15, 37, 42, 22, 32, 36, 35, 45…\n\n\nThis data set contains 322 student data, with 7 data for each student. Four categorical attributes: ID, class, gender, race. Three continuous attributes: English score, Math scores, Science score."
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#r-graphics-vs-ggplot",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#r-graphics-vs-ggplot",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "2.1 R Graphics VS ggplot",
+    "text": "2.1 R Graphics VS ggplot\n\nR Graphicsggplot\n\n\n\nhist(exam_data$MATHS)\n\n\n\n\n\n\n\nggplot(data=exam_data, aes(x = MATHS)) +\n  geom_histogram(bins=10, \n                 boundary = 100,\n                 color=\"black\", \n                 fill=\"grey\") +\n  ggtitle(\"Distribution of Maths scores\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nadd the below code before ggplot()\n\nto only show code: #| eval: false\nto only show plot: #| echo: false"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#data",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#data",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.1 Data",
+    "text": "3.1 Data\n\nggplot(data=exam_data)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nA blank canvas appears.\nggplot() initializes a ggplot object.\nThe data argument defines the data set to be used for plotting.\nIf the data set is not already a data.frame, it will be converted to one by .fortify()"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#aesthetic-mappings",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#aesthetic-mappings",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.2 Aesthetic mappings",
+    "text": "3.2 Aesthetic mappings\nHere for showing the x-axis and y-axis of the plot. The aesthetic mappings take attributes of the data. For example, Class, Gender, Race, English, Maths, Science.\n\nggplot(data=exam_data, \n       aes(x= MATHS))"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#geom",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#geom",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.3 geom",
+    "text": "3.3 geom\n\n\n3.3.1 geom_bar()\n\nggplot(data = exam_data,\n       aes(x=RACE))+\n  geom_bar()\n\n\n\n\n\n\n3.3.2 geom_dotplot()\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot(dotsize = 0.5)\n\nBin width defaults to 1/30 of the range of the data. Pick better value with\n`binwidth`.\n\n\n\n\n\nThe y scale above is very misleading. Next step is to turn-off y scale using scale_y_continuous() and change the binwidth to 2.5\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot(binwidth=2.5,         \n               dotsize = 0.5) +      \n  scale_y_continuous(NULL,           \n                     breaks = NULL)  \n\n\n\n\n\n\n3.3.3 geom_histogram()\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_histogram()       \n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nModify histogram\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20,            \n                 color=\"black\",      \n                 fill=\"lightblue\")  \n\n\n\n\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           fill = GENDER)) +\n  geom_histogram(bins=20, \n                 color=\"black\")\n\n\n\n\n\n\n3.3.4 geom_density()\n\nOne kernel densityTwo kernel density\n\n\n\nggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_density()           \n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x = MATHS, \n           colour = GENDER)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\n3.3.5 geom_boxplot\ngeom_boxplot() displays continuous value list. It visualizes five summary statistics (the median, two hinges and two whiskers), and all “outlying” points individually.\n\nggplot(data=exam_data, \n       aes(y = MATHS,       \n           x= GENDER)) +    \n  geom_boxplot()            \n\n\n\n\nIf the median value is similar, use geom_boxplot(notch=TRUE) to get a clear difference.\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_boxplot(notch=TRUE)\n\n\n\n\n\n\n3.3.6 geom_violin()\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_violin()\n\n\n\n\n\n\n3.3.7 geom_point()\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           y=ENGLISH)) +\n  geom_point()            \n\n\n\n\n\n\n3.3.8 Combine geom objects\n\nggplot(data=exam_data, \n       aes(y = MATHS, \n           x= GENDER)) +\n  geom_boxplot() +                    \n  geom_point(position=\"jitter\", \n             size = 0.5)        \n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nposition=\"jitter\" introduces small random displacements to the positions of data points to prevent overlapping on the chart."
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#stat",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#stat",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.4 stat",
+    "text": "3.4 stat\n\n3.4.1 Statistic dot value\n\nstat_summary()geom_point(stat = “summary”)\n\n\n\nggplot(data=exam_data, \n       aes(y = MATHS, x= GENDER)) +\n  geom_boxplot() +\n  stat_summary(geom = \"point\",       \n               fun=\"mean\",         \n               colour =\"red\",        \n               size=2)               \n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(y = MATHS, x= GENDER)) +\n  geom_boxplot() +\n  geom_point(stat=\"summary\",        \n             fun=\"mean\",           \n             colour =\"red\",          \n             size=2)          \n\n\n\n\n\n\n\n\n\n3.4.2 Fit curve\n\nggplot(data=exam_data, \n       aes(x= MATHS, y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , linewidth=0.5)\n\n`geom_smooth()` using method = 'loess'\n\n\n\n\n\nChange the line method. The default method is loess. Change it to lm.\n\nggplot(data=exam_data, \n       aes(x= MATHS, \n           y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , method=lm, linewidth=0.5)"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#facets",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#facets",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.5 Facets",
+    "text": "3.5 Facets\n\n3.5.1 facet_wrap()\nPutting multiple plot together. Showing 2d difference.\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20) +\n    facet_wrap(~ CLASS)\n\n\n\n\n\n\n3.5.2 facet_grid()\n\nggplot(data=exam_data, \n       aes(x= MATHS)) +\n  geom_histogram(bins=20) +\n    facet_grid(~ CLASS)"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#coordinates",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#coordinates",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.6 Coordinates",
+    "text": "3.6 Coordinates\n\n3.6.1 Changing orientation\nFlip the horizontal bar chart into vertical bar chart by using coord_flip()\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip()\n\n\n\n\n\n\n3.6.2 Changing the data range\nChange the y-axis and x-axis range by using coord_cartesian()\n\nggplot(data=exam_data, \n       aes(x= MATHS, y=ENGLISH)) +\n  geom_point() +\n  geom_smooth(formula = y~x , method=lm, linewidth=0.5) +  \n  coord_cartesian(xlim=c(0,100), ylim=c(0,100))"
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#themes",
+    "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html#themes",
+    "title": "A Layered Grammar of Graphics: ggplot2 methods",
+    "section": "3.7 Themes",
+    "text": "3.7 Themes\nBuilt-in themes include: -.(default), -.theme_gray(), -.theme_bw(), -.theme_classic(), -.theme_minimal()\n\ntheme_graytheme_bwtheme_classictheme_minimal\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_gray()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_bw()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_classic()\n\n\n\n\n\n\n\nggplot(data=exam_data, \n       aes(x=RACE)) +\n  geom_bar() +\n  coord_flip() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Yaling’s Visual Analysis Wonderland!",
+    "section": "",
+    "text": "At present, this website is for showcasing coursework of\nISSS608 Visual Analytics and Applications.\nThanks for visiting. Please kindly let me know if anything needs to be amended.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nFile Name\n\n\nModified\n\n\n\n\n\n\nJan 11, 2024\n\n\nA Layered Grammar of Graphics: ggplot2 methods\n\n\nHands-on_Ex01.qmd\n\n\n1/14/24, 12:46:23 PM\n\n\n\n\nJan 13, 2024\n\n\nImporting Data\n\n\nIn-class_Ex01.qmd\n\n\n1/14/24, 5:15:06 PM\n\n\n\n\nJan 14, 2024\n\n\nCreating Data Visualisation Beyond Default\n\n\nTake-home_Ex01.qmd\n\n\n1/14/24, 7:12:52 PM\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]

@@ -22,8 +22,8 @@ listing:
       - "Hands-on_Ex/*/*.qmd"
       - "In-class_Ex/*/*.qmd"
       - "Take-home_Ex/*/*.qmd"
-    fields: [title, filename, date, file-modified ]
-    sort: "file-modified"
+    fields: [date, title, filename, file-modified ]
+    sort: "date"
     table-striped: true
     table-hover: true
     max-items: 5

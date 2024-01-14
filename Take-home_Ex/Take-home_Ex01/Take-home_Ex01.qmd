@@ -1,0 +1,52 @@
+---
+title: "Creating Data Visualisation Beyond Default"
+title-block-banner: "#F0FFFF"
+author: "Wang Yaling"
+date: "Jan 14, 2024"
+date-modified: last-modified
+date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
+abstract: 
+    This document explores the 2022 Programme for International Student Assessment (PISA) data using appropriate Exploratory Data Analysis (EDA) methods and ggplot2 functions. The primary goal is to practice creating data visualizations beyond default parameters.
+---
+
+## 1. Loading packages and reading data
+
+For this practice, [`tidyverse`](http://www.tidyverse.org) and [`haven`](https://haven.tidyverse.org/reference/index.html) packages will be loaded and utilized. The data set under analysis is derived from [PISA](https://www.oecd.org/pisa/data/2022database/) data ([Student questionnaire data file](https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip)). The original data set is a SAS data set, and it needs to be read using `read.sas()`.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+pacman::p_load(tidyverse, haven)
+stu_qqq <- read_sas("data/cy08msp_stu_qqq.sas7bdat")
+dimensions <- dim(stu_qqq)
+cat("Rows:", dimensions[1], " Columns:", dimensions[2])
+```
+
+The original data set has a total of 613744 rows and 1279 columns.
+
+## 2. Filter SG student records
+
+In this practice, only Singapore students will be visually analysed. Therefore, the first step is to filter SG student records.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+stu_qqq_SG <- stu_qqq %>% filter(CNT == "SGP")
+write_rds(stu_qqq_SG, "data/stu_qqq_SG.rds")
+stu_qqq_SG <- read_rds("data/stu_qqq_SG.rds")
+dimensions_SG <- dim(stu_qqq_SG)
+cat("Rows:", dimensions_SG[1], " Columns:", dimensions_SG[2])
+```
+
+The filtered records has 6606 rows and 1279 columns, which means there is a number of 6606 SG students, each of them has 1279 information related.
+
+## 3. Student Performance
+
+

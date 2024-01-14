@@ -4,7 +4,7 @@ project:
 website:
   favicon: "images/Web_logo.png"
   site-url: https://isss608-vaa-wyaling.netlify.app
-  title: "ISSS608-VAA-Yaling"
+  title: "VAA-Yaling"
   navbar:
     title: false
     logo: "images/Name_logo.png"
@@ -37,7 +37,7 @@ website:
         - text: "9"
     - text: "Take-home Exercise"
       menu:
-        - text: "1 Creating data visualisation beyond default"
+        - text: "1. Creating Data Visualisation Beyond Default"
           href: "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html"
         - text: "2"
         - text: "3"
@@ -94,6 +94,9 @@ format:
       gutter-width: 1.5rem
     html-math-method: katex
     css: styles.css
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+    code-line-numbers: true
 
 editor: visual
 

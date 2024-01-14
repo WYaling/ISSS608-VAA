@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ISSS608-VAA-Yaling - Welcome to Yaling’s Visual Analysis Wonderland!</title>
+<title>VAA-Yaling - Welcome to Yaling’s Visual Analysis Wonderland!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-filename','listing-date','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-filename','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
         <li>
     <a class="dropdown-item" href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
- <span class="dropdown-text">1 Creating data visualisation beyond default</span></a>
+ <span class="dropdown-text">1. Creating Data Visualisation Beyond Default</span></a>
   </li>  
         <li class="dropdown-header">2</li>
         <li class="dropdown-header">3</li>
@@ -275,13 +275,13 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr>
 <th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+<th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
 File Name
-</th>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
 <th>
 Modified
@@ -289,34 +289,49 @@ Modified
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705157234149" data-listing-date-modified-sort="1705157234000" data-listing-reading-time-sort="7" data-listing-title-sort="1. A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705207583728" data-listing-date-modified-sort="1705207583000" data-listing-reading-time-sort="7" data-listing-title-sort="A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">1. A Layered Grammar of Graphics: ggplot2 methods</a>
+<span class="listing-date">Jan 11, 2024</span>
+</td>
+<td>
+<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">A Layered Grammar of Graphics: ggplot2 methods</a>
 </td>
 <td>
 <a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
 </td>
 <td>
-<span class="listing-date">Jan 11, 2024</span>
-</td>
-<td>
-<span class="listing-file-modified">1/13/24, 10:47:14 PM</span>
+<span class="listing-file-modified">1/14/24, 12:46:23 PM</span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705157234261" data-listing-date-modified-sort="1705157234000" data-listing-reading-time-sort="1" data-listing-title-sort="1. Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705223706489" data-listing-date-modified-sort="1705223706000" data-listing-reading-time-sort="1" data-listing-title-sort="Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">1. Importing Data</a>
+<span class="listing-date">Jan 13, 2024</span>
+</td>
+<td>
+<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">Importing Data</a>
 </td>
 <td>
 <a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
 </td>
 <td>
-<span class="listing-date">Jan 13, 2024</span>
+<span class="listing-file-modified">1/14/24, 5:15:06 PM</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1705161600000" data-listing-file-modified-sort="1705230772501" data-listing-date-modified-sort="1705230772000" data-listing-reading-time-sort="1" data-listing-title-sort="Creating Data Visualisation Beyond Default" data-listing-filename-sort="Take-home_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Jan 14, 2024</span>
 </td>
 <td>
-<span class="listing-file-modified">1/13/24, 10:47:14 PM</span>
+<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="title listing-title">Creating Data Visualisation Beyond Default</a>
+</td>
+<td>
+<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="filename listing-filename">Take-home_Ex01.qmd</a>
+</td>
+<td>
+<span class="listing-file-modified">1/14/24, 7:12:52 PM</span>
 </td>
 </tr>
 </tbody>

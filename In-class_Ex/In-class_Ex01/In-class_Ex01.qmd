@@ -1,5 +1,5 @@
 ---
-title: "1. Importing Data "
+title: "Importing Data "
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
 date: "Jan 13, 2024"
@@ -38,8 +38,7 @@ Filter the table using `filter()`
 
 ```{r}
 #| eval: false
-stu_qqq_SG <- stu_qqq %>%
-  filter(CNT == "SGP")
+stu_qqq_SG <- stu_qqq %>% filter(CNT == "SGP")
 ```
 
 Write records into the data file.
@@ -52,8 +51,7 @@ write_rds(stu_qqq_SG, "data/stu_qqq_SG.rds")
 Read data file.
 
 ```{r}
-stu_qqq_SG <- 
-  read_rds("data/stu_qqq_SG.rds")
+stu_qqq_SG <- read_rds("data/stu_qqq_SG.rds")
 ```
 
 ![](images/End.gif){fig-align="center"}

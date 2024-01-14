@@ -8,7 +8,7 @@
 
 <meta name="author" content="Wang Yaling">
 
-<title>VAA-Yaling - Importing Data</title>
+<title>VAA-Yaling - Creating Data Visualisation Beyond Default</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="next">
-<link href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" rel="prev">
+<link href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="prev">
 <link href="../../images/Web_logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -222,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">In Class Ex</li><li class="breadcrumb-item"><a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html">In Class Ex01</a></li><li class="breadcrumb-item"><a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html">Importing Data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Take Home Ex</li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Take Home Ex01</a></li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Creating Data Visualisation Beyond Default</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -235,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Importing Data</h1>
+      <h1 class="title">Creating Data Visualisation Beyond Default</h1>
                       </div>
   </div>
     
@@ -252,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Jan 13, 2024</p>
+        <p class="date">Jan 14, 2024</p>
       </div>
     </div>
     
@@ -268,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Abstract</div>
-      This lecture teached how to importing .sas data into R environment and how to filter data, by using tidyverse and haven packages.
+      This document explores the 2022 Programme for International Student Assessment (PISA) data using appropriate Exploratory Data Analysis (EDA) methods and ggplot2 functions. The primary goal is to practice creating data visualizations beyond default parameters.
     </div>
   </div>
   
@@ -327,16 +326,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
  <span class="menu-text">In Class Ex01</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importing Data</span></a>
   </div>
 </li>
@@ -355,16 +354,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
  <span class="menu-text">Take Home Ex01</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Creating Data Visualisation Beyond Default</span></a>
   </div>
 </li>
@@ -382,8 +381,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#loading-r-packages" id="toc-loading-r-packages" class="nav-link active" data-scroll-target="#loading-r-packages">Loading R packages</a></li>
-  <li><a href="#importing-pisa-data" id="toc-importing-pisa-data" class="nav-link" data-scroll-target="#importing-pisa-data">Importing PISA data</a></li>
+  <li><a href="#loading-packages-and-reading-data" id="toc-loading-packages-and-reading-data" class="nav-link active" data-scroll-target="#loading-packages-and-reading-data">1. Loading packages and reading data</a></li>
+  <li><a href="#filter-sg-student-records" id="toc-filter-sg-student-records" class="nav-link" data-scroll-target="#filter-sg-student-records">2. Filter SG student records</a></li>
+  <li><a href="#student-performance" id="toc-student-performance" class="nav-link" data-scroll-target="#student-performance">3. Student Performance</a></li>
   </ul>
 </nav>
     </div>
@@ -393,37 +393,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="loading-r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="loading-r-packages">Loading R packages</h2>
-<p>In this hands-on exercise, two R packages will be used. They are: <a href="http://www.tidyverse.org"><code>tidyverse</code></a>, and <a href="https://haven.tidyverse.org/reference/index.html"><code>haven</code></a>.</p>
-<p>The code chunk used is as follows:</p>
+<section id="loading-packages-and-reading-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-packages-and-reading-data">1. Loading packages and reading data</h2>
+<p>For this practice, <a href="http://www.tidyverse.org"><code>tidyverse</code></a> and <a href="https://haven.tidyverse.org/reference/index.html"><code>haven</code></a> packages will be loaded and utilized. The data set under analysis is derived from <a href="https://www.oecd.org/pisa/data/2022database/">PISA</a> data (<a href="https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip">Student questionnaire data file</a>). The original data set is a SAS data set, and it needs to be read using <code>read.sas()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,haven)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>stu_qqq <span class="ot">&lt;-</span> <span class="fu">read_sas</span>(<span class="st">"data/cy08msp_stu_qqq.sas7bdat"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>dimensions <span class="ot">&lt;-</span> <span class="fu">dim</span>(stu_qqq)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">cat</span>(<span class="st">"Rows:"</span>, dimensions[<span class="dv">1</span>], <span class="st">" Columns:"</span>, dimensions[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 613744  Columns: 1279</code></pre>
 </div>
+</div>
+<p>The original data set has a total of 613744 rows and 1279 columns.</p>
 </section>
-<section id="importing-pisa-data" class="level2">
-<h2 class="anchored" data-anchor-id="importing-pisa-data">Importing PISA data</h2>
-<p>The code chunk below uses <a href="https://haven.tidyverse.org/reference/read_sas.html"><code>read_sas()</code></a> of haven to import <a href="https://www.oecd.org/pisa/data/2022database/">PISA</a> data (<a href="https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip">Student questionnaire data file</a>) into environment.</p>
+<section id="filter-sg-student-records" class="level2">
+<h2 class="anchored" data-anchor-id="filter-sg-student-records">2. Filter SG student records</h2>
+<p>In this practice, only Singapore students will be visually analysed. Therefore, the first step is to filter SG student records.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>stu_qqq<span class="ot">&lt;-</span> <span class="fu">read_sas</span>(<span class="st">"data/cy08msp_stu_qqq.sas7bdat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>stu_qqq_SG <span class="ot">&lt;-</span> stu_qqq <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CNT <span class="sc">==</span> <span class="st">"SGP"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">write_rds</span>(stu_qqq_SG, <span class="st">"data/stu_qqq_SG.rds"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>stu_qqq_SG <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/stu_qqq_SG.rds"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>dimensions_SG <span class="ot">&lt;-</span> <span class="fu">dim</span>(stu_qqq_SG)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">cat</span>(<span class="st">"Rows:"</span>, dimensions_SG[<span class="dv">1</span>], <span class="st">" Columns:"</span>, dimensions_SG[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6606  Columns: 1279</code></pre>
 </div>
-<p>Filter the table using <code>filter()</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>stu_qqq_SG <span class="ot">&lt;-</span> stu_qqq <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CNT <span class="sc">==</span> <span class="st">"SGP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Write records into the data file.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">write_rds</span>(stu_qqq_SG, <span class="st">"data/stu_qqq_SG.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Read data file.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>stu_qqq_SG <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/stu_qqq_SG.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/End.gif" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p>The filtered records has 6606 rows and 1279 columns, which means there is a number of 6606 SG students, each of them has 1279 information related.</p>
+</section>
+<section id="student-performance" class="level2">
+<h2 class="anchored" data-anchor-id="student-performance">3. Student Performance</h2>
 
 
 </section>
@@ -664,14 +670,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">A Layered Grammar of Graphics: ggplot2 methods</span>
+      <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Importing Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="pagination-link">
-        <span class="nav-page-text">Creating Data Visualisation Beyond Default</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
