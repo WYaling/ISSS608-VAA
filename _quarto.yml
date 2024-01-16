@@ -4,7 +4,7 @@ project:
 website:
   favicon: "images/Web_logo.png"
   site-url: https://isss608-vaa-wyaling.netlify.app
-  title: "VAA-Yaling"
+  title: "Yaling's VAA journey"
   navbar:
     title: false
     logo: "images/Name_logo.png"
@@ -14,7 +14,7 @@ website:
       menu:
         - text: "1. A Layered Grammar of Graphics: ggplot2 methods"
           href: "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html"
-        - text: "2"
+        - text: "2. Beyond ggplot2 Fundamentals"
           href: "Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html"
         - text: "3"
         - text: "4"
@@ -59,14 +59,12 @@ website:
   sidebar:
     contents: auto
     location: sidebar
-    title: "Yaling's Journey"
     style: "docked"
     search: true
     background: secondary
     foreground: primary
     alignment: left
-    pinned: false
-
+    pinned: true
 
   search: 
     location: sidebar
@@ -77,7 +75,7 @@ website:
   back-to-top-navigation: true
   page-footer: 
     border: true
-    right: Copyright 2024![](images/Name_Logo(1).png){width=100px}
+    right: Copyright 2024![](images/Name_logo(1).png){width=100px}
 
 
 format:

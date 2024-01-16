@@ -14,9 +14,9 @@ abstract:
     This document is maily introducing different plots by using ggplot() in R.
 ---
 
-# **1 Getting Started**
+# 1 Getting Started
 
-## **1.1 Installing and loading required libraries**
+## 1.1 Installing and loading required libraries
 
 The code chunk below use **`p_load()`** of **`pacman`** package to check if **`tidyverse`** packages are installed in the computer. If they are, then they will be launched into R.
 
@@ -26,7 +26,7 @@ pacman::p_load(tidyverse)
 
 The `tidyverse` is a package in R which includes a collection of packages for tasks such as data processing, visualization, statistical modeling, and more. Some commonly used packages within the tidyverse are ggplot2, dplyr, tidyr, readr, tibble, and purrr.
 
-## **1.2 Importing data**
+## 1.2 Importing data
 
 ```{r}
 exam_data <- read.csv("data/Exam_data.csv")
@@ -35,22 +35,22 @@ glimpse(exam_data)
 
 This data set contains 322 student data, with 7 data for each student. Four categorical attributes: ID, class, gender, race. Three continuous attributes: English score, Math scores, Science score.
 
-# **2 Introducing ggplot**
+# 2 Introducing ggplot
 
 ![](images/ggplot2.png){fig-align="center"}
 
 ggplot2 is a part of the `tidyverse` family specially designed for visual exploration and communication.
 
-## 2.1 R Graphics VS ggplot
+### 2.1 R Graphics VS ggplot
 
 ::: panel-tabset
-### **R Graphics**
+## **R Graphics**
 
 ```{r}
 hist(exam_data$MATHS)
 ```
 
-### **ggplot**
+## **ggplot**
 
 ```{r}
 ggplot(data=exam_data, aes(x = MATHS)) +
@@ -60,14 +60,6 @@ ggplot(data=exam_data, aes(x = MATHS)) +
                  fill="grey") +
   ggtitle("Distribution of Maths scores")
 ```
-:::
-
-::: callout-note
-add the below code before ggplot()
-
--   to only show code: **`#| eval: false`**
-
--   to only show plot: **`#| echo: false`**
 :::
 
 # 3 Essential Grammatical Elements in ggplot2
@@ -157,7 +149,7 @@ ggplot(data=exam_data,
 ### 3.3.4 geom_density()
 
 ::: panel-tabset
-### **One kernel density**
+## **One kernel density**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -165,7 +157,7 @@ ggplot(data=exam_data,
   geom_density()           
 ```
 
-### **Two kernel density**
+## **Two kernel density**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -233,7 +225,7 @@ ggplot(data=exam_data,
 ### 3.4.1 Statistic dot value
 
 ::: panel-tabset
-### **stat_summary()**
+## **stat_summary()**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -245,7 +237,7 @@ ggplot(data=exam_data,
                size=2)               
 ```
 
-### **geom_point(stat = "summary")**
+## **geom_point(stat = "summary")**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -312,7 +304,7 @@ ggplot(data=exam_data,
   coord_flip()
 ```
 
-### **3.6.2 Changing the data range**
+### 3.6.2 Changing the data range
 
 Change the y-axis and x-axis range by using **`coord_cartesian()`**
 
@@ -329,7 +321,7 @@ ggplot(data=exam_data,
 Built-in themes include: `-.(default)`, `-.theme_gray()`, `-.theme_bw()`, `-.theme_classic()`, `-.theme_minimal()`
 
 ::: panel-tabset
-## theme_gray
+## **theme_gray**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -339,7 +331,7 @@ ggplot(data=exam_data,
   theme_gray()
 ```
 
-## theme_bw
+## **theme_bw**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -349,7 +341,7 @@ ggplot(data=exam_data,
   theme_bw()
 ```
 
-## theme_classic
+## **theme_classic**
 
 ```{r}
 ggplot(data=exam_data, 
@@ -359,7 +351,7 @@ ggplot(data=exam_data,
   theme_classic()
 ```
 
-## theme_minimal
+## **theme_minimal**
 
 ```{r}
 ggplot(data=exam_data, 
