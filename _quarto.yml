@@ -82,7 +82,7 @@ format:
   html:
     toc: true
     theme: cerulean
-    mainfont: Comic Sans MS
+    mainfont: Times New Roman
     fontsize: 1.2em
     linestretch: 1.5
     grid:

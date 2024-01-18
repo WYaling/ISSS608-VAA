@@ -258,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">Jan 17, 2024</p>
+        <p class="date-modified">Jan 18, 2024</p>
       </div>
     </div>
       
@@ -405,17 +405,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#mean-of-plausible-values" id="toc-mean-of-plausible-values" class="nav-link" data-scroll-target="#mean-of-plausible-values">3.1 Mean of Plausible Values</a></li>
   <li><a href="#distribution-of-performance" id="toc-distribution-of-performance" class="nav-link" data-scroll-target="#distribution-of-performance">3.2 Distribution of Performance</a>
   <ul class="collapse">
-  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">3.2.1 Histogram</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">3.2.2 Boxplot</a></li>
-  <li><a href="#density-curve" id="toc-density-curve" class="nav-link" data-scroll-target="#density-curve">3.2.3 Density curve</a></li>
-  <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">3.2.4 Violin plot</a></li>
+  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse">3.2.1 Analyse</a></li>
   </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">3.3 Summary</a></li>
   </ul></li>
   <li><a href="#performance-influencers" id="toc-performance-influencers" class="nav-link" data-scroll-target="#performance-influencers">4. Performance Influencers</a>
   <ul class="collapse">
-  <li><a href="#gender" id="toc-gender" class="nav-link" data-scroll-target="#gender">4.1 Gender</a></li>
-  <li><a href="#school" id="toc-school" class="nav-link" data-scroll-target="#school">4.2 School</a></li>
-  <li><a href="#socioeconomic-status" id="toc-socioeconomic-status" class="nav-link" data-scroll-target="#socioeconomic-status">4.3 Socioeconomic status</a></li>
+  <li><a href="#gender" id="toc-gender" class="nav-link" data-scroll-target="#gender">4.1 Gender</a>
+  <ul class="collapse">
+  <li><a href="#analyse-1" id="toc-analyse-1" class="nav-link" data-scroll-target="#analyse-1">4.1.1 Analyse</a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">4.1.2 Summary</a></li>
+  </ul></li>
+  <li><a href="#school" id="toc-school" class="nav-link" data-scroll-target="#school">4.2 School</a>
+  <ul class="collapse">
+  <li><a href="#analyse-2" id="toc-analyse-2" class="nav-link" data-scroll-target="#analyse-2">4.2.1 Analyse</a></li>
+  <li><a href="#summary-2" id="toc-summary-2" class="nav-link" data-scroll-target="#summary-2">4.2.2 Summary</a></li>
+  </ul></li>
+  <li><a href="#socioeconomic-status" id="toc-socioeconomic-status" class="nav-link" data-scroll-target="#socioeconomic-status">4.3 Socioeconomic status</a>
+  <ul class="collapse">
+  <li><a href="#analyse-3" id="toc-analyse-3" class="nav-link" data-scroll-target="#analyse-3">4.3.1 Analyse</a></li>
+  <li><a href="#summary-3" id="toc-summary-3" class="nav-link" data-scroll-target="#summary-3">4.3.2 Summary</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
@@ -460,13 +470,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Rows: 6606  Columns: 1279</code></pre>
 </div>
 </div>
-<p>The filtered records has 6,606 rows and 1,279 columns, which means there is a number of 6,606 SG students involved in this questionnaire, and each of them has 1,279 data related. The filtered data set was saved as <strong><em>stu_qqq_SG.rds</em></strong>.</p>
+<p>The filtered records has 6,606 rows and 1,279 columns, which means there is a number of 6,606 SG students involved in this questionnaire, and each of them has 1,279 data related. The filtered data set was saved as <strong>stu_qqq_SG.rds</strong>.</p>
 </section>
 <section id="student-performance" class="level1">
 <h1>3. Student Performance</h1>
 <section id="mean-of-plausible-values" class="level2">
 <h2 class="anchored" data-anchor-id="mean-of-plausible-values">3.1 Mean of Plausible Values</h2>
-<p>The <strong><em>stu_qqq_SG.rds</em></strong>. includes 10 <strong><em>Plausible Values</em></strong> (PV) for <strong><em>Math</em></strong>, <strong><em>Reading</em></strong>, and <strong><em>Science</em></strong> each. To assess the performance of SG students in each subject, the average PV for each subject will be calculated as follows:</p>
+<p>The <strong>stu_qqq_SG.rds</strong>. includes 10 <strong>Plausible Values</strong> (PV) for <strong>Math</strong>, <strong>Reading</strong>, and <strong>Science</strong> each. To assess the performance of SG students in each subject, the average PV for each subject will be calculated as follows:</p>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
@@ -489,28 +499,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 70200006   518.1055   431.4652      476.0031</code></pre>
 </div>
 </div>
-<p>Each SG student’s <strong><em>Avg_PVMath</em></strong>, <strong><em>Avg_PVRead</em></strong>, and <strong><em>Avg_PVScience</em></strong> values reflect their proficiency in Math, Reading, and Science, respectively. In the table above, the first row shows the performance scores of Math, Reading and Science for student “70200001” is 605.2533, 667.4296, 639.7873, respectively.</p>
+<p>Each SG student’s <strong>Avg_PVMath</strong>, <strong>Avg_PVRead</strong>, and <strong>Avg_PVScience</strong> values reflect their proficiency in Math, Reading, and Science, respectively. In the table above, the first row shows the performance scores of Math, Reading and Science for student “70200001” is 605.2533, 667.4296, 639.7873, respectively.</p>
 <p>Refer to the <a href="https://www.oecd.org/pisa/data/httpoecdorgpisadatabase-instructions.htm">instruction</a> and the <a href="https://read.oecd-ilibrary.org/education/pisa-data-analysis-manual-spss-second-edition_9789264056275-en#page1">PISA Data Analysis Manual</a> to learn more about Plausible Value.</p>
 </section>
 <section id="distribution-of-performance" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-performance">3.2 Distribution of Performance</h2>
-<section id="histogram" class="level3">
-<h3 class="anchored" data-anchor-id="histogram">3.2.1 Histogram</h3>
+<section id="analyse" class="level3">
+<h3 class="anchored" data-anchor-id="analyse">3.2.1 Analyse</h3>
+<section id="one-subject" class="level4">
+<h4 class="anchored" data-anchor-id="one-subject">3.2.1.1 One Subject</h4>
 <p>First, let’s see the frequency of each subject’s performance scores by histogram.</p>
+<p><strong>Histogram</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Math</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Science</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, <span class="fu">aes</span>(<span class="at">x=</span>Avg_PVMath)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">ins=</span><span class="dv">20</span>, <span class="at">boundary =</span> <span class="dv">100</span>, <span class="at">color=</span><span class="st">"grey25"</span>, <span class="at">fill=</span><span class="st">"grey90"</span>) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">20</span>, <span class="at">boundary =</span> <span class="dv">100</span>, <span class="at">color=</span><span class="st">"grey25"</span>, <span class="at">fill=</span><span class="st">"grey90"</span>) <span class="sc">+</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Mean"</span>, <span class="at">color=</span><span class="st">"Mean"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Median"</span>, <span class="at">color=</span><span class="st">"Median"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"dashed"</span>, <span class="at">Median =</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"green"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"blue"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
 <span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of SG Students' Science Performance"</span>) <span class="sc">+</span></span>
 <span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Statistic"</span>) <span class="sc">+</span> </span>
-<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">theme_test</span>() <span class="sc">+</span></span>
 <span id="cb8-10"><a href="#cb8-10"></a>  <span class="fu">theme</span>(</span>
 <span id="cb8-11"><a href="#cb8-11"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.7</span>),</span>
 <span id="cb8-12"><a href="#cb8-12"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
@@ -528,10 +541,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Mean"</span>, <span class="at">color=</span><span class="st">"Mean"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Median"</span>, <span class="at">color=</span><span class="st">"Median"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"dashed"</span>, <span class="at">Median =</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"green"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"blue"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
 <span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of SG Students' Science Performance"</span>) <span class="sc">+</span></span>
 <span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Statistic"</span>) <span class="sc">+</span> </span>
-<span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">theme_test</span>() <span class="sc">+</span></span>
 <span id="cb9-10"><a href="#cb9-10"></a>  <span class="fu">theme</span>(</span>
 <span id="cb9-11"><a href="#cb9-11"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.7</span>),</span>
 <span id="cb9-12"><a href="#cb9-12"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
@@ -549,10 +562,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Mean"</span>, <span class="at">color=</span><span class="st">"Mean"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(PV_Avg<span class="sc">$</span>Avg_PVScience), <span class="at">linetype=</span><span class="st">"Median"</span>, <span class="at">color=</span><span class="st">"Median"</span>), <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"dashed"</span>, <span class="at">Median =</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"green"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Statistic"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="at">Mean =</span> <span class="st">"blue"</span>, <span class="at">Median =</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of SG Students' Science Performance"</span>) <span class="sc">+</span></span>
 <span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Statistic"</span>) <span class="sc">+</span> </span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">theme_test</span>() <span class="sc">+</span></span>
 <span id="cb10-10"><a href="#cb10-10"></a>  <span class="fu">theme</span>(</span>
 <span id="cb10-11"><a href="#cb10-11"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.7</span>),</span>
 <span id="cb10-12"><a href="#cb10-12"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
@@ -565,11 +578,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The three histograms depicted above show a <strong><em>left-skewed</em></strong> distribution, indicating that many values are concentrated near the lower end of the range, with infrequent higher values. This is reflected in a mean score lower than the median. This may be due to some students with extremely low scores pulling down the mean, which we can see in the following box plot.</p>
-</section>
-<section id="boxplot" class="level3">
-<h3 class="anchored" data-anchor-id="boxplot">3.2.2 Boxplot</h3>
+<p>The three histograms depicted above show a <strong>left-skewed</strong> distribution, indicating that many values are concentrated near the lower end of the range, with infrequent higher values. This is reflected in a mean score lower than the median. This may be due to some students with extremely low scores pulling down the mean, which we can see in the following box plot.</p>
 <p>Next, let’s use box plot to explore more.</p>
+<p><strong>Boxplot</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">code</a></li></ul>
 <div class="tab-content">
@@ -605,10 +616,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Maximum scores follow the order: Math &gt; Science &gt; Reading.</p></li>
 <li><p>Over 75% of students scored above 500 in Math and 75% of students scored above 500 in Science, while less than 75% scored above 500 in Reading.</p></li>
 </ol>
-</section>
-<section id="density-curve" class="level3">
-<h3 class="anchored" data-anchor-id="density-curve">3.2.3 Density curve</h3>
 <p>Next, by using density curve, we can see more of the distribution and central tendency of the performance scores.</p>
+<p><strong>Density curve</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">code</a></li></ul>
 <div class="tab-content">
@@ -641,10 +650,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-18"><a href="#cb12-18"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> peak_science, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Science: %.2f"</span>, peak_science)),</span>
 <span id="cb12-19"><a href="#cb12-19"></a>            <span class="at">vjust =</span> <span class="sc">-</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb12-20"><a href="#cb12-20"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Math"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"Reading"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Science"</span> <span class="ot">=</span> <span class="st">"red"</span>), <span class="at">name =</span> <span class="st">"Subject"</span>) <span class="sc">+</span></span>
-<span id="cb12-21"><a href="#cb12-21"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb12-21"><a href="#cb12-21"></a>  <span class="fu">theme_test</span>() <span class="sc">+</span></span>
 <span id="cb12-22"><a href="#cb12-22"></a>  <span class="fu">theme</span>(</span>
-<span id="cb12-23"><a href="#cb12-23"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.9</span>),</span>
-<span id="cb12-24"><a href="#cb12-24"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb12-23"><a href="#cb12-23"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.8</span>),</span>
+<span id="cb12-24"><a href="#cb12-24"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
 <span id="cb12-25"><a href="#cb12-25"></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)</span>
 <span id="cb12-26"><a href="#cb12-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -656,10 +665,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The performance for all three subjects show a tendency towards a leftward skew in their distributions.</p></li>
 <li><p>Math scores are centered around 600, Science scores around 580, and Reading scores around 560.</p></li>
 </ol>
-</section>
-<section id="violin-plot" class="level3">
-<h3 class="anchored" data-anchor-id="violin-plot">3.2.4 Violin plot</h3>
 <p>Last, let’s present the distribution by violin plots.</p>
+<p><strong>Violin plot</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">code</a></li></ul>
 <div class="tab-content">
@@ -677,10 +684,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"Reading"</span>, <span class="at">y =</span> Avg_PVRead, <span class="at">fill =</span> <span class="st">"Reading"</span>), <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"Science"</span>, <span class="at">y =</span> Avg_PVScience, <span class="at">fill =</span> <span class="st">"Science"</span>), <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"Violin Plot of SG Students' Performance"</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Subject"</span>, <span class="at">y =</span> <span class="st">"Plausible Value"</span>) <span class="sc">+</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Subject"</span>, <span class="at">x =</span> <span class="st">"Subject"</span>, <span class="at">y =</span> <span class="st">"Plausible Value"</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">theme_test</span>() <span class="sc">+</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">theme</span>(</span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.9</span>),</span>
 <span id="cb13-10"><a href="#cb13-10"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
 <span id="cb13-11"><a href="#cb13-11"></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">"mm"</span>)</span>
 <span id="cb13-12"><a href="#cb13-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -695,18 +702,479 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The performance distribution for all three subjects is left-skewed, with the lower half of the violin plots being longer.</p></li>
 </ol>
 </section>
+<section id="two-subjects" class="level4">
+<h4 class="anchored" data-anchor-id="two-subjects">3.2.1.2 Two Subjects</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Math vs Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Math vs Science</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Math vs Reading</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg, </span>
+<span id="cb14-2"><a href="#cb14-2"></a>       <span class="fu">aes</span>(<span class="at">x=</span> Avg_PVMath, </span>
+<span id="cb14-3"><a href="#cb14-3"></a>           <span class="at">y=</span> Avg_PVRead)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method=</span>lm, <span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">max</span>(Avg_PVMath), <span class="at">y =</span> <span class="fu">max</span>(Avg_PVRead),</span>
+<span id="cb14-7"><a href="#cb14-7"></a>                <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"y = "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVRead <span class="sc">~</span> Avg_PVMath))[<span class="dv">2</span>], <span class="dv">2</span>), <span class="st">"x + "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVRead <span class="sc">~</span> Avg_PVMath))[<span class="dv">1</span>], <span class="dv">2</span>))),</span>
+<span id="cb14-8"><a href="#cb14-8"></a>            <span class="at">hjust =</span> <span class="fl">1.5</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"pink"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Math vs Reading"</span>) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Math Score"</span>, <span class="at">y=</span><span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg, </span>
+<span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x=</span> Avg_PVMath, </span>
+<span id="cb15-3"><a href="#cb15-3"></a>           <span class="at">y=</span> Avg_PVScience)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method=</span>lm, <span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">max</span>(Avg_PVMath), <span class="at">y =</span> <span class="fu">max</span>(Avg_PVScience),</span>
+<span id="cb15-7"><a href="#cb15-7"></a>                <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"y = "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVScience <span class="sc">~</span> Avg_PVMath))[<span class="dv">2</span>], <span class="dv">2</span>), <span class="st">"x + "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVScience <span class="sc">~</span> Avg_PVMath))[<span class="dv">1</span>], <span class="dv">2</span>))),</span>
+<span id="cb15-8"><a href="#cb15-8"></a>            <span class="at">hjust =</span> <span class="fl">1.5</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"pink"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Math vs Science"</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Math Score"</span>, <span class="at">y=</span><span class="st">"Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">aes</span>(<span class="at">x=</span> Avg_PVScience, </span>
+<span id="cb16-3"><a href="#cb16-3"></a>           <span class="at">y=</span> Avg_PVRead)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method=</span>lm, <span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">max</span>(Avg_PVScience), <span class="at">y =</span> <span class="fu">max</span>(Avg_PVRead),</span>
+<span id="cb16-7"><a href="#cb16-7"></a>                <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"y = "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVRead <span class="sc">~</span> Avg_PVScience))[<span class="dv">2</span>], <span class="dv">2</span>), <span class="st">"x + "</span>, <span class="fu">round</span>(<span class="fu">coef</span>(<span class="fu">lm</span>(Avg_PVRead <span class="sc">~</span> Avg_PVScience))[<span class="dv">1</span>], <span class="dv">2</span>))),</span>
+<span id="cb16-8"><a href="#cb16-8"></a>            <span class="at">hjust =</span> <span class="fl">1.5</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"pink"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Science vs Reading"</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Science Score"</span>, <span class="at">y=</span><span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>From the three scatter plots above and their respective fit curves, it can be observed that the scores of the three subjects are positively correlated in pairs. As the scores in Math increase, the corresponding scores in Reading and Science also increase, with Science scores being higher. Similarly, when Reading scores are higher, Science scores also tend to be higher.</p>
+</section>
+<section id="three-subjects" class="level4">
+<h4 class="anchored" data-anchor-id="three-subjects">3.2.1.3 Three Subjects</h4>
+<p>From the three colored scatter plots below, we can observe a positive trend: as the scores of any two subjects increase, the score of the third subject also tends to rise. This is visually represented by lighter colors and higher values towards the upper right corner, indicating superior performance. Conversely, when the scores of any two subjects decrease, the score of the third subject tends to decrease as well, reflected in darker colors and lower values towards the lower left corner. This pattern suggests a positive correlation among the performance scores of the three subjects, highlighting that higher scores in one subject are associated with higher scores in the others.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Math vs Reading with Science</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Math vs Science with Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Reading vs Science with Math</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
+<span id="cb17-2"><a href="#cb17-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
+<span id="cb17-3"><a href="#cb17-3"></a>           <span class="at">y =</span> Avg_PVRead, </span>
+<span id="cb17-4"><a href="#cb17-4"></a>           <span class="at">color =</span> Avg_PVScience)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">ggtitle</span>(<span class="st">"Math vs Reading with Science"</span>) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Math Score"</span>, <span class="at">y =</span> <span class="st">"Reading Score"</span>, <span class="at">color =</span> <span class="st">"Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
+<span id="cb18-3"><a href="#cb18-3"></a>           <span class="at">y =</span> Avg_PVScience, </span>
+<span id="cb18-4"><a href="#cb18-4"></a>           <span class="at">color =</span> Avg_PVRead)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">ggtitle</span>(<span class="st">"Math vs Science with Reading"</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Math Score"</span>, <span class="at">y =</span> <span class="st">"Science Score"</span>, <span class="at">color =</span> <span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a>  <span class="fu">scale_color_continuous</span>(<span class="st">"Reading Score"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">200</span>, <span class="dv">800</span>, <span class="at">by =</span> <span class="dv">100</span>), </span>
+<span id="cb18-9"><a href="#cb18-9"></a>                          <span class="at">low =</span> <span class="st">"red"</span>, <span class="at">high =</span> <span class="st">"pink"</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
+<span id="cb19-2"><a href="#cb19-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVRead, </span>
+<span id="cb19-3"><a href="#cb19-3"></a>           <span class="at">y =</span> Avg_PVScience, </span>
+<span id="cb19-4"><a href="#cb19-4"></a>           <span class="at">color =</span> Avg_PVMath)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reading vs Science with Math"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Reading Score"</span>, <span class="at">y =</span> <span class="st">"Science Score"</span>, <span class="at">color =</span> <span class="st">"Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">scale_color_continuous</span>(<span class="st">"Math Score"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">200</span>, <span class="dv">800</span>, <span class="at">by =</span> <span class="dv">100</span>), </span>
+<span id="cb19-9"><a href="#cb19-9"></a>                          <span class="at">low =</span> <span class="st">"darkgreen"</span>, <span class="at">high =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">3.3 Summary</h2>
 </section>
 </section>
 <section id="performance-influencers" class="level1">
 <h1>4. Performance Influencers</h1>
 <section id="gender" class="level2">
 <h2 class="anchored" data-anchor-id="gender">4.1 Gender</h2>
+<p>The code chunk below is for creating another data set which includes SG students’ <strong>gender</strong> and performance scores in <strong>Math</strong>, <strong>Read</strong> and <strong>Science</strong>. The new data set was saved as <strong>stu_qqq_SG_PV_Avg_gender.rds</strong>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>PV_Avg_gender <span class="ot">&lt;-</span> <span class="fu">cbind</span>(PV_Avg, <span class="at">gender =</span> stu_qqq_SG<span class="sc">$</span>ST004D01T)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">write_rds</span>(PV_Avg_gender, <span class="st">"data/stu_qqq_SG_PV_Avg_gender.rds"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">head</span>(PV_Avg_gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  CNTSTUID Avg_PVMath Avg_PVRead Avg_PVScience gender
+1 70200001   605.2533   667.4296      639.7873      1
+2 70200002   689.9528   627.6078      672.0703      2
+3 70200003   676.7768   582.9252      660.0384      2
+4 70200004   401.0528   361.3969      343.6425      2
+5 70200005   436.1151   475.6763      479.2390      1
+6 70200006   518.1055   431.4652      476.0031      1</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the original data set, the column “ST004D01T” records student’s gender, “1” represent female, “2” represent male. (<a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf">Computer-Based Student Questionnaire for Pisa 2022 - Main Survey Version</a>)</p>
+</div>
+</div>
+<section id="analyse-1" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-1">4.1.1 Analyse</h3>
+<p>let’s see how gender influence student’s performance on the three subjects by histogram.</p>
+<p><strong>Histogram</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Math</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false">Science</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb22-2"><a href="#cb22-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
+<span id="cb22-3"><a href="#cb22-3"></a>           <span class="at">fill =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, </span>
+<span id="cb22-5"><a href="#cb22-5"></a>                 <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb22-7"><a href="#cb22-7"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb22-8"><a href="#cb22-8"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>  <span class="fu">ggtitle</span>(<span class="st">"Performance of Math by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb23-2"><a href="#cb23-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVRead, </span>
+<span id="cb23-3"><a href="#cb23-3"></a>           <span class="at">fill =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, </span>
+<span id="cb23-5"><a href="#cb23-5"></a>                 <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb23-7"><a href="#cb23-7"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb23-8"><a href="#cb23-8"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">ggtitle</span>(<span class="st">"Performance of Reading by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb24-2"><a href="#cb24-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVScience, </span>
+<span id="cb24-3"><a href="#cb24-3"></a>           <span class="at">fill =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, </span>
+<span id="cb24-5"><a href="#cb24-5"></a>                 <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb24-7"><a href="#cb24-7"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb24-8"><a href="#cb24-8"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>  <span class="fu">ggtitle</span>(<span class="st">"Performance of Science by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>From the three histograms above:</p>
+<ol type="1">
+<li><p>Overall, male and female performances are fairly balanced in all three subjects, with similar proportions across most score ranges, except for scores above 700.</p></li>
+<li><p>In the high-score range (above 700), particularly near 800, by looking at the proportion, there are more males excelling in Math and Science, while females excel in Reading.</p></li>
+</ol>
+<p>Next, let’s explore more by density curve.</p>
+<p><strong>Density curve</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Math</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-3" role="tab" aria-controls="tabset-8-3" aria-selected="false">Science</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb25-2"><a href="#cb25-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
+<span id="cb25-3"><a href="#cb25-3"></a>           <span class="at">color =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb25-6"><a href="#cb25-6"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb25-7"><a href="#cb25-7"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Density Plot of Math Performance by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb26-2"><a href="#cb26-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVRead, </span>
+<span id="cb26-3"><a href="#cb26-3"></a>           <span class="at">color =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb26-6"><a href="#cb26-6"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb26-7"><a href="#cb26-7"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Density Plot of Reading Performance by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
+<span id="cb27-2"><a href="#cb27-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVScience, </span>
+<span id="cb27-3"><a href="#cb27-3"></a>           <span class="at">color =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>), </span>
+<span id="cb27-6"><a href="#cb27-6"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), </span>
+<span id="cb27-7"><a href="#cb27-7"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Gender"</span>, <span class="at">x =</span> <span class="st">"Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Density Plot of Science Performance by Gender"</span>) <span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>From the above three density curves, we can observe the following:</p>
+<ol type="1">
+<li><p>Both male and female students exhibit a left-skewed trend in their performance scores across the three subjects.</p></li>
+<li><p>In terms of Math performance, female scores are concentrated around 600, while male scores are concentrated around 650, indicating that the majority of male students perform better in mathematics than the majority of female students.</p></li>
+<li><p>Regarding Reading performance, both male and female scores are concentrated around 550-600, approximately at 580. In the lower score range (&lt;500), there are more male students, represented by the area under the curve below 500 being larger for males than females. Similarly, in the higher score range (&gt;600), there are more female students, represented by the area under the curve above 600 being larger for females than males. This suggests that the majority of female students outperform male students in reading.</p></li>
+<li><p>In Science performance, female scores are concentrated below 600 (around 580), while male scores are concentrated above 600 (around 610). This indicates that the majority of male students perform better in science than the majority of female students. In the higher score range (&gt;600), there are more male students, represented by the area under the curve above 600 being larger for males than females.</p></li>
+</ol>
+</section>
+<section id="summary-1" class="level3">
+<h3 class="anchored" data-anchor-id="summary-1">4.1.2 Summary</h3>
+</section>
 </section>
 <section id="school" class="level2">
 <h2 class="anchored" data-anchor-id="school">4.2 School</h2>
+<p>The code chunk below is for creating another data set which includes SG <strong>schools</strong> and performance scores in <strong>Math</strong>, <strong>Read</strong> and <strong>Science</strong>. The new data set was saved as <strong>stu_qqq_SG_PV_Avg_school.rds</strong>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>PV_Avg_school <span class="ot">&lt;-</span> <span class="fu">cbind</span>(PV_Avg, <span class="at">school =</span> stu_qqq_SG<span class="sc">$</span>CNTSCHID)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">write_rds</span>(PV_Avg_school, <span class="st">"data/stu_qqq_SG_PV_Avg_school.rds"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="fu">head</span>(PV_Avg_school)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  CNTSTUID Avg_PVMath Avg_PVRead Avg_PVScience   school
+1 70200001   605.2533   667.4296      639.7873 70200052
+2 70200002   689.9528   627.6078      672.0703 70200134
+3 70200003   676.7768   582.9252      660.0384 70200112
+4 70200004   401.0528   361.3969      343.6425 70200004
+5 70200005   436.1151   475.6763      479.2390 70200152
+6 70200006   518.1055   431.4652      476.0031 70200043</code></pre>
+</div>
+</div>
+<p>The code chunk below is for the calculation of the total number of schools surveyed in the questionnaire, as well as the number of respondents for each school.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>school_counts <span class="ot">&lt;-</span> PV_Avg_school <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">group_by</span>(school) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">summarise</span>(<span class="at">STUCount =</span> <span class="fu">n_distinct</span>(CNTSTUID))</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a>school_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 164 × 2
+     school STUCount
+      &lt;dbl&gt;    &lt;int&gt;
+ 1 70200001       55
+ 2 70200002       38
+ 3 70200003       36
+ 4 70200004       56
+ 5 70200005       38
+ 6 70200006       36
+ 7 70200007       38
+ 8 70200008       38
+ 9 70200009       36
+10 70200010       36
+# ℹ 154 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>total_schools <span class="ot">&lt;-</span> <span class="fu">n_distinct</span>(school_counts<span class="sc">$</span>school)</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">cat</span>(<span class="st">"There are"</span>, total_schools, <span class="st">"SG schools in this data set."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 164 SG schools in this data set.</code></pre>
+</div>
+</div>
+<p>The code chunk below calculates the mean scores for Math, Reading and Science for all surveyed students in each school. This process provides representative scores for three subjects for each school.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>PV_Avg_school_group <span class="ot">&lt;-</span> PV_Avg_school <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">group_by</span>(school) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb34-4"><a href="#cb34-4"></a>    <span class="at">School_Avg_PVMath =</span> <span class="fu">mean</span>(Avg_PVMath),</span>
+<span id="cb34-5"><a href="#cb34-5"></a>    <span class="at">School_Avg_PVRead =</span> <span class="fu">mean</span>(Avg_PVRead),</span>
+<span id="cb34-6"><a href="#cb34-6"></a>    <span class="at">School_Avg_PVScience =</span> <span class="fu">mean</span>(Avg_PVScience)</span>
+<span id="cb34-7"><a href="#cb34-7"></a>  )</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a><span class="co"># Print the first few rows of the new data set</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a><span class="fu">write_rds</span>(PV_Avg_school_group, <span class="st">"data/stu_qqq_SG_PV_Avg_school_group.rds"</span>)</span>
+<span id="cb34-11"><a href="#cb34-11"></a><span class="fu">head</span>(PV_Avg_school_group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+    school School_Avg_PVMath School_Avg_PVRead School_Avg_PVScience
+     &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;                &lt;dbl&gt;
+1 70200001              725.              653.                 698.
+2 70200002              535.              507.                 534.
+3 70200003              740.              665.                 714.
+4 70200004              510.              480.                 494.
+5 70200005              547.              516.                 529.
+6 70200006              487.              468.                 477.</code></pre>
+</div>
+</div>
+<section id="analyse-2" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-2">4.2.1 Analyse</h3>
+<p>Let’s see the schools performance by dot plot.</p>
+<p><strong>Dot plot</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">School vs Math</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">School vs Reading</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-3" role="tab" aria-controls="tabset-9-3" aria-selected="false">School vs Science</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_school_group, <span class="fu">aes</span>(<span class="at">x =</span> school, <span class="at">y =</span> School_Avg_PVMath)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">ggtitle</span>(<span class="st">"Dot Plot of Math Score by School"</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_school_group, <span class="fu">aes</span>(<span class="at">x =</span> school, <span class="at">y =</span> School_Avg_PVRead)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">ggtitle</span>(<span class="st">"Dot Plot of Reading Score by School"</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-9-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_school_group, <span class="fu">aes</span>(<span class="at">x =</span> school, <span class="at">y =</span> School_Avg_PVScience)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">ggtitle</span>(<span class="st">"Dot Plot of Science Score by School"</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>From the three dot plots above, we can get:</p>
+<ol type="1">
+<li><p>In Math, most schools have students scoring between 500-600, with the next common range being 600-700. Two schools scored above 700, while two schools had notably lower scores around 400.</p></li>
+<li><p>In Reading, majority of schools show scores between 450-550, followed by 550-650. Five schools scored above 650, but two schools had notably low scores, falling below 400, with one even below 350.</p></li>
+<li><p>In Science, In most schools, students scored between 500-600, followed by 600-700. Two schools scored high (around 700), while two schools scored low (under 400).</p></li>
+<li><p>The three plots’ shapes are similar, indicating consistent performance across subjects. Schools either perform well, average, or poorly in all subjects. Few schools show better reading performance than in math and science.</p></li>
+<li><p>Two schools consistently excel (upper left), while two consistently perform poorly (lower right) across all subjects.</p></li>
+<li><p>Though subtle, there’s a slight downward trend in the fit curve, suggesting that as school codes increase, scores may potentially decrease.</p></li>
+</ol>
+</section>
+<section id="summary-2" class="level3">
+<h3 class="anchored" data-anchor-id="summary-2">4.2.2 Summary</h3>
+</section>
 </section>
 <section id="socioeconomic-status" class="level2">
 <h2 class="anchored" data-anchor-id="socioeconomic-status">4.3 Socioeconomic status</h2>
+<p>The code chunk below is for creating another data set which includes SG <strong>socioeconomic status</strong> and performance scores in <strong>Math</strong>, <strong>Read</strong> and <strong>Science</strong>. The new data set was saved as <strong>stu_qqq_SG_PV_Avg_status.rds</strong>.</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>PV_Avg_status <span class="ot">&lt;-</span> <span class="fu">cbind</span>(PV_Avg, <span class="at">status =</span> stu_qqq_SG<span class="sc">$</span>ST259Q01JA)</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">write_rds</span>(PV_Avg_status, <span class="st">"data/stu_qqq_SG_PV_Avg_status.rds"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="fu">head</span>(PV_Avg_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  CNTSTUID Avg_PVMath Avg_PVRead Avg_PVScience status
+1 70200001   605.2533   667.4296      639.7873     NA
+2 70200002   689.9528   627.6078      672.0703     NA
+3 70200003   676.7768   582.9252      660.0384     NA
+4 70200004   401.0528   361.3969      343.6425     NA
+5 70200005   436.1151   475.6763      479.2390     NA
+6 70200006   518.1055   431.4652      476.0031     NA</code></pre>
+</div>
+</div>
+<section id="analyse-3" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-3">4.3.1 Analyse</h3>
+</section>
+<section id="summary-3" class="level3">
+<h3 class="anchored" data-anchor-id="summary-3">4.3.2 Summary</h3>
+</section>
 </section>
 </section>
 <section id="reference" class="level1">
@@ -715,6 +1183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://www.oecd.org/pisa/data/httpoecdorgpisadatabase-instructions.htm">How to prepare and analyse the PISA database</a></p>
 <p><a href="https://www.labxchange.org/library/items/lb:LabXchange:10d3270e:html:1">How to Interpret Histograms</a></p>
 <p><a href="https://www.labxchange.org/library/items/lb:LabXchange:46f64d7a:html:1">How to Interpret Violin Charts</a></p>
+<p><a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf">Computer-Based Student Questionnaire for Pisa 2022 - Main Survey Version</a></p>
 
 
 </section>
