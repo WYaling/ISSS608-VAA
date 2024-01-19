@@ -708,6 +708,9 @@ PV_Avg_status <- cbind(PV_Avg, status = stu_qqq_SG$ST259Q01JA)
 write_rds(PV_Avg_status, "data/stu_qqq_SG_PV_Avg_status.rds")
 head(PV_Avg_status)
 ```
+```{r}
+glimpse(PV_Avg_status)
+```
 
 ### 4.3.1 Analyse
 

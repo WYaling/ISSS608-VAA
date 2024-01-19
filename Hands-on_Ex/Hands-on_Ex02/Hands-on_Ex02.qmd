@@ -285,8 +285,6 @@ ggplot(data=exam_data, aes(x = MATHS)) +
 ## **Default**
 
 ```{r}
-pacman:: p_load(ggthemes, hrbrthemes)
-
 ggplot(data=exam_data, aes(x = MATHS)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
   ggtitle("Distribution of Maths scores") +
