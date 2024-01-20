@@ -1,12 +1,12 @@
 ---
-title: "Welcome to Yaling's Visual Analysis Wonderland!"
+title: "Welcome to Yaling's Visual Analysis Wonderland !"
 page-layout: full
 sidebar: false
 body-width: 1500px
 
 about:
-  template: jolla
-  image: images/Hello.gif
+  template: trestles
+  image: images/DA.gif
   image-width: all
   image-shape: rectangle
   links:
@@ -18,23 +18,31 @@ about:
 listing:
   - id: hands-on
     type: table
+    date-format: medium
     contents: 
       - "Hands-on_Ex/*/*.qmd"
       - "In-class_Ex/*/*.qmd"
       - "Take-home_Ex/*/*.qmd"
-    fields: [date, title, filename, file-modified ]
+    fields: [image, filename, date, title, file-modified ]
+    image-height: 3em
+    image-placeholder: "images/Exercise.jpg"
     sort: "date"
-    table-striped: true
+    max-items: 6
     table-hover: true
-    max-items: 5
+
 ---
+
 
 At present, this website is for showcasing coursework of
 
-**ISSS608 Visual Analytics and Applications**.
+**ISSS608 Visual Analytics and Applications**
 
 Thanks for visiting. Please kindly let me know if anything needs to be amended.
 
-------------------------------------------------------------------------
+
+
+
+
+
 
 ![](images/New_post.gif){fig-align="center" width="266"}

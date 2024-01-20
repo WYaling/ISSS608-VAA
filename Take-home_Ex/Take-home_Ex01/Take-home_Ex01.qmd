@@ -19,10 +19,16 @@ abstract:
 The data set under analysis is derived from [PISA](https://www.oecd.org/pisa/data/2022database/) data ([Student questionnaire data file](https://webfs.oecd.org/pisa2022/STU_QQQ_SAS.zip)). The original data set is a SAS data set, and it needs to be read using `read.sas()`.
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 pacman::p_load(ggrepel, patchwork, ggthemes, hrbrthemes, tidyverse, haven) 
 ```
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 stu_qqq <- read_sas("data/cy08msp_stu_qqq.sas7bdat")
 dimensions <- dim(stu_qqq)
 cat("Rows:", dimensions[1], " Columns:", dimensions[2])
@@ -86,6 +92,9 @@ First, let's see the frequency of each subject's performance scores by histogram
 ## Math
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg, aes(x=Avg_PVMath)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
@@ -106,6 +115,9 @@ ggplot(data = PV_Avg, aes(x=Avg_PVMath)) +
 ## Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg, aes(x=Avg_PVRead)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
@@ -127,6 +139,9 @@ ggplot(data = PV_Avg, aes(x=Avg_PVRead)) +
 
 ```{r}
 #| warning: false
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg, aes(x=Avg_PVScience)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
   geom_vline(aes(xintercept = mean(PV_Avg$Avg_PVScience), linetype="Mean", color="Mean"), size=1) +
@@ -154,6 +169,9 @@ Next, let's use box plot to explore more.
 ## plot
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| echo: false
 PV_Avg_tidy <- PV_Avg %>%
   pivot_longer(cols = c(Avg_PVMath, Avg_PVRead, Avg_PVScience), names_to = "Subject", values_to = "Score")
@@ -173,6 +191,9 @@ ggplot(PV_Avg_tidy, aes(x = Subject, y = Score)) +
 ## code
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| eval: false
 PV_Avg_tidy <- PV_Avg %>%
   pivot_longer(cols = c(Avg_PVMath, Avg_PVRead, Avg_PVScience), names_to = "Subject", values_to = "Score")
@@ -207,6 +228,9 @@ Next, by using density curve, we can see more of the distribution and central te
 ## plot
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| echo: false
 #| warning: false
   peak_math <- density(PV_Avg$Avg_PVMath)$x[which.max(density(PV_Avg$Avg_PVMath)$y)]
@@ -240,6 +264,9 @@ ggplot(data = PV_Avg) +
 ## code
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| eval: false
 #| warning: false
   peak_math <- density(PV_Avg$Avg_PVMath)$x[which.max(density(PV_Avg$Avg_PVMath)$y)]
@@ -285,6 +312,9 @@ Last, let's present the distribution by violin plots.
 ## plot
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| echo: false
 #| warning: false
 ggplot(data = PV_Avg) +
@@ -305,6 +335,9 @@ ggplot(data = PV_Avg) +
 ## code
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| eval: false
 #| warning: false
 ggplot(data = PV_Avg) +
@@ -337,6 +370,9 @@ The three violin plots reveal:
 ## Math vs Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data=PV_Avg, 
        aes(x= Avg_PVMath, 
            y= Avg_PVRead)) +
@@ -353,6 +389,9 @@ ggplot(data=PV_Avg,
 ## Math vs Science
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data=PV_Avg, 
        aes(x= Avg_PVMath, 
            y= Avg_PVScience)) +
@@ -369,6 +408,9 @@ ggplot(data=PV_Avg,
 ## Math vs Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data=PV_Avg, 
        aes(x= Avg_PVScience, 
            y= Avg_PVRead)) +
@@ -393,6 +435,9 @@ From the three colored scatter plots below, we can observe a positive trend: as 
 ## Math vs Reading with Science
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg, 
        aes(x = Avg_PVMath, 
            y = Avg_PVRead, 
@@ -407,6 +452,9 @@ ggplot(data = PV_Avg,
 ## Math vs Science with Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg, 
        aes(x = Avg_PVMath, 
            y = Avg_PVScience, 
@@ -422,6 +470,9 @@ ggplot(data = PV_Avg,
 ## Reading vs Science with Math
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg, 
        aes(x = Avg_PVRead, 
            y = Avg_PVScience, 
@@ -466,6 +517,9 @@ let's see how gender influence student's performance on the three subjects by hi
 ## Math
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVMath, 
@@ -483,6 +537,9 @@ ggplot(data = PV_Avg_gender,
 ## Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVRead, 
@@ -500,6 +557,9 @@ ggplot(data = PV_Avg_gender,
 ## Science
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVScience, 
@@ -529,6 +589,9 @@ Next, let's explore more by density curve.
 ## Math
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVMath, 
@@ -545,6 +608,9 @@ ggplot(data = PV_Avg_gender,
 ## Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 #| warning: false
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVRead, 
@@ -561,6 +627,9 @@ ggplot(data = PV_Avg_gender,
 ## Science
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg_gender, 
        aes(x = Avg_PVScience, 
            color = as.factor(gender))) +
@@ -650,6 +719,9 @@ Let's see the schools performance by dot plot.
 ## School vs Math
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVMath)) +
   geom_point() +
   geom_smooth(formula = y~x, method = lm) +
@@ -661,6 +733,9 @@ ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVMath)) +
 ## School vs Reading
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVRead)) +
   geom_point() +
   geom_smooth(formula = y~x, method = lm) +
@@ -672,6 +747,9 @@ ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVRead)) +
 ## School vs Science
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVScience)) +
   geom_point() +
   geom_smooth(formula = y~x, method = lm) +
@@ -707,9 +785,6 @@ The code chunk below is for creating another data set which includes SG **socioe
 PV_Avg_status <- cbind(PV_Avg, status = stu_qqq_SG$ST259Q01JA)
 write_rds(PV_Avg_status, "data/stu_qqq_SG_PV_Avg_status.rds")
 head(PV_Avg_status)
-```
-```{r}
-glimpse(PV_Avg_status)
 ```
 
 

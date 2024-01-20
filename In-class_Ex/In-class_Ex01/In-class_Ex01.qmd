@@ -53,5 +53,3 @@ Read data file.
 ```{r}
 stu_qqq_SG <- read_rds("data/stu_qqq_SG.rds")
 ```
-
-![](images/End.gif){fig-align="center"}

@@ -21,7 +21,7 @@ abstract:
 Beside `tidyverse` , the below R packages will be utilised in this exercise:
 
 | Package      | Function                                                             |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | `ggrepel`    | provides geoms for ggplot2 to repel overlapping text labels.         |
 | `ggthemes`   | provides some extra themes, geoms, and scales for ggplot2.           |
 | `hrbrthemes` | provides typography-centric themes and theme components for ggplot2. |
@@ -123,7 +123,7 @@ ggplot(data=exam_data, aes(x = MATHS, y = ENGLISH)) +
 The following table shows some classic built-in themes in `ggplot2`.
 
 | Theme              | Description                                                               |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | `theme_gray()`     | a theme with grey background and white grid lines                         |
 | `theme_bw()`       | dark-on-light                                                             |
 | `theme_linedraw()` | a theme with with only black lines of various widths on white backgrounds |
@@ -416,5 +416,3 @@ To learn more about, refer to [Plot Assembly](https://patchwork.data-imaginist.c
 # 5. Reference
 
 [Change Font Size of ggplot2 Plot in R (5 Examples) \| Axis Text, Main Title & Legend](https://statisticsglobe.com/change-font-size-of-ggplot2-plot-in-r-axis-text-main-title-legend)
-
-![](images/End.gif){fig-align="center"}

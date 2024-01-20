@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Yaling’s VAA journey - Welcome to Yaling’s Visual Analysis Wonderland!</title>
+<title>Yaling’s VAA journey - Welcome to Yaling’s Visual Analysis Wonderland !</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-filename','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-filename','listing-date','listing-title','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">1. Importing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" rel="" target="">
+    <a class="dropdown-item" href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" rel="" target="">
  <span class="dropdown-text">2. Tableau Introduction</span></a>
   </li>  
         <li class="dropdown-header">3</li>
@@ -231,20 +231,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla column-page">
-  <img src="images/Hello.gif" class="about-image
+<div class="quarto-about-trestles column-page">
+  <div class="about-entity">
+    <img src="images/DA.gif" class="about-image
   rectangle " style="width: all;">
- <header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to Yaling’s Visual Analysis Wonderland!</h1>
+<h1 class="title">Welcome to Yaling’s Visual Analysis Wonderland !</h1>
 </div>
 <div class="quarto-title-meta">
   </div>
-</header><main class="content column-page" id="quarto-document-content">
+</header>
+    <div class="about-links">
+  <a href="" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" class="about-link" rel="" target="">
+    <i class="bi bi-Email"></i>
+     <span class="about-link-text">Email</span>
+  </a>
+</div>
+  </div>
+  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 <p>At present, this website is for showcasing coursework of</p>
-<p><strong>ISSS608 Visual Analytics and Applications</strong>.</p>
+<p><strong>ISSS608 Visual Analytics and Applications</strong></p>
 <p>Thanks for visiting. Please kindly let me know if anything needs to be amended.</p>
-<hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/New_post.gif" class="img-fluid figure-img" width="266"></p>
@@ -275,9 +287,14 @@ ul.task-list li input[type="checkbox"] {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table table-striped table-hover">
+<table class="quarto-listing-table table table-hover">
 <thead>
 <tr>
+<th>
+</th>
+<th>
+File Name
+</th>
 <th>
 <a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
@@ -285,16 +302,19 @@ ul.task-list li input[type="checkbox"] {
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-File Name
-</th>
-<th>
 Modified
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705582760599" data-listing-date-modified-sort="1705582760000" data-listing-reading-time-sort="7" data-listing-title-sort="A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705743072129" data-listing-date-modified-sort="1705743072000" data-listing-reading-time-sort="7" data-listing-title-sort="A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
+</td>
+<td>
+<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
+</td>
 <td>
 <span class="listing-date">Jan 11, 2024</span>
 </td>
@@ -302,14 +322,17 @@ Modified
 <a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">A Layered Grammar of Graphics: ggplot2 methods</a>
 </td>
 <td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/18/24, 8:59:20 PM</span>
+<span class="listing-file-modified">Jan 20, 2024</span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705223706489" data-listing-date-modified-sort="1705223706000" data-listing-reading-time-sort="1" data-listing-title-sort="Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705743096729" data-listing-date-modified-sort="1705743096000" data-listing-reading-time-sort="1" data-listing-title-sort="Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
+</td>
+<td>
+<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
+</td>
 <td>
 <span class="listing-date">Jan 13, 2024</span>
 </td>
@@ -317,14 +340,17 @@ Modified
 <a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">Importing Data</a>
 </td>
 <td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/14/24, 5:15:06 PM</span>
+<span class="listing-file-modified">Jan 20, 2024</span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1705161600000" data-listing-file-modified-sort="1705735448726" data-listing-date-modified-sort="1705735448000" data-listing-reading-time-sort="22" data-listing-title-sort="Creating Data Visualisation Beyond Default" data-listing-filename-sort="Take-home_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="2" data-listing-date-sort="1705161600000" data-listing-file-modified-sort="1705748232786" data-listing-date-modified-sort="1705748232000" data-listing-reading-time-sort="23" data-listing-title-sort="Creating Data Visualisation Beyond Default" data-listing-filename-sort="Take-home_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
+</td>
+<td>
+<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="filename listing-filename">Take-home_Ex01.qmd</a>
+</td>
 <td>
 <span class="listing-date">Jan 14, 2024</span>
 </td>
@@ -332,14 +358,17 @@ Modified
 <a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="title listing-title">Creating Data Visualisation Beyond Default</a>
 </td>
 <td>
-<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="filename listing-filename">Take-home_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/20/24, 3:24:08 PM</span>
+<span class="listing-file-modified">Jan 20, 2024</span>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1705334400000" data-listing-file-modified-sort="1705654462178" data-listing-date-modified-sort="1705654462000" data-listing-reading-time-sort="11" data-listing-title-sort="Beyond ggplot2 Fundamentals" data-listing-filename-sort="Hands-on_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="3" data-listing-date-sort="1705334400000" data-listing-file-modified-sort="1705743057773" data-listing-date-modified-sort="1705743057000" data-listing-reading-time-sort="11" data-listing-title-sort="Beyond ggplot2 Fundamentals" data-listing-filename-sort="Hands-on_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
+</td>
+<td>
+<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="filename listing-filename">Hands-on_Ex02.qmd</a>
+</td>
 <td>
 <span class="listing-date">Jan 16, 2024</span>
 </td>
@@ -347,25 +376,25 @@ Modified
 <a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="title listing-title">Beyond ggplot2 Fundamentals</a>
 </td>
 <td>
-<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="filename listing-filename">Hands-on_Ex02.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/19/24, 4:54:22 PM</span>
+<span class="listing-file-modified">Jan 20, 2024</span>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1705680000000" data-listing-file-modified-sort="1705735702338" data-listing-date-modified-sort="1705735702000" data-listing-reading-time-sort="1" data-listing-title-sort="Tableau Introduction" data-listing-filename-sort="In-class_Exercise02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="4" data-listing-date-sort="1705680000000" data-listing-file-modified-sort="1705735702338" data-listing-date-modified-sort="1705735702000" data-listing-reading-time-sort="1" data-listing-title-sort="Tableau Introduction" data-listing-filename-sort="In-class_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
+</td>
+<td>
+<a href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" class="filename listing-filename">In-class_Ex02.qmd</a>
+</td>
 <td>
 <span class="listing-date">Jan 20, 2024</span>
 </td>
 <td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="title listing-title">Tableau Introduction</a>
+<a href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" class="title listing-title">Tableau Introduction</a>
 </td>
 <td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="filename listing-filename">In-class_Exercise02.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/20/24, 3:28:22 PM</span>
+<span class="listing-file-modified">Jan 20, 2024</span>
 </td>
 </tr>
 </tbody>
@@ -373,18 +402,7 @@ Modified
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-Email"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
 </div>
  <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
