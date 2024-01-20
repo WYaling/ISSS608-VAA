@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wang Yaling">
 
-<title>Yaling’s VAA journey - Welcome to Yaling’s Visual Analysis Wonderland!</title>
+<title>Yaling’s VAA journey - Tableau Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/Web_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="next">
+<link href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="prev">
+<link href="../../images/Web_logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
@@ -60,57 +62,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<style>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-hands-on .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
+      .quarto-title-block .quarto-title-banner {
+        background: #F0FFFF;
+      }
+</style>
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-filename','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
 
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-hands-on'] = new List('listing-hands-on', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -118,8 +81,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/Name_logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/Name_logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -133,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercise">    
         <li>
-    <a class="dropdown-item" href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" rel="" target="">
  <span class="dropdown-text">1. A Layered Grammar of Graphics: ggplot2 methods</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" rel="" target="">
  <span class="dropdown-text">2. Beyond ggplot2 Fundamentals</span></a>
   </li>  
         <li class="dropdown-header">3</li>
@@ -155,11 +118,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercise">    
         <li>
-    <a class="dropdown-item" href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="" target="">
  <span class="dropdown-text">1. Importing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" rel="" target="">
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html" rel="" target="">
  <span class="dropdown-text">2. Tableau Introduction</span></a>
   </li>  
         <li class="dropdown-header">3</li>
@@ -177,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
         <li>
-    <a class="dropdown-item" href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
  <span class="dropdown-text">1. Creating Data Visualisation Beyond Default</span></a>
   </li>  
         <li class="dropdown-header">2</li>
@@ -195,11 +158,11 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link active" href="../../about.html" rel="" target="" aria-current="page">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -224,169 +187,209 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">In Class Ex</li><li class="breadcrumb-item"><a href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html">In Class Ex02</a></li><li class="breadcrumb-item"><a href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html">Tableau Introduction</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tableau Introduction</h1>
+                      </div>
+  </div>
     
-<!-- main -->
-<div class="quarto-about-jolla column-page">
-  <img src="images/Hello.gif" class="about-image
-  rectangle " style="width: all;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Welcome to Yaling’s Visual Analysis Wonderland!</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content column-page" id="quarto-document-content">
-<p>At present, this website is for showcasing coursework of</p>
-<p><strong>ISSS608 Visual Analytics and Applications</strong>.</p>
-<p>Thanks for visiting. Please kindly let me know if anything needs to be amended.</p>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/New_post.gif" class="img-fluid figure-img" width="266"></p>
-</figure>
-</div>
+  
+  <div class="quarto-title-meta">
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-hands-on">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-hands-on-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-hands-on'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Wang Yaling </p>
+            </div>
     </div>
-</div>
-<table class="quarto-listing-table table table-striped table-hover">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-File Name
-</th>
-<th>
-Modified
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705582760599" data-listing-date-modified-sort="1705582760000" data-listing-reading-time-sort="7" data-listing-title-sort="A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Jan 11, 2024</span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">A Layered Grammar of Graphics: ggplot2 methods</a>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/18/24, 8:59:20 PM</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705223706489" data-listing-date-modified-sort="1705223706000" data-listing-reading-time-sort="1" data-listing-title-sort="Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Jan 13, 2024</span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">Importing Data</a>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/14/24, 5:15:06 PM</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1705161600000" data-listing-file-modified-sort="1705735448726" data-listing-date-modified-sort="1705735448000" data-listing-reading-time-sort="22" data-listing-title-sort="Creating Data Visualisation Beyond Default" data-listing-filename-sort="Take-home_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Jan 14, 2024</span>
-</td>
-<td>
-<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="title listing-title">Creating Data Visualisation Beyond Default</a>
-</td>
-<td>
-<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="filename listing-filename">Take-home_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/20/24, 3:24:08 PM</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1705334400000" data-listing-file-modified-sort="1705654462178" data-listing-date-modified-sort="1705654462000" data-listing-reading-time-sort="11" data-listing-title-sort="Beyond ggplot2 Fundamentals" data-listing-filename-sort="Hands-on_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Jan 16, 2024</span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="title listing-title">Beyond ggplot2 Fundamentals</a>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="filename listing-filename">Hands-on_Ex02.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/19/24, 4:54:22 PM</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1705680000000" data-listing-file-modified-sort="1705735702338" data-listing-date-modified-sort="1705735702000" data-listing-reading-time-sort="1" data-listing-title-sort="Tableau Introduction" data-listing-filename-sort="In-class_Exercise02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Jan 20, 2024</span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="title listing-title">Tableau Introduction</a>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="filename listing-filename">In-class_Exercise02.qmd</a>
-</td>
-<td>
-<span class="listing-file-modified">1/20/24, 3:28:22 PM</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-Email"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">Jan 20, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">Jan 20, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Hands on Ex</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Hands on Ex01</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A Layered Grammar of Graphics: ggplot2 methods</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Hands on Ex02</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beyond ggplot2 Fundamentals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">In Class Ex</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">In Class Ex01</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Importing Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">In Class Ex02</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Tableau Introduction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Take Home Ex</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">Take Home Ex01</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating Data Visualisation Beyond Default</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Link to Tableau Public:</p>
+<p><a href="https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Exercise01_17057348426950/MonthlySalesProfitbyRegion2016-2019?publish=yes">Tableau Practice of Lesson 2</a></p>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -407,6 +410,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -613,6 +623,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Importing Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="pagination-link">
+        <span class="nav-page-text">Creating Data Visualisation Beyond Default</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="prev">
+<link href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html" rel="prev">
 <link href="../../images/Web_logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -107,6 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -258,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">Jan 18, 2024</p>
+        <p class="date-modified">Jan 20, 2024</p>
       </div>
     </div>
       
@@ -358,26 +359,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">In Class Ex02</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tableau Practice</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Take Home Ex</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
- <span class="menu-text">Take Home Ex01</span></a>
+ <span class="menu-text">Take Home Ex</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+ <span class="menu-text">Take Home Ex01</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="sidebar-item-text sidebar-link active">
@@ -1169,6 +1187,18 @@ Tip
 6 70200006   518.1055   431.4652      476.0031     NA</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">glimpse</span>(PV_Avg_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6,606
+Columns: 5
+$ CNTSTUID      &lt;dbl&gt; 70200001, 70200002, 70200003, 70200004, 70200005, 702000…
+$ Avg_PVMath    &lt;dbl&gt; 605.2533, 689.9528, 676.7768, 401.0528, 436.1151, 518.10…
+$ Avg_PVRead    &lt;dbl&gt; 667.4296, 627.6078, 582.9252, 361.3969, 475.6763, 431.46…
+$ Avg_PVScience &lt;dbl&gt; 639.7873, 672.0703, 660.0384, 343.6425, 479.2390, 476.00…
+$ status        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</code></pre>
+</div>
+</div>
 <section id="analyse-3" class="level3">
 <h3 class="anchored" data-anchor-id="analyse-3">4.3.1 Analyse</h3>
 </section>
@@ -1422,10 +1452,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Importing Data</span>
+      <a href="../../In-class_Ex/In-class_Ex02/In-class_Exercise02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tableau Practice</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

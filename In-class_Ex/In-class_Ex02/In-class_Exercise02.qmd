@@ -1,0 +1,17 @@
+---
+title: "Tableau Introduction"
+title-block-banner: "#F0FFFF"
+author: "Wang Yaling"
+date: "Jan 20, 2024"
+date-modified: last-modified
+date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
+---
+
+Link to Tableau Public:
+
+[Tableau Practice of Lesson 2](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Exercise01_17057348426950/MonthlySalesProfitbyRegion2016-2019?publish=yes)
