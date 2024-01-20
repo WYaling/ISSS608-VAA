@@ -22,7 +22,7 @@ The data set under analysis is derived from [PISA](https://www.oecd.org/pisa/dat
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-pacman::p_load(ggrepel, patchwork, ggthemes, hrbrthemes, tidyverse, haven) 
+pacman::p_load(ggrepel, patchwork, ggthemes, hrbrthemes, tidyverse, haven, viridis) 
 ```
 
 ```{r}
@@ -98,13 +98,13 @@ First, let's see the frequency of each subject's performance scores by histogram
 #| warning: false
 ggplot(data = PV_Avg, aes(x=Avg_PVMath)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
-  geom_vline(aes(xintercept = mean(PV_Avg$Avg_PVScience), linetype="Mean", color="Mean"), size=1) +
-  geom_vline(aes(xintercept = median(PV_Avg$Avg_PVScience), linetype="Median", color="Median"), size=1) +
+  geom_vline(aes(xintercept = mean(PV_Avg$Avg_PVMath), linetype="Mean", color="Mean"), size=1) +
+  geom_vline(aes(xintercept = median(PV_Avg$Avg_PVMath), linetype="Median", color="Median"), size=1) +
   scale_linetype_manual(name = "Statistic", values = c(Mean = "dashed", Median = "dashed")) +
   scale_color_manual(name = "Statistic", values = c(Mean = "blue", Median = "red")) +
-  ggtitle("Distribution of SG Students' Science Performance") +
-  labs(color = "Statistic") + 
-  theme_test() +
+  ggtitle("Distribution of SG Students' Math Scores") +
+  labs(color = "Statistic", x="Math Score") + 
+  theme_clean() +
   theme(
     legend.position = c(0.9, 0.7),
     legend.text = element_text(size = 10),
@@ -121,13 +121,13 @@ ggplot(data = PV_Avg, aes(x=Avg_PVMath)) +
 #| warning: false
 ggplot(data = PV_Avg, aes(x=Avg_PVRead)) +
   geom_histogram(bins=20, boundary = 100, color="grey25", fill="grey90") +
-  geom_vline(aes(xintercept = mean(PV_Avg$Avg_PVScience), linetype="Mean", color="Mean"), size=1) +
-  geom_vline(aes(xintercept = median(PV_Avg$Avg_PVScience), linetype="Median", color="Median"), size=1) +
+  geom_vline(aes(xintercept = mean(PV_Avg$Avg_PVRead), linetype="Mean", color="Mean"), size=1) +
+  geom_vline(aes(xintercept = median(PV_Avg$Avg_PVRead), linetype="Median", color="Median"), size=1) +
   scale_linetype_manual(name = "Statistic", values = c(Mean = "dashed", Median = "dashed")) +
   scale_color_manual(name = "Statistic", values = c(Mean = "blue", Median = "red")) +
-  ggtitle("Distribution of SG Students' Science Performance") +
-  labs(color = "Statistic") + 
-  theme_test() +
+  ggtitle("Distribution of SG Students' Reading Scores") +
+  labs(color = "Statistic", x = "Reading Score") + 
+  theme_clean() +
   theme(
     legend.position = c(0.9, 0.7),
     legend.text = element_text(size = 10),
@@ -148,9 +148,9 @@ ggplot(data = PV_Avg, aes(x=Avg_PVScience)) +
   geom_vline(aes(xintercept = median(PV_Avg$Avg_PVScience), linetype="Median", color="Median"), size=1) +
   scale_linetype_manual(name = "Statistic", values = c(Mean = "dashed", Median = "dashed")) +
   scale_color_manual(name = "Statistic", values = c(Mean = "blue", Median = "red")) +
-  ggtitle("Distribution of SG Students' Science Performance") +
-  labs(color = "Statistic") + 
-  theme_test() +
+  ggtitle("Distribution of SG Students' Science Scores") +
+  labs(color = "Statistic", x="Science Scores") + 
+  theme_clean() +
   theme(
     legend.position = c(0.9, 0.7),
     legend.text = element_text(size = 10),
@@ -165,14 +165,10 @@ Next, let's use box plot to explore more.
 
 **Boxplot**
 
-::: panel-tabset
-## plot
-
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-#| echo: false
 PV_Avg_tidy <- PV_Avg %>%
   pivot_longer(cols = c(Avg_PVMath, Avg_PVRead, Avg_PVScience), names_to = "Subject", values_to = "Score")
 
@@ -181,34 +177,14 @@ max_values <- PV_Avg_tidy %>% group_by(Subject) %>% summarise(max_value = max(Sc
 ggplot(PV_Avg_tidy, aes(x = Subject, y = Score)) +
   geom_boxplot() +
   facet_grid(. ~ Subject, scales = "free_x") +
-  geom_hline(data = max_values, aes(yintercept = max_value, linetype = "Max"), color = "blue", show.legend = FALSE) +
+  geom_hline(data = max_values, aes(yintercept = max_value, linetype = "Max"), color = "blue", show.legend = FALSE, linewidth = 1) +
   geom_text(data = max_values, aes(x = Subject, y = max_value, label = sprintf("Max: %.2f", max_value)), size = 3, vjust = -0.5, hjust = 0.5, color = "blue") +
-  geom_hline(aes(yintercept = median(Score), linetype = "Median"), color = "red",show.legend = FALSE) +
-  coord_cartesian(ylim = range(PV_Avg_tidy$Score)) 
+  geom_hline(aes(yintercept = median(Score), linetype = "Median"), color = "tomato",show.legend = FALSE, linewidth = 1) +
+  coord_cartesian(ylim = range(PV_Avg_tidy$Score)) +
+  ggtitle("Box Plot Comparison of Subject Scores")
+
 
 ```
-
-## code
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| code-overflow: scroll
-#| eval: false
-PV_Avg_tidy <- PV_Avg %>%
-  pivot_longer(cols = c(Avg_PVMath, Avg_PVRead, Avg_PVScience), names_to = "Subject", values_to = "Score")
-
-max_values <- PV_Avg_tidy %>% group_by(Subject) %>% summarise(max_value = max(Score))
-
-ggplot(PV_Avg_tidy, aes(x = Subject, y = Score)) +
-  geom_boxplot() +
-  facet_grid(. ~ Subject, scales = "free_x") +
-  geom_hline(data = max_values, aes(yintercept = max_value, linetype = "Max"), color = "blue", show.legend = FALSE) +
-  geom_text(data = max_values, aes(x = Subject, y = max_value, label = sprintf("Max: %.2f", max_value)), size = 3, vjust = -0.5, hjust = 0.5, color = "blue") +
-  geom_hline(aes(yintercept = median(Score), linetype = "Median"), color = "red",show.legend = FALSE) +
-  coord_cartesian(ylim = range(PV_Avg_tidy$Score)) 
-```
-:::
 
 The three box plots reveal:
 
@@ -224,15 +200,10 @@ Next, by using density curve, we can see more of the distribution and central te
 
 **Density curve**
 
-::: panel-tabset
-## plot
-
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-#| echo: false
-#| warning: false
   peak_math <- density(PV_Avg$Avg_PVMath)$x[which.max(density(PV_Avg$Avg_PVMath)$y)]
   peak_read <- density(PV_Avg$Avg_PVRead)$x[which.max(density(PV_Avg$Avg_PVRead)$y)]
   peak_science <- density(PV_Avg$Avg_PVScience)$x[which.max(density(PV_Avg$Avg_PVScience)$y)]
@@ -247,56 +218,19 @@ ggplot(data = PV_Avg) +
   geom_vline(aes(xintercept = peak_read, color = "Reading"), linetype = "dashed", size = 1) +
   geom_vline(aes(xintercept = peak_science, color = "Science"), linetype = "dashed", size = 1) +
   geom_text(aes(x = peak_math, y = 0, label = sprintf("Math: %.2f", peak_math)), 
-            vjust = - 0.5, hjust = 0.2, color = "blue", size = 3) +
+            vjust = - 0.5, hjust = 0.2, color = "blue", size = 3.5) +
   geom_text(aes(x = peak_read, y = 0, label = sprintf("Reading: %.2f", peak_read)), 
-            vjust = - 3.5, hjust = 0.2, color = "green", size = 3) +
+            vjust = - 3.5, hjust = 0.2, color = "green", size = 3.5) +
   geom_text(aes(x = peak_science, y = 0, label = sprintf("Science: %.2f", peak_science)),
-            vjust = - 8, hjust = 0.2, color = "red", size = 3) +
+            vjust = - 8, hjust = 0.2, color = "red", size = 3.5) +
   scale_color_manual(values = c("Math" = "blue", "Reading" = "green", "Science" = "red"), name = "Subject") +
-  theme_test() +
+  theme_clean() +
   theme(
     legend.position = c(0.9, 0.8),
-    legend.text = element_text(size = 8),
+    legend.text = element_text(size = 9),
     legend.key.size = unit(5, "mm")
   )
 ```
-
-## code
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| code-overflow: scroll
-#| eval: false
-#| warning: false
-  peak_math <- density(PV_Avg$Avg_PVMath)$x[which.max(density(PV_Avg$Avg_PVMath)$y)]
-  peak_read <- density(PV_Avg$Avg_PVRead)$x[which.max(density(PV_Avg$Avg_PVRead)$y)]
-  peak_science <- density(PV_Avg$Avg_PVScience)$x[which.max(density(PV_Avg$Avg_PVScience)$y)]
-  
-ggplot(data = PV_Avg) +
-  geom_density(aes(x = Avg_PVMath, color = "Math"), fill = "blue", alpha = 0.2) +
-  geom_density(aes(x = Avg_PVRead, color = "Reading"), fill = "green", alpha = 0.2) +
-  geom_density(aes(x = Avg_PVScience, color = "Science"), fill = "red", alpha = 0.2) +
-  ggtitle("Density of SG Students' Performance") +
-  labs(x = "Average of Plausible Value") +
-  geom_vline(aes(xintercept = peak_math, color = "Math"), linetype = "dashed", size = 1) +
-  geom_vline(aes(xintercept = peak_read, color = "Reading"), linetype = "dashed", size = 1) +
-  geom_vline(aes(xintercept = peak_science, color = "Science"), linetype = "dashed", size = 1) +
-  geom_text(aes(x = peak_math, y = 0, label = sprintf("Math: %.2f", peak_math)), 
-            vjust = - 0.5, hjust = 0.2, color = "blue", size = 3) +
-  geom_text(aes(x = peak_read, y = 0, label = sprintf("Reading: %.2f", peak_read)), 
-            vjust = - 3.5, hjust = 0.2, color = "green", size = 3) +
-  geom_text(aes(x = peak_science, y = 0, label = sprintf("Science: %.2f", peak_science)),
-            vjust = - 8, hjust = 0.2, color = "red", size = 3) +
-  scale_color_manual(values = c("Math" = "blue", "Reading" = "green", "Science" = "red"), name = "Subject") +
-  theme_test() +
-  theme(
-    legend.position = c(0.9, 0.8),
-    legend.text = element_text(size = 8),
-    legend.key.size = unit(5, "mm")
-  )
-```
-:::
 
 The three density curves above reveal:
 
@@ -308,53 +242,24 @@ Last, let's present the distribution by violin plots.
 
 **Violin plot**
 
-::: panel-tabset
-## plot
-
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-#| echo: false
-#| warning: false
 ggplot(data = PV_Avg) +
   geom_violin(aes(x = "Math", y = Avg_PVMath, fill = "Math"), position = "dodge", alpha = 0.5) +
   geom_violin(aes(x = "Reading", y = Avg_PVRead, fill = "Reading"), position = "dodge", alpha = 0.5) +
   geom_violin(aes(x = "Science", y = Avg_PVScience, fill = "Science"), position = "dodge", alpha = 0.5) +
   ggtitle("Violin Plot of SG Students' Performance") +
   labs(fill = "Subject", x = "Subject", y = "Plausible Value") +
-  theme_test() +
+  theme_clean() +
   theme(
-    legend.position = c(0.9, 0.9),
+    legend.position = c(0.9, 0.95),
     legend.text = element_text(size = 8),
     legend.key.size = unit(4, "mm")
   )
 
 ```
-
-## code
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| code-overflow: scroll
-#| eval: false
-#| warning: false
-ggplot(data = PV_Avg) +
-  geom_violin(aes(x = "Math", y = Avg_PVMath, fill = "Math"), position = "dodge", alpha = 0.5) +
-  geom_violin(aes(x = "Reading", y = Avg_PVRead, fill = "Reading"), position = "dodge", alpha = 0.5) +
-  geom_violin(aes(x = "Science", y = Avg_PVScience, fill = "Science"), position = "dodge", alpha = 0.5) +
-  ggtitle("Violin Plot of SG Students' Performance") +
-  labs(fill = "Subject", x = "Subject", y = "Plausible Value") +
-  theme_test() +
-  theme(
-    legend.position = c(0.9, 0.9),
-    legend.text = element_text(size = 8),
-    legend.key.size = unit(4, "mm")
-  )
-
-```
-:::
 
 The three violin plots reveal:
 
@@ -373,17 +278,17 @@ The three violin plots reveal:
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-ggplot(data=PV_Avg, 
-       aes(x= Avg_PVMath, 
-           y= Avg_PVRead)) +
-  geom_point() +
-  geom_smooth(formula = y ~ x, method=lm, color = "lightblue") +
+ggplot(data = PV_Avg, 
+       aes(x = Avg_PVMath, 
+           y = Avg_PVRead)) +
+  geom_point(color = "dodgerblue") +
+  geom_smooth(formula = y ~ x, method = lm, color = "black") +
   geom_text(aes(x = max(Avg_PVMath), y = max(Avg_PVRead),
                 label = paste("y = ", round(coef(lm(Avg_PVRead ~ Avg_PVMath))[2], 2), "x + ", round(coef(lm(Avg_PVRead ~ Avg_PVMath))[1], 2))),
-            hjust = 1.5, vjust = 1, color = "pink", size = 5) +
+            hjust = 1.5, vjust = 1, color = "black", size = 4) +
   ggtitle("Math vs Reading") +
-  labs(x="Math Score", y="Reading Score") +
-  theme_dark()
+  labs(x = "Math Score", y = "Reading Score", color = "Math Score") +
+  theme_clean()
 ```
 
 ## Math vs Science
@@ -392,36 +297,36 @@ ggplot(data=PV_Avg,
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-ggplot(data=PV_Avg, 
-       aes(x= Avg_PVMath, 
-           y= Avg_PVScience)) +
-  geom_point() +
-  geom_smooth(formula = y ~ x, method=lm, color = "lightblue") +
+ggplot(data = PV_Avg, 
+       aes(x = Avg_PVMath, 
+           y = Avg_PVScience)) +
+  geom_point(color = "forestgreen") +
+  geom_smooth(formula = y ~ x, method = lm, color = "black") +
   geom_text(aes(x = max(Avg_PVMath), y = max(Avg_PVScience),
                 label = paste("y = ", round(coef(lm(Avg_PVScience ~ Avg_PVMath))[2], 2), "x + ", round(coef(lm(Avg_PVScience ~ Avg_PVMath))[1], 2))),
-            hjust = 1.5, vjust = 1, color = "pink", size = 5) +
+            hjust = 1.5, vjust = 1, color = "black", size = 4) +
   ggtitle("Math vs Science") +
-  labs(x="Math Score", y="Science Score") +
-  theme_dark()
+  labs(x = "Math Score", y = "Science Score", color = "Math Score") +
+  theme_clean()
 ```
 
-## Math vs Reading
+## Science vs Reading
 
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-ggplot(data=PV_Avg, 
-       aes(x= Avg_PVScience, 
-           y= Avg_PVRead)) +
-  geom_point() +
-  geom_smooth(formula = y ~ x, method=lm, color = "lightblue") +
-  geom_text(aes(x = max(Avg_PVScience), y = max(Avg_PVRead),
-                label = paste("y = ", round(coef(lm(Avg_PVRead ~ Avg_PVScience))[2], 2), "x + ", round(coef(lm(Avg_PVRead ~ Avg_PVScience))[1], 2))),
-            hjust = 1.5, vjust = 1, color = "pink", size = 5) +
-  ggtitle("Science vs Reading") +
-  labs(x="Science Score", y="Reading Score") +
-  theme_dark()
+ggplot(data = PV_Avg, 
+       aes(x = Avg_PVRead, 
+           y = Avg_PVScience)) +
+  geom_point(color = "tomato") +
+  geom_smooth(formula = y ~ x, method = lm, color = "black") +
+  geom_text(aes(x = max(Avg_PVRead), y = max(Avg_PVScience),
+                label = paste("y = ", round(coef(lm(Avg_PVScience ~ Avg_PVRead))[2], 2), "x + ", round(coef(lm(Avg_PVScience ~ Avg_PVRead))[1], 2))),
+            hjust = 1.5, vjust = 1, color = "black", size = 4) +
+  ggtitle("Reading vs Science") +
+  labs(x = "Reading Score", y = "Science Score", color = "Reading Score") +
+  theme_clean()
 ```
 :::
 
@@ -445,7 +350,7 @@ ggplot(data = PV_Avg,
   geom_point() +
   ggtitle("Math vs Reading with Science") +
   labs(x = "Math Score", y = "Reading Score", color = "Science Score") +
-  theme_bw()
+  theme_clean()
 
 ```
 
@@ -463,8 +368,8 @@ ggplot(data = PV_Avg,
   ggtitle("Math vs Science with Reading") +
   labs(x = "Math Score", y = "Science Score", color = "Reading Score") +
   scale_color_continuous("Reading Score", breaks = seq(200, 800, by = 100), 
-                          low = "red", high = "pink") +
-  theme_bw()
+                          low = "darkgreen", high = "lightgreen") +
+  theme_clean()
 ```
 
 ## Reading vs Science with Math
@@ -481,8 +386,8 @@ ggplot(data = PV_Avg,
   ggtitle("Reading vs Science with Math") +
   labs(x = "Reading Score", y = "Science Score", color = "Math Score") +
   scale_color_continuous("Math Score", breaks = seq(200, 800, by = 100), 
-                          low = "darkgreen", high = "lightgreen") +
-  theme_bw()
+                          low = "red", high = "pink") +
+  theme_clean()
 ```
 :::
 
@@ -526,12 +431,12 @@ ggplot(data = PV_Avg_gender,
            fill = as.factor(gender))) +
   geom_histogram(bins = 20, 
                  color = "black") +
-  scale_fill_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_fill_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                     breaks = c("1", "2"), 
                     labels = c("Female", "Male")) +
   labs(fill = "Gender", x = "Math Score") +
   ggtitle("Performance of Math by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 
 ## Reading
@@ -546,12 +451,12 @@ ggplot(data = PV_Avg_gender,
            fill = as.factor(gender))) +
   geom_histogram(bins = 20, 
                  color = "black") +
-  scale_fill_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_fill_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                     breaks = c("1", "2"), 
                     labels = c("Female", "Male")) +
   labs(fill = "Gender", x = "Reading Score") +
   ggtitle("Performance of Reading by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 
 ## Science
@@ -566,12 +471,12 @@ ggplot(data = PV_Avg_gender,
            fill = as.factor(gender))) +
   geom_histogram(bins = 20, 
                  color = "black") +
-  scale_fill_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_fill_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                     breaks = c("1", "2"), 
                     labels = c("Female", "Male")) +
   labs(fill = "Gender", x = "Science Score") +
   ggtitle("Performance of Science by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 :::
 
@@ -597,12 +502,12 @@ ggplot(data = PV_Avg_gender,
        aes(x = Avg_PVMath, 
            color = as.factor(gender))) +
   geom_density(alpha = 0, size = 1) +
-  scale_color_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_color_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                      breaks = c("1", "2"), 
                      labels = c("Female", "Male")) +
   labs(color = "Gender", x = "Math Score") +
   ggtitle("Density Plot of Math Performance by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 
 ## Reading
@@ -616,12 +521,12 @@ ggplot(data = PV_Avg_gender,
        aes(x = Avg_PVRead, 
            color = as.factor(gender))) +
   geom_density(alpha = 0, size = 1) +
-  scale_color_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_color_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                      breaks = c("1", "2"), 
                      labels = c("Female", "Male")) +
   labs(color = "Gender", x = "Reading Score") +
   ggtitle("Density Plot of Reading Performance by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 
 ## Science
@@ -634,12 +539,12 @@ ggplot(data = PV_Avg_gender,
        aes(x = Avg_PVScience, 
            color = as.factor(gender))) +
   geom_density(alpha = 0, size = 1) +
-  scale_color_manual(values = c("1" = "pink", "2" = "lightblue"), 
+  scale_color_manual(values = c("1" = "tomato", "2" = "dodgerblue"), 
                      breaks = c("1", "2"), 
                      labels = c("Female", "Male")) +
   labs(color = "Gender", x = "Science Score") +
   ggtitle("Density Plot of Science Performance by Gender") +
-  theme_bw()
+  theme_clean()
 ```
 :::
 
@@ -723,11 +628,11 @@ Let's see the schools performance by dot plot.
 #| code-summary: "Show the code"
 #| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVMath)) +
-  geom_point() +
+  geom_point(color = "dodgerblue") +
   geom_smooth(formula = y~x, method = lm) +
   ggtitle("Dot Plot of Math Score by School") +
-  labs(y = "Math Score") +
-  theme_bw()
+  labs(x = "School ID", y = "Math Score") +
+  theme_clean()
 ```
 
 ## School vs Reading
@@ -737,11 +642,11 @@ ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVMath)) +
 #| code-summary: "Show the code"
 #| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVRead)) +
-  geom_point() +
+  geom_point(color = "forestgreen") +
   geom_smooth(formula = y~x, method = lm) +
   ggtitle("Dot Plot of Reading Score by School") +
-  labs(y = "Reading Score") +
-  theme_bw()
+  labs(x = "School ID", y = "Reading Score") +
+  theme_clean()
 ```
 
 ## School vs Science
@@ -751,11 +656,11 @@ ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVRead)) +
 #| code-summary: "Show the code"
 #| code-overflow: scroll
 ggplot(data = PV_Avg_school_group, aes(x = school, y = School_Avg_PVScience)) +
-  geom_point() +
+  geom_point(color = "tomato") +
   geom_smooth(formula = y~x, method = lm) +
   ggtitle("Dot Plot of Science Score by School") +
-  labs(y = "Science Score") +
-  theme_bw()
+  labs(x = "School ID", y = "Science Score") +
+  theme_clean()
 ```
 :::
 
@@ -777,20 +682,223 @@ From the three dot plots above, we can get:
 
 ## 4.3 Socioeconomic status
 
-The code chunk below is for creating another data set which includes SG **socioeconomic status** and performance scores in **Math**, **Read** and **Science**. The new data set was saved as **stu_qqq_SG_PV_Avg_status.rds**.
+### 4.3.1 Parent's Highest Education Level
+
+![](images/ISCED-levels.png){fig-align="center"}
+
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| code-overflow: scroll
-PV_Avg_status <- cbind(PV_Avg, status = stu_qqq_SG$ST259Q01JA)
-write_rds(PV_Avg_status, "data/stu_qqq_SG_PV_Avg_status.rds")
-head(PV_Avg_status)
+
+# Mom's edu level
+MomEdu <- cbind(stu_qqq_SG[, c("CNTSTUID", "ST006Q01JA", "ST006Q02JA", "ST006Q03JA", "ST006Q04JA", "ST006Q05JA")])
+
+get_highest_level <- function(row) {
+  level_column <- grep("^ST006Q", names(row))
+  if (any(!is.na(row[level_column]) & row[level_column] == 1)) {
+    max_level_index <- which.max(row[level_column] == 1)
+    return(9 - max_level_index)
+  } else {
+    return("<4")
+  }
+}
+MomEdu$Mom_Level <- apply(MomEdu, 1, get_highest_level)
+
+# Dad's edu level
+DadEdu <- cbind(stu_qqq_SG[, c("CNTSTUID", "ST008Q01JA", "ST008Q02JA", "ST008Q03JA", "ST008Q04JA", "ST008Q05JA")])
+
+get_highest_level <- function(row) {
+  level_column <- grep("^ST008Q", names(row))
+  if (any(!is.na(row[level_column]) & row[level_column] == 1)) {
+    max_level_index <- which.max(row[level_column] == 1)
+    return(9 - max_level_index)
+  } else {
+    return("<4")
+  }
+}
+DadEdu$Dad_Level <- apply(DadEdu, 1, get_highest_level)
+
+#Get the highest edu level
+Parent_edu_level <- bind_cols(select(MomEdu, CNTSTUID, Mom_Level), select(DadEdu, Dad_Level)) %>%
+  mutate(Parent_highest_level = pmax(Mom_Level, Dad_Level, na.rm = TRUE))
+write_rds(Parent_edu_level, "data/stu_qqq_SG_Parent_edu_level.rds")
+
+PV_Avg_Parent_edu_highestlevel <- cbind(PV_Avg, Parent_highest_level = Parent_edu_level$Parent_highest_level)
+write_rds(PV_Avg_Parent_edu_highestlevel, "data/stu_qqq_SG_PV_Avg_Parent_edu_highestlevel.rds")
+
+head(PV_Avg_Parent_edu_highestlevel)
 ```
 
+::: panel-tabset
+## Parent's Highest Edu Level vs Math Score
 
-### 4.3.1 Analyse
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data=PV_Avg_Parent_edu_highestlevel, aes(x = Avg_PVMath, fill = Parent_highest_level)) +
+  geom_density(alpha = 1, color = NA) +
+  facet_grid(Parent_highest_level ~ ., scales = "free_y", switch = "y") +
+  scale_fill_brewer(palette = "Blues") +
+  labs(x = "Math Score", fill = "<ISCED> Level") +
+  ggtitle("Density Plots of Math Score by Parent's Highest Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
 
-### 4.3.2 Summary
+## Parent's Highest Edu Level vs Reading Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data=PV_Avg_Parent_edu_highestlevel, aes(x = Avg_PVRead, fill = Parent_highest_level)) +
+  geom_density(alpha = 1, color = NA) +
+  facet_grid(Parent_highest_level ~ ., scales = "free_y", switch = "y") +
+  scale_fill_brewer(palette = "Greens") +
+  labs(x="Reading Score", fill = "<ISCED> level") +
+  ggtitle("Density Plots of Reading Score by Parent's Highest Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
+
+## Parent's Highest Edu Level vs Science Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data=PV_Avg_Parent_edu_highestlevel, aes(x = Avg_PVScience, fill = Parent_highest_level)) +
+  geom_density(alpha = 1, color = NA) +
+  facet_grid(Parent_highest_level ~ ., scales = "free_y", switch = "y") +
+  scale_fill_brewer(palette = "Reds") +
+  labs(x="Science Score", fill = "<ISCED> level") +
+  ggtitle("Density Plots of Science Score by Parent's Highest Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
+:::
+
+::: panel-tabset
+## Parent's Highest Edu Level vs Math Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_Parent_edu_highestlevel, aes(x = Parent_highest_level, y = Avg_PVMath, fill = Parent_highest_level)) +
+  geom_violin() +
+  geom_boxplot(width = 0.3, fill = "white", color = "black", alpha = 1) +
+  scale_fill_brewer(palette = "Blues") +
+  labs(x = "Parent's highest <ISCED> level", y = "Math Score", fill = "<ISCED> level") +
+  ggtitle("Violin Plots with Boxplots of Math Score by Parent's Highest Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
+
+## Parent's Highest Edu Level vs Reading Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_Parent_edu_highestlevel, aes(x = Parent_highest_level, y = Avg_PVRead, fill = Parent_highest_level)) +
+  geom_violin() +
+  geom_boxplot(width = 0.3, fill = "white", color = "black", alpha = 1) +
+  scale_fill_brewer(palette = "Greens") +
+  labs(x = "Parent's highest <ISCED> level", y = "Math Score", fill = "<ISCED> level") +
+  ggtitle("Violin Plots with Boxplots of Reading Score by Parent's Highest Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
+
+## Parent's Highest Edu Level vs Science Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_Parent_edu_highestlevel, aes(x = Parent_highest_level, y = Avg_PVScience, fill = Parent_highest_level)) +
+  geom_violin() +
+  geom_boxplot(width = 0.3, fill = "white", color = "black", alpha = 1) +
+  scale_fill_brewer(palette = "Reds") +
+  labs(x = "Parent's highest <ISCED> level", y = "Science Score", fill = "<ISCED> level") +
+  ggtitle("Violin Plots with Boxplots of Science Score by Parent's Education Level") +
+  theme_clean() +
+  theme(
+    plot.title = element_text(size = 12)
+  )
+```
+:::
+
+### 4.3.2 Home Possessions
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+HOMOPOS <- stu_qqq_SG %>%
+  mutate(HOMOPOS_Number = coalesce(ST251Q01JA, 0) +
+                              coalesce(ST251Q02JA, 0) +
+                              coalesce(ST251Q03JA, 0) +
+                              coalesce(ST251Q04JA, 0) +
+                              coalesce(ST251Q06JA, 0) +
+                              coalesce(ST251Q07JA, 0) +
+                              coalesce(ST253Q01JA, 0) +
+                              coalesce(ST255Q01JA, 0))
+PV_Avg_HOMOPOS <- cbind(PV_Avg, Home_Possessions = HOMOPOS$HOMOPOS_Number)
+write_rds(PV_Avg_HOMOPOS, "data/stu_qqq_SG_PV_Avg_HOMOPOS.rds")
+head(PV_Avg_HOMOPOS)
+```
+
+::: panel-tabset
+## Home Processions vs Math Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_HOMOPOS, aes(x = factor(Home_Possessions), y = Avg_PVMath)) +
+  geom_boxplot(width = 0.5, fill = "lightblue") +
+  labs(x = "Home Possessions Count", y = "Math Score", title = "Boxplots of Home Possessions Count and Math Score") +
+  theme_clean()
+```
+
+## Home Processions vs Reading Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_HOMOPOS, aes(x = factor(Home_Possessions), y = Avg_PVRead)) +
+  geom_boxplot(width = 0.5, fill = "lightgreen") +
+  labs(x = "Home Possessions Count", y = "Reading Score", title = "Boxplots of Home Possessions Count and Reading Score") +
+  theme_clean()
+```
+
+## Home Processions vs Science Score
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| code-overflow: scroll
+ggplot(data = PV_Avg_HOMOPOS, aes(x = factor(Home_Possessions), y = Avg_PVScience)) +
+  geom_boxplot(width = 0.5, fill = "pink") +
+  labs(x = "Home Possessions Count", y = "Science Score", title = "Boxplots of Home Possessions Count and Science Score") +
+  theme_clean()
+```
+:::
 
 # Reference
 
