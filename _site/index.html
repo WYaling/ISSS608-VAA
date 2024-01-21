@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-filename','listing-date','listing-title','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-filename','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -231,16 +231,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla column-page">
-  <img src="images/DA.gif" class="about-image
-  rectangle " style="width: all;">
- <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-trestles column-page">
+  <div class="about-entity">
+    <img src="images/DA.gif" class="about-image
+  rectangle " style="width: 30em;">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Welcome to Yaling’s Visual Analysis Wonderland !</h1>
 </div>
 <div class="quarto-title-meta">
   </div>
-</header><main class="content column-page" id="quarto-document-content">
+</header>
+    <div class="about-links">
+  <a href="" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" class="about-link" rel="" target="">
+    <i class="bi bi-Email"></i>
+     <span class="about-link-text">Email</span>
+  </a>
+</div>
+  </div>
+  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 <p>At present, this website is for showcasing coursework of</p>
 <p><strong>ISSS608 Visual Analytics and Applications</strong></p>
 <p>Please kindly let me know if anything needs to be amended. Thanks for visiting.</p>
@@ -251,156 +264,133 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-hands-on">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-hands-on-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-hands-on'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-hands-on">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705849976552" data-listing-date-modified-sort="1705849976000" data-listing-reading-time-sort="8">
+<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="images/Exercise.jpg" class="thumbnail-image card-img" style="height: 3em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A Layered Grammar of Graphics: ggplot2 methods
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 11, 2024
 </div>
-<table class="quarto-listing-table table table-hover">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-File Name
-</th>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-Modified
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704902400000" data-listing-file-modified-sort="1705743072129" data-listing-date-modified-sort="1705743072000" data-listing-reading-time-sort="7" data-listing-title-sort="A Layered Grammar of Graphics: ggplot2 methods" data-listing-filename-sort="Hands-on_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="filename listing-filename">Hands-on_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-date">Jan 11, 2024</span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="title listing-title">A Layered Grammar of Graphics: ggplot2 methods</a>
-</td>
-<td>
-<span class="listing-file-modified">Jan 20, 2024</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705743096729" data-listing-date-modified-sort="1705743096000" data-listing-reading-time-sort="1" data-listing-title-sort="Importing Data" data-listing-filename-sort="In-class_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="filename listing-filename">In-class_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-date">Jan 13, 2024</span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="title listing-title">Importing Data</a>
-</td>
-<td>
-<span class="listing-file-modified">Jan 20, 2024</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1705334400000" data-listing-file-modified-sort="1705771272325" data-listing-date-modified-sort="1705771272000" data-listing-reading-time-sort="11" data-listing-title-sort="Beyond ggplot2 Fundamentals" data-listing-filename-sort="Hands-on_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="filename listing-filename">Hands-on_Ex02.qmd</a>
-</td>
-<td>
-<span class="listing-date">Jan 16, 2024</span>
-</td>
-<td>
-<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="title listing-title">Beyond ggplot2 Fundamentals</a>
-</td>
-<td>
-<span class="listing-file-modified">Jan 21, 2024</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1705680000000" data-listing-file-modified-sort="1705735702338" data-listing-date-modified-sort="1705735702000" data-listing-reading-time-sort="1" data-listing-title-sort="Tableau Introduction" data-listing-filename-sort="In-class_Ex02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" class="filename listing-filename">In-class_Ex02.qmd</a>
-</td>
-<td>
-<span class="listing-date">Jan 20, 2024</span>
-</td>
-<td>
-<a href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" class="title listing-title">Tableau Introduction</a>
-</td>
-<td>
-<span class="listing-file-modified">Jan 20, 2024</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1705766400000" data-listing-file-modified-sort="1705846657641" data-listing-date-modified-sort="1705846657000" data-listing-reading-time-sort="55" data-listing-title-sort="Analysis of Singaporean Students' Performance" data-listing-filename-sort="Take-home_Ex01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-image"><img src="images/Exercise.jpg" style="height: 3em;"></span>
-</td>
-<td>
-<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="filename listing-filename">Take-home_Ex01.qmd</a>
-</td>
-<td>
-<span class="listing-date">Jan 21, 2024</span>
-</td>
-<td>
-<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="title listing-title">Analysis of Singaporean Students’ Performance</a>
-</td>
-<td>
-<span class="listing-file-modified">Jan 21, 2024</span>
-</td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-filename listing-filename">
+<p>Hands-on_Ex01.qmd</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1705075200000" data-listing-file-modified-sort="1705743096729" data-listing-date-modified-sort="1705743096000" data-listing-reading-time-sort="1">
+<a href="./In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="images/Exercise.jpg" class="thumbnail-image card-img" style="height: 3em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Importing Data
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 13, 2024
+</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-filename listing-filename">
+<p>In-class_Ex01.qmd</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1705334400000" data-listing-file-modified-sort="1705771272325" data-listing-date-modified-sort="1705771272000" data-listing-reading-time-sort="11">
+<a href="./Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="images/Exercise.jpg" class="thumbnail-image card-img" style="height: 3em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Beyond ggplot2 Fundamentals
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 16, 2024
+</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-filename listing-filename">
+<p>Hands-on_Ex02.qmd</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1705680000000" data-listing-file-modified-sort="1705735702338" data-listing-date-modified-sort="1705735702000" data-listing-reading-time-sort="1">
+<a href="./In-class_Ex/In-class_Ex02/In-class_Ex02.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="images/Exercise.jpg" class="thumbnail-image card-img" style="height: 3em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tableau Introduction
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 20, 2024
+</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-filename listing-filename">
+<p>In-class_Ex02.qmd</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1705766400000" data-listing-file-modified-sort="1705850508817" data-listing-date-modified-sort="1705850508000" data-listing-reading-time-sort="55">
+<a href="./Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="images/Exercise.jpg" class="thumbnail-image card-img" style="height: 3em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Analysis of Singaporean Students’ Performance
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 21, 2024
+</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-filename listing-filename">
+<p>Take-home_Ex01.qmd</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-Email"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
 </div>
  <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

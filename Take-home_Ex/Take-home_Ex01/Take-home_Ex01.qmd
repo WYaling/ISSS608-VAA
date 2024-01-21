@@ -69,7 +69,7 @@ In this report, only "Vocational Training" and "Home Possessions" from the above
 "Vocational Training" is reflected as the following two questions in the questionnaire.
 
 | ST006 Mother's Educational level                                                                                                         | ST008 Father's Educational level                                                                                        |
-|--------------------------------------|----------------------------------|
+|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | [![](images/ST006.png){fig-align="left" width="293"}](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST008.png){width="292"}](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) |
 
 By comparing parents' educational levels, this report will analyze student performance based on the highest education level attained by the parents.
@@ -77,7 +77,7 @@ By comparing parents' educational levels, this report will analyze student perfo
 Selecting the following questions in the question to represent "Home Possessions":
 
 | ST251                                                                                                      | ST253                                                                                                      | ST255                                                                                                      |
-|------------------------|------------------------|------------------------|
+|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | [![](images/ST251.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST253.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST255.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) |
 
 This report represents "Home Possessions" by adding the first six values of ST251 with the values of ST253 and ST255.
@@ -197,7 +197,7 @@ p1+p2+p3+p4
  
 ```
 
-The four histograms above all illustrate a left-skewed distribution, indicating that the scores are concentrated around higher values. Additionally, the dashed line in the graphs shows a mean score lower than the median. This could be attributed to some students with extremely low scores, pulling down the mean. 
+The four histograms above all illustrate a left-skewed distribution, indicating that the scores are concentrated around higher values. Additionally, the dashed line in the graphs shows a mean score lower than the median. This could be attributed to some students with extremely low scores, pulling down the mean.
 
 **Box plot**
 
@@ -670,6 +670,8 @@ p18 <- ggplot(data = PV_Avg_gender,
            legend.text = element_text(size = 8),  
            legend.title = element_text(size = 8)) 
 
+
+
 p19 <- ggplot(data = PV_Avg_gender, 
               aes(x = as.factor(gender), y = Avg_PVOverall, fill = as.factor(gender))) +
          geom_violin(trim = FALSE) +
@@ -685,6 +687,9 @@ p19 <- ggplot(data = PV_Avg_gender,
            axis.title = element_text(size = 8),  
            legend.text = element_text(size = 8),  
            legend.title = element_text(size = 8)) 
+
+
+
 
 p16 + p17 + p18 + p19
 
@@ -1076,7 +1081,7 @@ Nesxt, let's see how HOMOPOS influence students' performance.
 #| code-overflow: scroll
 ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVMath)) +
   geom_boxplot(width = 0.5, fill = "lightblue") +
-  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", size = 1) +  
+  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", linewidth = 1) +  
   labs(x = "HOMEPOS", y = "Math Score", title = "Distribution of Math Scores by HOMEPOS") +
   theme_classic()
 ```
@@ -1089,7 +1094,7 @@ ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVMath))
 #| code-overflow: scroll
 ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVRead)) +
   geom_boxplot(width = 0.5, fill = "lightgreen") +
-  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", size = 1) +  
+  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", linewidth = 1) +  
   labs(x = "HOMEPOS", y = "Reading Score", title = "Distribution of Reading Scores by HOMEPOS") +
   theme_classic()
 ```
@@ -1102,7 +1107,7 @@ ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVRead))
 #| code-overflow: scroll
 ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVScience)) +
   geom_boxplot(width = 0.5, fill = "pink") +
-  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", size = 1) +  
+  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", linewidth = 1) +  
   labs(x = "HOMEPOS", y = "Science Score", title = "Distribution of Science Scores by HOMEPOS") +
   theme_classic()
 ```
@@ -1115,11 +1120,10 @@ ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVScienc
 #| code-overflow: scroll
 ggplot(data = PV_Avg_HOMEPOS, aes(x = factor(Home_Possessions), y = Avg_PVOverall)) +
   geom_boxplot(width = 0.5, fill = "#D2B4E8") +
-  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", size = 1) +  
+  stat_summary(fun = "median", geom = "line", aes(group = 1), color = "red", linewidth = 1) +  
   labs(x = "HOMEPOS", y = "Overall Score", title = "Distribution of Overall Scores by HOMEPOS") +
   theme_classic()
 ```
-
 :::
 
 Based on the observed trends from the above plots, we can see that:

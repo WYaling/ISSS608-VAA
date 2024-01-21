@@ -5,9 +5,9 @@ sidebar: false
 body-width: 1500px
 
 about:
-  template: jolla
+  template: trestles
   image: images/DA.gif
-  image-width: all
+  image-width: 30em
   image-shape: rectangle
   links:
     - icon: github
@@ -17,13 +17,13 @@ about:
       href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
 listing:
   - id: hands-on
-    type: table
+    type: grid
     date-format: medium
     contents: 
       - "Hands-on_Ex/*/*.qmd"
       - "In-class_Ex/*/*.qmd"
       - "Take-home_Ex/*/*.qmd"
-    fields: [image, filename, date, title, file-modified ]
+    fields: [image, filename, date, title]
     image-height: 3em
     image-placeholder: "images/Exercise.jpg"
     sort: "date"
