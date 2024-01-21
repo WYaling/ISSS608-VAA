@@ -38,7 +38,7 @@ website:
         - text: "9"
     - text: "Take-home Exercise"
       menu:
-        - text: "1. Creating Data Visualisation Beyond Default"
+        - text: "1. SG Students Performance Analysis"
           href: "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html"
         - text: "2"
         - text: "3"

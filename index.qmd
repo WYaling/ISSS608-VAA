@@ -7,7 +7,7 @@ body-width: 1500px
 about:
   template: trestles
   image: images/DA.gif
-  image-width: all
+  image-width: 30em
   image-shape: rectangle
   links:
     - icon: github
