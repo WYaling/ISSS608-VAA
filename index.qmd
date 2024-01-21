@@ -5,9 +5,9 @@ sidebar: false
 body-width: 1500px
 
 about:
-  template: trestles
+  template: jolla
   image: images/DA.gif
-  image-width: 30em
+  image-width: all
   image-shape: rectangle
   links:
     - icon: github
