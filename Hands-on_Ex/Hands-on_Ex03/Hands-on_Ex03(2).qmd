@@ -11,3 +11,30 @@ excute:
   warning: false
 editor: visual
 ---
+
+# 1. Basic concepts of animation
+
+![](images/Basic_concept_of_animation.jpg){fig-align="center"}
+
+Before we dive into the steps for creating an animated statistical graph, it’s important to understand some of the key concepts and terminology related to this type of visualization.
+
+1.  **Frame**: In an animated line graph, each frame represents a different point in time or a different category. When the frame changes, the data points on the graph are updated to reflect the new data.
+
+2.  **Animation Attributes**: The animation attributes are the settings that control how the animation behaves. For example, you can specify the duration of each frame, the easing function used to transition between frames, and whether to start the animation from the current frame or from the beginning.
+
+```{r}
+#| code-fold: TRUE
+#| code-summary: "Show the code: load R packages"
+pacman::p_load(readxl, gifski, gapminder,
+               plotly, gganimate, tidyverse)
+```
+
+```{r}
+#| code-fold: TRUE
+#| code-summary: "Show the code: importing data"
+col <- c("Country", "Continent")
+globalPop <- read_xls("data/GlobalPopulation.xls",
+                      sheet="Data") %>%
+  mutate_each_(funs(factor(.)), col) %>%
+  mutate(Year = as.integer(Year))
+```
