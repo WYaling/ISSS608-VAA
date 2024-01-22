@@ -69,7 +69,7 @@ In this report, only "Vocational Training" and "Home Possessions" from the above
 "Vocational Training" is reflected as the following two questions in the questionnaire.
 
 | ST006 Mother's Educational level                                                                                                         | ST008 Father's Educational level                                                                                        |
-|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------|----------------------------------|
 | [![](images/ST006.png){fig-align="left" width="293"}](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST008.png){width="292"}](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) |
 
 By comparing parents' educational levels, this report will analyze student performance based on the highest education level attained by the parents.
@@ -77,7 +77,7 @@ By comparing parents' educational levels, this report will analyze student perfo
 Selecting the following questions in the question to represent "Home Possessions":
 
 | ST251                                                                                                      | ST253                                                                                                      | ST255                                                                                                      |
-|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+|------------------------|------------------------|------------------------|
 | [![](images/ST251.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST253.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) | [![](images/ST255.png)](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf) |
 
 This report represents "Home Possessions" by adding the first six values of ST251 with the values of ST253 and ST255.
@@ -820,7 +820,7 @@ From plots above, we can get the following observation:
 
 2.  In the box plots, the median line within the box for mathematics scores is the highest, indicating a higher median score. This implies that the median performance of students in mathematics is relatively better in Singaporean schools. The median line for science scores is the second-highest, suggesting a relatively higher median performance in science, though not surpassing mathematics. The lowest median line is observed in the box for reading scores, indicating a relatively lower median performance in reading. Overall, it can be inferred that students in Singaporean schools perform better in mathematics compared to science, and science performance is better than reading.
 
-3.  Three schools, namely "70200001," "702001010," and "70200003," exhibit consistently high scores across all subjects and overall performance. On the other hand, two schools, "70200115" and "70200149," consistently display low scores across all subjects and overall performance.
+3.  Three schools, namely "70200001," "702001010," and "70200003," exhibit consistently high scores across subjects and overall performance. On the other hand, two schools, "70200115" and "70200149," consistently display low scores across all subjects and overall performance.
 
 ### 4.2.2 Summary
 
