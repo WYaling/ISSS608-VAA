@@ -26,8 +26,8 @@ listing:
     fields: [image, filename, date, title]
     image-height: 3em
     image-placeholder: "images/Exercise.jpg"
-    sort: "date"
-    max-items: 9
+    sort: "date desc"
+    max-items: 3
     table-hover: true
 
 ---
