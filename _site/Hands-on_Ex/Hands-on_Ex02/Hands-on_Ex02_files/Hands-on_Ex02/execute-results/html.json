@@ -1,0 +1,14 @@
+{
+  "hash": "b5fdb6150f1e1d7372819d76636c714a",
+  "result": {
+    "markdown": "---\ntitle: \"Beyond ggplot2 Fundamentals\"\ntitle-block-banner: \"#F0FFFF\"\nauthor: \"Wang Yaling\"\ndate: \"Jan 16, 2024\"\ndate-modified: last-modified\ndate-format: medium\nexcute:\n  eval: true\n  echo: true\n  warning: false\neditor: visual\nabstract: \n    This hands-on exercise will showcase several ggplot2 extensions for creating more elegant and effective statistical graphics. The following packages will be practiced:ggrepel, ggthemes, hrbrthemes and patchwork.\n---\n\n\n# 1. Getting started\n\n## 1.1 Installing and loading the required libraries\n\nBeside `tidyverse` , the below R packages will be utilised in this exercise:\n\n| Package      | Function                                                             |\n|------------------|------------------------------------------------------|\n| `ggrepel`    | provides geoms for ggplot2 to repel overlapping text labels.         |\n| `ggthemes`   | provides some extra themes, geoms, and scales for ggplot2.           |\n| `hrbrthemes` | provides typography-centric themes and theme components for ggplot2. |\n| `patchwork`  | for preparing composite figure created using ggplot2.                |\n\n\n::: {.cell}\n\n```{.r .cell-code}\npacman::p_load(ggrepel, patchwork, ggthemes, hrbrthemes, tidyverse) \n```\n:::\n\n\n## 1.2 Importing data\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

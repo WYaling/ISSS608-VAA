@@ -29,14 +29,12 @@ listing:
     sort: "date desc"
     max-items: 3
     table-hover: true
-
 ---
 
-
-At present, this website is for showcasing coursework of 
+At present, this website is for showcasing coursework of
 
 **ISSS608 Visual Analytics and Applications**
 
-Please kindly let me know if anything needs to be amended. Thanks for visiting. 
+Please kindly let me know if anything needs to be amended. Thanks for visiting.
 
 ![](images/New_post.gif){fig-align="center" width="266"}

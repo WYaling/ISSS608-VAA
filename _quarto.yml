@@ -42,7 +42,8 @@ website:
       menu:
         - text: "1. SG Students Performance Analysis"
           href: "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html"
-        - text: "2"
+        - text: "2. Peer Critique & DataVis Makeover"
+          href: "Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html"        
         - text: "3"
     - text: "Project"
       menu:
@@ -59,15 +60,15 @@ website:
           - text: Source Code
           - text: Report a bug
           
-  sidebar:
-    contents: auto
-    location: sidebar
-    style: "docked"
-    search: true
-    background: secondary
-    foreground: primary
-    alignment: left
-    pinned: true
+  #sidebar:
+    #contents: auto
+    #location: sidebar
+    #style: "docked"
+    #search: true
+    #background: secondary
+    #foreground: primary
+    #alignment: left
+    #pinned: true
 
   search: 
     location: sidebar
@@ -87,13 +88,14 @@ format:
     theme: cerulean
     mainfont: Times New Roman
     fontsize: 1 em
+    color: black
     linestretch: 1.5
     grid:
       sidebar-width: 300px
       body-width: 900px
       margin-width: 300px
       gutter-width: 1.5rem
-    html-math-method: katex
+
     css: styles.css
     code-block-bg: true
     code-block-border-left: "#31BAE9"
