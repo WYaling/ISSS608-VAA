@@ -18,8 +18,8 @@ editor: visual
 
 This document is intended for the evaluation of take-home exercise 1 by [a fellow classmate](https://isss608-ay2024-gaoya.netlify.app/take-home_ex/take-home_ex01/take-home_ex01), with criteria including **clarity** and **aesthetics**. Drawing upon the data visualization design principles and best practices learned in the **ISSS608-VAA** course, sketches for alternative design are prepared. The redesign is implemented using `ggplot2`, `ggplot2` extensions, and `tidyverse` packages, while staying within the confines of the provided data set fields.
 
-::: {style="color: black;  font-size: 13px; padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
-***Review of Take-home Exercise 1***
+::: {style="color: black;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
+**Review of Take-home Exercise 1**
 
 This exercise utilizes [the PISA 2022 data set](https://www.oecd.org/pisa/data/2022database/) (referred to as the "student question data file"). The tasks are to use appropriate Exploratory Data Analysis (EDA) methods and ggplot2 functions to reveal:
 
