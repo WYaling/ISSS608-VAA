@@ -1,7 +1,6 @@
 ---
-page-layout: article
+page-layout: full
 sidebar: false
-body-width: 1000px
 toc: false
 
 listing:
@@ -32,21 +31,17 @@ listing:
     fields: [image, date, title, reading-time]
 ---
 
-::: {style="color:#5DADE2; font-size: 45px; font-family: Georgia Pro Black; text-align:center; text-decoration-thickness: 25%"}
+::: {style="color:#5DADE2; font-size: 55px; font-family: Georgia Pro Black; text-align:center; text-decoration-thickness: 25%"}
 Welcome to Yaling's Visual Analysis Wonderland !
 :::
 
 ![](images/Visual_analysis_wonderland.gif)
 
-::: {style="text-align: center; color: black; font-size: 16px;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
-![](images/Computer_girl.png){width="100"}
-
-At present, this website is for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
-
-Please kindly let me know if anything needs to be amended. Thanks for visiting.
+::: {style="text-align: center; color: black; font-size: 18px;  padding: 0px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 5px;border-radius: 12px;"}
+![](images/Computer_girl.png){width="69"}At present, this website is only for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
 :::
 
-![](images/New_post.gif){fig-align="center" width="330"}
+![](images/New_post.gif){fig-align="center" width="356"}
 
 ## Hands-on Exercise
 
