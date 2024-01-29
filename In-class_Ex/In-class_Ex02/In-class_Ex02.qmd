@@ -1,5 +1,5 @@
 ---
-title: "Tableau Introduction"
+title: "Tableau01: Make a Chart"
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
 date: "Jan 20, 2024"
@@ -12,6 +12,8 @@ excute:
 editor: visual
 ---
 
-Link to Tableau Public:
+![](images/Tableau_logo.png){fig-align="center" width="323"}
 
-[Tableau Practice of Lesson 2](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Exercise01_17057348426950/MonthlySalesProfitbyRegion2016-2019?publish=yes)
+Exercise: Make a chart in tableau
+
+[Tableau Practice of Lesson 2](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Ex02_17063381054460/MonthlySalesProfitbyRegion2016-2019)

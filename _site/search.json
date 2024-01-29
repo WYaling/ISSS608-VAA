@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to Yaling’s Visual Analysis Wonderland !",
+    "title": "Yaling's VAA journey",
     "section": "",
-    "text": "At present, this website is for showcasing coursework of\nISSS608 Visual Analytics and Applications\nPlease kindly let me know if anything needs to be amended. Thanks for visiting.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPeer Critique & DataVis Makeover\n\n\n\nJan 26, 2024\n\n\n\n\n\nTake-home_Ex02.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nProgramming Interactive Data Visualisation with R\n\n\n\nJan 22, 2024\n\n\n\n\n\nHands-on_Ex03(1).qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nProgramming Animated Statistical Graphics with R\n\n\n\nJan 22, 2024\n\n\n\n\n\nHands-on_Ex03(2).qmd\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Welcome to Yaling’s Visual Analysis Wonderland !"
   },
   {
     "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html",
@@ -65,14 +65,14 @@
   {
     "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
     "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#loading-r-packages",
-    "title": "Importing Data",
-    "section": "",
-    "text": "In this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
+    "title": "Importing Data in R",
+    "section": "Loading R packages",
+    "text": "Loading R packages\nIn this hands-on exercise, two R packages will be used. They are: tidyverse, and haven.\nThe code chunk used is as follows:\n\npacman::p_load(tidyverse,haven)"
   },
   {
     "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
     "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#importing-pisa-data",
-    "title": "Importing Data",
+    "title": "Importing Data in R",
     "section": "Importing PISA data",
     "text": "Importing PISA data\nThe code chunk below uses read_sas() of haven to import PISA data (Student questionnaire data file) into environment.\n\nstu_qqq&lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nFilter the table using filter()\n\nstu_qqq_SG &lt;- stu_qqq %&gt;% filter(CNT == \"SGP\")\n\nWrite records into the data file.\n\nwrite_rds(stu_qqq_SG, \"data/stu_qqq_SG.rds\")\n\nRead data file.\n\nstu_qqq_SG &lt;- read_rds(\"data/stu_qqq_SG.rds\")"
   },
@@ -268,9 +268,9 @@
   {
     "objectID": "In-class_Ex/In-class_Ex02/In-class_Ex02.html",
     "href": "In-class_Ex/In-class_Ex02/In-class_Ex02.html",
-    "title": "Tableau Introduction",
+    "title": "Tableau01: Make a Chart",
     "section": "",
-    "text": "Link to Tableau Public:\nTableau Practice of Lesson 2\n\n\n\n Back to top"
+    "text": "Exercise: Make a chart in tableau\nTableau Practice of Lesson 2\n\n\n\n Back to top"
   },
   {
     "objectID": "Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html#chart-1",
@@ -299,5 +299,40 @@
     "title": "Peer Critique & DataVis Makeover",
     "section": "3.4 Chart 4",
     "text": "3.4 Chart 4\n\nOriginal Design\n\n\n\nCritique\n\n\nClarity:\n\nGood Points:\n\nRed dashed lines are used to indicate the positions of the means, and a legend has been added to explain the colors corresponding to different groups.\n\nWeek Points:\n\nIt’s unclear what ISCED levels 2, 3, 4, and 5 represent.\nIt’s unclear whether the four density plots share the same X-axis scale.\n\n\nAesthetics:\n\nGood Points:\n\nDifferent groups have been distinguished by color, and the colors are gradient because the groups are related.\nThe mean lines are designed as red dashed lines.\n\nWeek Points:\n\nThe density plot has different Y-axis density scales.\nThe plot title is too long.\nThe subtitle is off-center to the left, affecting the symmetry of the graph.\nThe starting scale value on the X-axis is too large, causing some group density plots to be incomplete.\n\n\n\n\n\nRedesign\n\n\nShow the code: redesign sketch\n# Define the conversion rules\nstu_df &lt;- stu_df %&gt;%\n  mutate(Education_level = case_when(\n    Education_mother == 5 ~ \"Did not complete &lt;ISCED level 1&gt;\",\n    Education_mother == 4 ~ \"&lt;ISCED level 1&gt;\",\n    Education_mother == 3 ~ \"&lt;ISCED level 2&gt;\",\n    Education_mother == 2 ~ \"&lt;ISCED level 3.3&gt;\",\n    TRUE ~ as.character(Education_mother)  # Keep other values as is\n  ))\n\n# Calculate the cumulative distribution function (CDF) for Math_Average\ncdf_values &lt;- ecdf(stu_df$Math_Average)\n\n# Create a new variable for tail probability based on CDF\nstu_df &lt;- stu_df %&gt;%\n  mutate(Tail_Probability = 0.5 - abs(0.5 - cdf_values(Math_Average)))\n\np4 &lt;- ggplot(na.omit(stu_df), aes(x = Math_Average, y = Education_level, fill = 0.5 - abs(0.5 - stat(ecdf)))) +\n  stat_density_ridges(geom = \"density_ridges_gradient\", calc_ecdf = TRUE, bandwidth = 45) +\n  labs(title = \"Mother's Education Level vs. Math Score Distribution\",\n       x = \"Math Score\", \n       y = \"Education Level\",\n       fill = \"Density of Math Score\") +\n  theme_classic() +\n  theme(legend.position = \"right\", \n        plot.background = element_rect(fill = \"white\", color = NA),  \n        panel.background = element_rect(fill = \"white\", color = NA),  \n        plot.title = element_text(hjust = 0.5, size = 30, face = \"bold\"),  \n        plot.margin = margin(20,20,20,20),\n        axis.title = element_text(size = 15, face = \"bold\"),\n        axis.title.y = element_text(size = 15, face = \"bold\"),\n        axis.text = element_text(size = 15),  \n        axis.text.y = element_text(size = 15,margin = margin(t = 1, r = 0, b = 0, l = -10)),\n        legend.text = element_text(size = 15),  \n        legend.title = element_text(size = 15))\n\nggsave(\"images/Redesign4.jpg\", width = 30, height = 20, units = \"cm\")\n\n\n\n\nOptimized Points：\n\nThe plot title is centered, and both the title and axis titles are bold and enlarged.\nThe title has been renamed to make it straightforward and concise.\nGroups are now named according to ISCED level and are presented on the Y-axis, while the X-axis represents math scores.\nDensity curves are filled with gradient colors, where lighter colors indicate higher density. The color gradient rules are explained in the legend on the right side of the graph.\nThe red mean lines have been removed. Instead, comparisons between groups are made using gradient color and peak of the density plot, as the central light portion of the gradient color precisely represents the 50% position.\n\nThe improved graph clearly illustrates the density distribution of mathematics scores for different ISCED levels. By comparing the positions of the peaks in each graph or examining the location of the lightest color areas, readers can understand the differences in mathematics scores among children of mothers with different educational levels. For instance, in the graph, when the mother’s education level is ISCED level 3.3, their children tend to have higher mathematics scores compared to other levels. This is because the position of the lightest color area is furthest to the right, indicating that the higher 50% of the children are distributed in the higher score range. In contrast, the 50% score range for children in the other three levels is relatively lower."
+  },
+  {
+    "objectID": "index.html#hands-on-exercise",
+    "href": "index.html#hands-on-exercise",
+    "title": "Yaling's VAA journey",
+    "section": "Hands-on Exercise",
+    "text": "Hands-on Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nProgramming Interactive Data Visualisation with R\n\n\n20 min\n\n\n\nJan 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nProgramming Animated Statistical Graphics with R\n\n\n6 min\n\n\n\nJan 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBeyond ggplot2 Fundamentals\n\n\n11 min\n\n\n\nJan 16, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#in-class-exercise",
+    "href": "index.html#in-class-exercise",
+    "title": "Yaling's VAA journey",
+    "section": "In-class Exercise",
+    "text": "In-class Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nTableau02: Make Dashboard & Story\n\n\n1 min\n\n\n\nJan 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTableau01: Make a Chart\n\n\n1 min\n\n\n\nJan 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nImporting Data in R\n\n\n1 min\n\n\n\nJan 13, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#take-home-exercise",
+    "href": "index.html#take-home-exercise",
+    "title": "Yaling's VAA journey",
+    "section": "Take-home Exercise",
+    "text": "Take-home Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nPeer Critique & DataVis Makeover\n\n\n24 min\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis of Singaporean Students’ Performance\n\n\n55 min\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex03/In-class_Ex03.html",
+    "href": "In-class_Ex/In-class_Ex03/In-class_Ex03.html",
+    "title": "Tableau02: Make Dashboard & Story",
+    "section": "",
+    "text": "Exercise01: Make dashboards in Tableau\nIn-class_Ex03: Math vs English\nIn-class_Ex03: Superstore Sales and Profit Dashboard\n\n\n\nExercise02: Make story in Tableau\nIn-class_Ex03: Superstore Sales and Profit Story\n\n\n\n\n\n Back to top"
   }
 ]

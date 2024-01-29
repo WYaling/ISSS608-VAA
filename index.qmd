@@ -1,40 +1,64 @@
 ---
-title: "Welcome to Yaling's Visual Analysis Wonderland !"
-page-layout: full
+page-layout: article
 sidebar: false
-body-width: 1500px
+body-width: 1000px
+toc: false
 
-about:
-  template: trestles
-  image: images/DA.gif
-  image-width: 30em
-  image-shape: rectangle
-  links:
-    - icon: github
-      text: Github
-    - icon: Email
-      text: Email
-      href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
 listing:
-  - id: hands-on
+  - id: Hands-on_Ex
+    contents: "Hands-on_Ex/*/*.qmd"
     type: grid
-    date-format: medium
-    contents: 
-      - "Hands-on_Ex/*/*.qmd"
-      - "In-class_Ex/*/*.qmd"
-      - "Take-home_Ex/*/*.qmd"
-    fields: [image, filename, date, title]
-    image-height: 3em
-    image-placeholder: "images/Exercise.jpg"
     sort: "date desc"
     max-items: 3
-    table-hover: true
+    sort-ui: [title, date]
+    filter-ui: [title, date]
+    page-size: 15
+    fields: [image, date, title, reading-time]
+  - id: In-class_Ex
+    contents: "In-class_Ex/*/*.qmd"
+    type: grid
+    sort: "date desc"
+    max-items: 3
+    sort-ui: [title, date]
+    filter-ui: [title, date]
+    fields: [image, date, title, reading-time]
+  - id: Take-home_Ex
+    contents: "Take-home_Ex/*/*.qmd"
+    type: grid
+    sort: "date desc"
+    max-items: 3
+    sort-ui: [title, date]
+    filter-ui: [title, date]
+    fields: [image, date, title, reading-time]
 ---
 
-At present, this website is for showcasing coursework of
+::: {style="color:#5DADE2; font-size: 45px; font-family: Georgia Pro Black; text-align:center; text-decoration-thickness: 25%"}
+Welcome to Yaling's Visual Analysis Wonderland !
+:::
 
-**ISSS608 Visual Analytics and Applications**
+![](images/Visual_analysis_wonderland.gif)
+
+::: {style="text-align: center; color: black; font-size: 16px;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
+![](images/Computer_girl.png){width="100"}
+
+At present, this website is for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
 
 Please kindly let me know if anything needs to be amended. Thanks for visiting.
+:::
 
-![](images/New_post.gif){fig-align="center" width="266"}
+![](images/New_post.gif){fig-align="center" width="330"}
+
+## Hands-on Exercise
+
+::: {#Hands-on_Ex}
+:::
+
+## In-class Exercise
+
+::: {#In-class_Ex}
+:::
+
+## Take-home Exercise
+
+::: {#Take-home_Ex}
+:::

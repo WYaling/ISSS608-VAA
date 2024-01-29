@@ -1,0 +1,27 @@
+---
+title: "Tableau02: Make Dashboard & Story"
+title-block-banner: "#F0FFFF"
+author: "Wang Yaling"
+date: "Jan 27, 2024"
+date-modified: last-modified
+date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
+---
+
+# Exercise01: Make dashboards in Tableau
+
+[In-class_Ex03: Math vs English](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Ex03MathvsEnglish/Dashboard1)
+
+[In-class_Ex03: Superstore Sales and Profit Dashboard](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Ex03SuperstoreSalesandProfitDashboard/SuperstoreSalesandProfitDashboard)
+
+![](images/tableau-dashboard.png){width="398"}
+
+# Exercise02: Make story in Tableau
+
+[In-class_Ex03: Superstore Sales and Profit Story](https://public.tableau.com/app/profile/yaling.wang1911/viz/In-class_Ex03SuperstoreSalesandProfitStory_17063378098960/SuperstoreSalesandProfitStory)
+
+![](images/tableau-storyline.jpg){width="331"}

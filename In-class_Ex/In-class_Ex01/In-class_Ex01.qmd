@@ -1,5 +1,5 @@
 ---
-title: "Importing Data "
+title: "Importing Data in R"
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
 date: "Jan 13, 2024"
@@ -13,6 +13,8 @@ editor: visual
 abstract: 
     This lecture teached how to importing .sas data into R environment and how to filter data, by using tidyverse and haven packages.
 ---
+
+![](images/Tidyverse&Haven.png){fig-align="center" width="317"}
 
 ## Loading R packages
 
