@@ -1,0 +1,13 @@
+---
+title: "Visualising Uncertainty"
+title-block-banner: "#F0FFFF"
+author: "Wang Yaling"
+date: "Jan 30, 2024"
+date-modified: last-modified
+date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
+---
