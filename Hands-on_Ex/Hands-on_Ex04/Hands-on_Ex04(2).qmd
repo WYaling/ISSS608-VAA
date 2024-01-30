@@ -1,5 +1,5 @@
 ---
-title: "Visual Statistical Analysis"
+title: "Visual Statistical Analysis: add statistical information in chart"
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
 date: "Jan 30, 2024"
@@ -11,3 +11,218 @@ excute:
   warning: false
 editor: visual
 ---
+
+::: {style="color: black;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
+# Learning Outcome
+
+In this hands-on exercise, you will gain hands-on experience on using:
+
+-   ggstatsplot package to create visual graphics with rich statistical information,
+-   performance package to visualise model diagnostics, and
+-   parameters package to visualise model parameters
+:::
+
+# 1. Getting started
+
+The main R package used in this section is [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/).
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Load R packages"
+
+pacman::p_load(ggstatsplot, tidyverse)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Import data"
+
+exam <- read_csv("data/Exam_data.csv")
+```
+
+# 2. Examples of adding statistical information in the chart
+
+## 2.1 One-sample test: `gghistostats()`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: One-sample test(gghistostats)"
+
+set.seed(1234)  
+
+#Setting a seed ensures that the same random numbers are generated each time the code is run, aiding in achieving result reproducibility
+
+gghistostats(
+  data = exam,
+  x = ENGLISH,
+  type = "bayes",
+  test.value = 60,
+  xlab = "English scores"
+)
+
+```
+
+::: {style="color: black;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;"}
+**Unpacking the Bayes Factor:**
+
+In this hands-on exercise, you will gain hands-on experience on using:
+
+-   ggstatsplot package to create visual graphics with rich statistical information,
+-   performance package to visualise model diagnostics, and
+-   parameters package to visualise model parameters
+
+**How to interpret Bayes Factor:**
+
+A Bayes Factor can be any positive number. One of the most common interpretations is this one—first proposed by Harold Jeffereys (1961) and slightly modified by Lee and Wagenmakers in 2013.
+:::
+
+## 2.2 Two-sample mean test: `ggbetweenstats()`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Two-sample mean test(ggbetweenstats)"
+
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "np",
+  messages = FALSE
+)
+
+```
+
+## 2.3 Oneway ANOVA Test: `ggbetweenstats()`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code:  Oneway ANOVA Test(ggbetweenstats)"
+ggbetweenstats(
+  data = exam,
+  x = RACE, 
+  y = ENGLISH,
+  type = "p",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+
+::: callout-note
+-   “ns” → only non-significant
+-   “s” → only significant
+-   “all” → everything
+:::
+
+## 2.4 Significant Test of Correlation: `ggscatterstats()`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Significant Test of Correlation(ggscatterstats)"
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+
+## 2.5 Significant Test of Association (Depedence) : `ggbarstats`
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Significant Test of Association (Depedence) : (ggbarstats)"
+exam1 <- exam %>% 
+  mutate(MATHS_bins = 
+           cut(MATHS, 
+               breaks = c(0,60,75,85,100))
+)
+ggbarstats(exam1, 
+           x = MATHS_bins, 
+           y = GENDER)
+```
+
+# 3. Visualising Models
+
+## 3.1 Getting started
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Load R packages"
+
+pacman::p_load(readxl, performance, parameters, see)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Import data"
+car_resale <- read_xls("data/ToyotaCorolla.xls", 
+                       "data")
+car_resale
+```
+
+Notice that the output object ***car_resale*** is a tibble data frame.
+
+## 3.2 Build models
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Multiple Regression Model"
+model <- lm(Price ~ Age_08_04 + Mfg_Year + KM + 
+              Weight + Guarantee_Period, data = car_resale)
+model
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Model Diagnostic: checking for multicolinearity"
+check_collinearity(model)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Model Diagnostic: checking for multicolinearity"
+check_c <- check_collinearity(model)
+plot(check_c)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Model Diagnostic: checking normality assumption"
+model1 <- lm(Price ~ Age_08_04 + KM + 
+              Weight + Guarantee_Period, data = car_resale)
+check_n <- check_normality(model1)
+plot(check_n)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Model Diagnostic: Check model for homogeneity of variances"
+check_h <- check_heteroscedasticity(model1)
+plot(check_h)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Model Diagnostic: Complete check"
+#| eval: false
+check_model(model1)
+ggsave("images/ModelDiagnosticCompleteCheck.jpg", width = 30, height = 30, units = "cm")
+```
+
+![](images/ModelDiagnosticCompleteCheck.jpg){fig-align="center"}
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Visualising Regression Parameters: see methods"
+plot(parameters(model1))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Visualising Regression Parameters: ggcoefstats()"
+ggcoefstats(model1, 
+            output = "plot")
+```

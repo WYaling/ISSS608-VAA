@@ -8,7 +8,7 @@
 
 <meta name="author" content="Wang Yaling">
 
-<title>Yaling’s VAA journey - Visual Statistical Analysis</title>
+<title>Yaling’s VAA journey - Visual Statistical Analysis: add statistical information in chart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="next">
+<link href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html" rel="next">
 <link href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html" rel="prev">
 <link href="../../images/Web_logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -111,10 +145,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(2).html" rel="" target="">
  <span class="dropdown-text">4. Programming Animated Statistical Graphics with R</span></a>
   </li>  
-        <li class="dropdown-header">5</li>
-        <li class="dropdown-header">6</li>
-        <li class="dropdown-header">7</li>
-        <li class="dropdown-header">8</li>
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html" rel="" target="">
+ <span class="dropdown-text">5. Visualising Distribution: Ridgeline Plot &amp; Raincloud Plot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html" rel="" target="">
+ <span class="dropdown-text">6. Visual Statistical Analysis: add statistical information in chart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html" rel="" target="">
+ <span class="dropdown-text">7. Visualising Uncertainty</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(4).html" rel="" target="">
+ <span class="dropdown-text">8. Funnel Plots for Fair Comparisons</span></a>
+  </li>  
         <li class="dropdown-header">9</li>
     </ul>
   </li>
@@ -201,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hands-on Exercise</li><li class="breadcrumb-item"><a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html">Hands on Ex04</a></li><li class="breadcrumb-item"><a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html">Visual Statistical Analysis</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hands-on Exercise</li><li class="breadcrumb-item"><a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html">Hands on Ex04</a></li><li class="breadcrumb-item"><a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html">Visual Statistical Analysis: add statistical information in chart</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -214,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Visual Statistical Analysis</h1>
+      <h1 class="title">Visual Statistical Analysis: add statistical information in chart</h1>
                       </div>
   </div>
     
@@ -333,13 +379,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualising Distribution</span></a>
+ <span class="menu-text">Visualising Distribution: Ridgeline Plot &amp; Raincloud Plot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Visual Statistical Analysis</span></a>
+ <span class="menu-text">Visual Statistical Analysis: add statistical information in chart</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualising Uncertainty</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(4).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funnel Plots for Fair Comparisons</span></a>
   </div>
 </li>
       </ul>
@@ -459,7 +517,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcome" id="toc-learning-outcome" class="nav-link active" data-scroll-target="#learning-outcome">Learning Outcome</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">1. Getting started</a></li>
+  <li><a href="#examples-of-adding-statistical-information-in-the-chart" id="toc-examples-of-adding-statistical-information-in-the-chart" class="nav-link" data-scroll-target="#examples-of-adding-statistical-information-in-the-chart">2. Examples of adding statistical information in the chart</a>
+  <ul class="collapse">
+  <li><a href="#one-sample-test-gghistostats" id="toc-one-sample-test-gghistostats" class="nav-link" data-scroll-target="#one-sample-test-gghistostats">2.1 One-sample test: <code>gghistostats()</code></a></li>
+  <li><a href="#two-sample-mean-test-ggbetweenstats" id="toc-two-sample-mean-test-ggbetweenstats" class="nav-link" data-scroll-target="#two-sample-mean-test-ggbetweenstats">2.2 Two-sample mean test: <code>ggbetweenstats()</code></a></li>
+  <li><a href="#oneway-anova-test-ggbetweenstats" id="toc-oneway-anova-test-ggbetweenstats" class="nav-link" data-scroll-target="#oneway-anova-test-ggbetweenstats">2.3 Oneway ANOVA Test: <code>ggbetweenstats()</code></a></li>
+  <li><a href="#significant-test-of-correlation-ggscatterstats" id="toc-significant-test-of-correlation-ggscatterstats" class="nav-link" data-scroll-target="#significant-test-of-correlation-ggscatterstats">2.4 Significant Test of Correlation: <code>ggscatterstats()</code></a></li>
+  <li><a href="#significant-test-of-association-depedence-ggbarstats" id="toc-significant-test-of-association-depedence-ggbarstats" class="nav-link" data-scroll-target="#significant-test-of-association-depedence-ggbarstats">2.5 Significant Test of Association (Depedence) : <code>ggbarstats</code></a></li>
+  </ul></li>
+  <li><a href="#visualising-models" id="toc-visualising-models" class="nav-link" data-scroll-target="#visualising-models">3. Visualising Models</a>
+  <ul class="collapse">
+  <li><a href="#getting-started-1" id="toc-getting-started-1" class="nav-link" data-scroll-target="#getting-started-1">3.1 Getting started</a></li>
+  <li><a href="#build-models" id="toc-build-models" class="nav-link" data-scroll-target="#build-models">3.2 Build models</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -467,8 +545,329 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="learning-outcome" class="level1" style="color: black;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;">
+<h1>Learning Outcome</h1>
+<p>In this hands-on exercise, you will gain hands-on experience on using:</p>
+<ul>
+<li>ggstatsplot package to create visual graphics with rich statistical information,</li>
+<li>performance package to visualise model diagnostics, and</li>
+<li>parameters package to visualise model parameters</li>
+</ul>
+</section>
+<section id="getting-started" class="level1">
+<h1>1. Getting started</h1>
+<p>The main R package used in this section is <a href="https://indrajeetpatil.github.io/ggstatsplot/"><code>ggstatsplot</code></a>.</p>
+<div class="cell">
+<details>
+<summary>Show the code: Load R packages</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggstatsplot, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Import data</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>exam <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Exam_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 322 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): ID, CLASS, GENDER, RACE
+dbl (3): ENGLISH, MATHS, SCIENCE
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="examples-of-adding-statistical-information-in-the-chart" class="level1">
+<h1>2. Examples of adding statistical information in the chart</h1>
+<section id="one-sample-test-gghistostats" class="level2">
+<h2 class="anchored" data-anchor-id="one-sample-test-gghistostats">2.1 One-sample test: <code>gghistostats()</code></h2>
+<div class="cell">
+<details>
+<summary>Show the code: One-sample test(gghistostats)</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)  </span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#Setting a seed ensures that the same random numbers are generated each time the code is run, aiding in achieving result reproducibility</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">gghistostats</span>(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="at">data =</span> exam,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="at">x =</span> ENGLISH,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="at">type =</span> <span class="st">"bayes"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="at">test.value =</span> <span class="dv">60</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="at">xlab =</span> <span class="st">"English scores"</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div style="color: black;  padding: 15px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;border-radius: 12px;">
+<p><strong>Unpacking the Bayes Factor:</strong></p>
+<p>In this hands-on exercise, you will gain hands-on experience on using:</p>
+<ul>
+<li>ggstatsplot package to create visual graphics with rich statistical information,</li>
+<li>performance package to visualise model diagnostics, and</li>
+<li>parameters package to visualise model parameters</li>
+</ul>
+<p><strong>How to interpret Bayes Factor:</strong></p>
+<p>A Bayes Factor can be any positive number. One of the most common interpretations is this one—first proposed by Harold Jeffereys (1961) and slightly modified by Lee and Wagenmakers in 2013.</p>
+</div>
+</section>
+<section id="two-sample-mean-test-ggbetweenstats" class="level2">
+<h2 class="anchored" data-anchor-id="two-sample-mean-test-ggbetweenstats">2.2 Two-sample mean test: <code>ggbetweenstats()</code></h2>
+<div class="cell">
+<details>
+<summary>Show the code: Two-sample mean test(ggbetweenstats)</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggbetweenstats</span>(</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="at">data =</span> exam,</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="at">x =</span> GENDER, </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="at">y =</span> MATHS,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="at">type =</span> <span class="st">"np"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="at">messages =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="oneway-anova-test-ggbetweenstats" class="level2">
+<h2 class="anchored" data-anchor-id="oneway-anova-test-ggbetweenstats">2.3 Oneway ANOVA Test: <code>ggbetweenstats()</code></h2>
+<div class="cell">
+<details>
+<summary>Show the code: Oneway ANOVA Test(ggbetweenstats)</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggbetweenstats</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="at">data =</span> exam,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="at">x =</span> RACE, </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="at">y =</span> ENGLISH,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="at">type =</span> <span class="st">"p"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="at">mean.ci =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="at">pairwise.comparisons =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="at">pairwise.display =</span> <span class="st">"s"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="at">p.adjust.method =</span> <span class="st">"fdr"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  <span class="at">messages =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>“ns” → only non-significant</li>
+<li>“s” → only significant</li>
+<li>“all” → everything</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="significant-test-of-correlation-ggscatterstats" class="level2">
+<h2 class="anchored" data-anchor-id="significant-test-of-correlation-ggscatterstats">2.4 Significant Test of Correlation: <code>ggscatterstats()</code></h2>
+<div class="cell">
+<details>
+<summary>Show the code: Significant Test of Correlation(ggscatterstats)</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggscatterstats</span>(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="at">data =</span> exam,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="at">x =</span> MATHS,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="at">y =</span> ENGLISH,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="at">marginal =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="significant-test-of-association-depedence-ggbarstats" class="level2">
+<h2 class="anchored" data-anchor-id="significant-test-of-association-depedence-ggbarstats">2.5 Significant Test of Association (Depedence) : <code>ggbarstats</code></h2>
+<div class="cell">
+<details>
+<summary>Show the code: Significant Test of Association (Depedence) : (ggbarstats)</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>exam1 <span class="ot">&lt;-</span> exam <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">mutate</span>(<span class="at">MATHS_bins =</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>           <span class="fu">cut</span>(MATHS, </span>
+<span id="cb8-4"><a href="#cb8-4"></a>               <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">85</span>,<span class="dv">100</span>))</span>
+<span id="cb8-5"><a href="#cb8-5"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">ggbarstats</span>(exam1, </span>
+<span id="cb8-7"><a href="#cb8-7"></a>           <span class="at">x =</span> MATHS_bins, </span>
+<span id="cb8-8"><a href="#cb8-8"></a>           <span class="at">y =</span> GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="visualising-models" class="level1">
+<h1>3. Visualising Models</h1>
+<section id="getting-started-1" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-1">3.1 Getting started</h2>
+<div class="cell">
+<details>
+<summary>Show the code: Load R packages</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(readxl, performance, parameters, see)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Import data</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>car_resale <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">"data/ToyotaCorolla.xls"</span>, </span>
+<span id="cb10-2"><a href="#cb10-2"></a>                       <span class="st">"data"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>car_resale</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,436 × 38
+      Id Model    Price Age_08_04 Mfg_Month Mfg_Year     KM Quarterly_Tax Weight
+   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;
+ 1    81 TOYOTA … 18950        25         8     2002  20019           100   1180
+ 2     1 TOYOTA … 13500        23        10     2002  46986           210   1165
+ 3     2 TOYOTA … 13750        23        10     2002  72937           210   1165
+ 4     3 &nbsp;TOYOTA… 13950        24         9     2002  41711           210   1165
+ 5     4 TOYOTA … 14950        26         7     2002  48000           210   1165
+ 6     5 TOYOTA … 13750        30         3     2002  38500           210   1170
+ 7     6 TOYOTA … 12950        32         1     2002  61000           210   1170
+ 8     7 &nbsp;TOYOTA… 16900        27         6     2002  94612           210   1245
+ 9     8 TOYOTA … 18600        30         3     2002  75889           210   1245
+10    44 TOYOTA … 16950        27         6     2002 110404           234   1255
+# ℹ 1,426 more rows
+# ℹ 29 more variables: Guarantee_Period &lt;dbl&gt;, HP_Bin &lt;chr&gt;, CC_bin &lt;chr&gt;,
+#   Doors &lt;dbl&gt;, Gears &lt;dbl&gt;, Cylinders &lt;dbl&gt;, Fuel_Type &lt;chr&gt;, Color &lt;chr&gt;,
+#   Met_Color &lt;dbl&gt;, Automatic &lt;dbl&gt;, Mfr_Guarantee &lt;dbl&gt;,
+#   BOVAG_Guarantee &lt;dbl&gt;, ABS &lt;dbl&gt;, Airbag_1 &lt;dbl&gt;, Airbag_2 &lt;dbl&gt;,
+#   Airco &lt;dbl&gt;, Automatic_airco &lt;dbl&gt;, Boardcomputer &lt;dbl&gt;, CD_Player &lt;dbl&gt;,
+#   Central_Lock &lt;dbl&gt;, Powered_Windows &lt;dbl&gt;, Power_Steering &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>Notice that the output object <strong><em>car_resale</em></strong> is a tibble data frame.</p>
+</section>
+<section id="build-models" class="level2">
+<h2 class="anchored" data-anchor-id="build-models">3.2 Build models</h2>
+<div class="cell">
+<details>
+<summary>Show the code: Multiple Regression Model</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Price <span class="sc">~</span> Age_08_04 <span class="sc">+</span> Mfg_Year <span class="sc">+</span> KM <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>              Weight <span class="sc">+</span> Guarantee_Period, <span class="at">data =</span> car_resale)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Price ~ Age_08_04 + Mfg_Year + KM + Weight + Guarantee_Period, 
+    data = car_resale)
+
+Coefficients:
+     (Intercept)         Age_08_04          Mfg_Year                KM  
+      -2.637e+06        -1.409e+01         1.315e+03        -2.323e-02  
+          Weight  Guarantee_Period  
+       1.903e+01         2.770e+01  </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Model Diagnostic: checking for multicolinearity</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">check_collinearity</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Check for Multicollinearity
+
+Low Correlation
+
+             Term  VIF     VIF 95% CI Increased SE Tolerance Tolerance 95% CI
+               KM 1.46 [ 1.37,  1.57]         1.21      0.68     [0.64, 0.73]
+           Weight 1.41 [ 1.32,  1.51]         1.19      0.71     [0.66, 0.76]
+ Guarantee_Period 1.04 [ 1.01,  1.17]         1.02      0.97     [0.86, 0.99]
+
+High Correlation
+
+      Term   VIF     VIF 95% CI Increased SE Tolerance Tolerance 95% CI
+ Age_08_04 31.07 [28.08, 34.38]         5.57      0.03     [0.03, 0.04]
+  Mfg_Year 31.16 [28.16, 34.48]         5.58      0.03     [0.03, 0.04]</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Model Diagnostic: checking for multicolinearity</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>check_c <span class="ot">&lt;-</span> <span class="fu">check_collinearity</span>(model)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">plot</span>(check_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Variable `Component` is not in your data frame :/</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Model Diagnostic: checking normality assumption</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Price <span class="sc">~</span> Age_08_04 <span class="sc">+</span> KM <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>              Weight <span class="sc">+</span> Guarantee_Period, <span class="at">data =</span> car_resale)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>check_n <span class="ot">&lt;-</span> <span class="fu">check_normality</span>(model1)</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="fu">plot</span>(check_n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>For confidence bands, please install `qqplotr`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Model Diagnostic: Check model for homogeneity of variances</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>check_h <span class="ot">&lt;-</span> <span class="fu">check_heteroscedasticity</span>(model1)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">plot</span>(check_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Model Diagnostic: Complete check</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">check_model</span>(model1)</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">ggsave</span>(<span class="st">"images/ModelDiagnosticCompleteCheck.jpg"</span>, <span class="at">width =</span> <span class="dv">30</span>, <span class="at">height =</span> <span class="dv">30</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ModelDiagnosticCompleteCheck.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Visualising Regression Parameters: see methods</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">plot</span>(<span class="fu">parameters</span>(model1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code: Visualising Regression Parameters: ggcoefstats()</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggcoefstats</span>(model1, </span>
+<span id="cb23-2"><a href="#cb23-2"></a>            <span class="at">output =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hands-on_Ex04-2-_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -707,12 +1106,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Visualising Distribution</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Visualising Distribution: Ridgeline Plot &amp; Raincloud Plot</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" class="pagination-link">
-        <span class="nav-page-text">Importing Data in R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html" class="pagination-link">
+        <span class="nav-page-text">Visualising Uncertainty</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

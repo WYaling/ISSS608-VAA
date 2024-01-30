@@ -18,12 +18,6 @@ editor: visual
 Visualising distribution is not new in statistical analysis. In chapter 1 we have shared with you some of the popular statistical graphics methods for visualising distribution are histogram, probability density curve (pdf), boxplot, notch plot and violin plot and how they can be created by using ggplot2. In this chapter, we are going to share with you two relatively new statistical graphic methods for visualising distribution, namely ***ridgeline*** plot and ***raincloud*** plot by using ggplot2 and its extensions.
 :::
 
-How ***ridgeline*** plot and ***raincloud*** plot look like, for example:
-
-| Ridgeline plot                              | Raincloud plot                 |
-|------------------------|------------------------------------------------|
-| ![](images/Ridgeline_plot.png){width="204"} | ![](images/Raincloud_plot.png) |
-
 # 1. Getting Started
 
 ```{r}
@@ -175,7 +169,6 @@ ggplot(exam,
   theme_ridges()
 ```
 
-
 # 3. Making Raincloud Plot
 
 The R package used in this section for raincloud plot is `ggdist`.
@@ -264,4 +257,3 @@ ggplot(exam,
   coord_flip() +
   theme_economist()
 ```
-
