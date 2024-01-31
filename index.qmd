@@ -1,5 +1,5 @@
 ---
-page-layout: full
+page-layout: article
 sidebar: false
 toc: false
 
@@ -8,7 +8,7 @@ listing:
     contents: "Hands-on_Ex/*/*.qmd"
     type: grid
     sort: "date desc"
-    max-items: 3
+    max-items: 6
     sort-ui: [title, date]
     filter-ui: [title, date]
     page-size: 15
@@ -40,7 +40,7 @@ Welcome to Yaling's Visual Analysis Wonderland !
 ![](images/New_post.gif){fig-align="center" width="356"}
 
 ::: {style="text-align: center; color:black; font-size: 18px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;padding-top: 13px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
-Note: At present, this website is only for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
+At present, this website is only for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
 :::
 
 ## Hands-on Exercise
