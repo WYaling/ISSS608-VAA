@@ -37,11 +37,15 @@ Welcome to Yaling's Visual Analysis Wonderland !
 
 ![](images/Visual_analysis_wonderland.gif)
 
-![](images/New_post.gif){fig-align="center" width="356"}
-
 ::: {style="text-align: center; color:black; font-size: 18px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;padding-top: 13px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
-At present, this website is only for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
+![](images/loading.png!bw700){fig-align="center" width="146"}
+
+At present, this website is only for showcasing coursework of
+
+**ISSS608 Visual Analytics and Applications**.
 :::
+
+![](images/New_post.gif){fig-align="center" width="355"}
 
 ## Hands-on Exercise
 
