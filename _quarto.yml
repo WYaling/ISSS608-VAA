@@ -102,7 +102,6 @@ format:
     theme: cerulean
     mainfont: Times New Roman
     fontsize: 1 em
-    color: black
     linestretch: 1.5
     grid:
       sidebar-width: 300px
