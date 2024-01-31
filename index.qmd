@@ -31,7 +31,7 @@ listing:
     fields: [image, date, title, reading-time]
 ---
 
-::: {style="color:#5DADE2; font-size: 60px; font-family: Georgia Pro Black; text-align:center; text-decoration-thickness: 25%"}
+::: {style="color:#5DADE2; font-size: 66px; font-family: Georgia Pro Black; text-align:center; text-decoration-thickness: 25%"}
 Welcome to Yaling's Visual Analysis Wonderland !
 :::
 
@@ -39,8 +39,8 @@ Welcome to Yaling's Visual Analysis Wonderland !
 
 ![](images/New_post.gif){fig-align="center" width="356"}
 
-::: {style="text-align: center; color:black; font-size: 16px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;padding-top: 11px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
-Note: At present, this website is only for showcasing coursework of ISSS608 Visual Analytics and Applications.
+::: {style="text-align: center; color:black; font-size: 18px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;padding-top: 13px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
+Note: At present, this website is only for showcasing coursework of **ISSS608 Visual Analytics and Applications**.
 :::
 
 ## Hands-on Exercise
