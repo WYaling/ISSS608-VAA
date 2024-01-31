@@ -2,7 +2,7 @@
 title: "Funnel Plots for Fair Comparisons"
 title-block-banner: "#F0FFFF"
 author: "Wang Yaling"
-date: "Jan 30, 2024"
+date: "Jan 31, 2024"
 date-modified: last-modified
 date-format: medium
 excute:
