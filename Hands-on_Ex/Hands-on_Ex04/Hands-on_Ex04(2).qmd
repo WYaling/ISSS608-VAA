@@ -1,6 +1,6 @@
 ---
 title: "Visual Statistical Analysis: add statistical information in chart"
-title-block-banner: "#F0FFFF"
+title-block-banner: true
 author: "Wang Yaling"
 date: "Jan 30, 2024"
 date-modified: last-modified

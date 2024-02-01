@@ -1,6 +1,6 @@
 ---
 title: "Tableau01: Make a Chart"
-title-block-banner: "#F0FFFF"
+title-block-banner: true
 author: "Wang Yaling"
 date: "Jan 20, 2024"
 date-modified: last-modified

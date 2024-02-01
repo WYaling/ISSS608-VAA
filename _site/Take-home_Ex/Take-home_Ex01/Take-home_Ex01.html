@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -109,12 +115,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body class="nav-sidebar docked nav-fixed">
 
-
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../images/Name_logo.png" alt="" class="navbar-logo">
     </a>
@@ -125,60 +130,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hands-on-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hands-on-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Hands-on Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercise">    
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html">
  <span class="dropdown-text">1. A Layered Grammar of Graphics: ggplot2 methods</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html">
  <span class="dropdown-text">2. Beyond ggplot2 Fundamentals</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(1).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(1).html">
  <span class="dropdown-text">3. Programming Interactive Data Visualisation with R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(2).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(2).html">
  <span class="dropdown-text">4. Programming Animated Statistical Graphics with R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html">
  <span class="dropdown-text">5. Visualising Distribution: Ridgeline Plot &amp; Raincloud Plot</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(2).html">
  <span class="dropdown-text">6. Visual Statistical Analysis: add statistical information in chart</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(3).html">
  <span class="dropdown-text">7. Visualising Uncertainty</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(4).html" rel="" target="">
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(4).html">
  <span class="dropdown-text">8. Funnel Plots for Fair Comparisons</span></a>
   </li>  
         <li class="dropdown-header">9</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-in-class-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-in-class-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">In-class Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercise">    
         <li>
-    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html">
  <span class="dropdown-text">1. Importing Data in R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex02/In-class_Ex02.html" rel="" target="">
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex02/In-class_Ex02.html">
  <span class="dropdown-text">2. Tableau01: Make a Chart</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex03/In-class_Ex03.html" rel="" target="">
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex03/In-class_Ex03.html">
  <span class="dropdown-text">3. Tableau02: Make Dashboard &amp; Story</span></a>
   </li>  
         <li class="dropdown-header">4</li>
@@ -190,23 +195,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-take-home-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-take-home-exercise" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Take-home Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
         <li>
-    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html" rel="" target="">
+    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">
  <span class="dropdown-text">1. Analysis of Singaporean Students’ Performance</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html" rel="" target="">
+    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html">
  <span class="dropdown-text">2. Peer Critique &amp; DataVis Makeover</span></a>
   </li>  
         <li class="dropdown-header">3</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Project</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
@@ -216,13 +221,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-    <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-at"></i></a>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=yalingsayhi@gmail.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-at"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -239,17 +245,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
     </div>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Take-home Exercise</li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Take Home Ex01</a></li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Analysis of Singaporean Students’ Performance</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Take-home Exercise</li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Take Home Ex01</a></li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Analysis of Singaporean Students’ Performance</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -257,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Take-home Exercise</li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Take Home Ex01</a></li><li class="breadcrumb-item"><a href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">Analysis of Singaporean Students’ Performance</a></li></ol></nav>
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Analysis of Singaporean Students’ Performance</h1>
@@ -293,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -514,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -563,8 +568,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code: load R packages</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggrepel, patchwork, ggthemes, hrbrthemes, tidyverse, haven) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -586,7 +592,7 @@ Note
 </div>
 </div>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>stu_qqq <span class="ot">&lt;-</span> <span class="fu">read_sas</span>(<span class="st">"data/cy08msp_stu_qqq.sas7bdat"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>dimensions <span class="ot">&lt;-</span> <span class="fu">dim</span>(stu_qqq)</span>
@@ -598,7 +604,7 @@ Note
 </div>
 <p>The student-questionnaire data set includes 613,744 students from all over the world, and each of them has 1,279 information being recorded (including estimates of student performance and parent-questionnaire data). In this report, only Singaporean students will be visually analysed. By filtering, we can get a number of 6,606 Singapore students’ data.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>stu_qqq_SG <span class="ot">&lt;-</span> stu_qqq <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(CNT <span class="sc">==</span> <span class="st">"SGP"</span>)</span>
@@ -623,7 +629,7 @@ Note
 <p>The socioeconomic status is most commonly theoretically conceptualized based on “the big 3” (occupational status, education, and income). By <a href="https://www.oecd.org/pisa/data/pisa2022technicalreport/PISA-2022-Technical-Report-Ch-19-PISA-Scaling-Procedures-Construct-Validation-Context-Questionnaire-Data.pdf">PISA 2022 Technical Report</a>, socioeconomic status is represented by ESCS score. The ESCS score was based on three indicators: highest parental occupation status (HISEI), highest education of parents in years (PAREDINT), and home possessions (HOMEPOS).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Chttps://www.oecd.org/pisa/data/pisa2022technicalreport/PISA-2022-Technical-Report-Ch-19-PISA-Scaling-Procedures-Construct-Validation-Context-Questionnaire-Data.pdf"><img src="images/ESCS.png" class="img-fluid figure-img"></a></p>
+<p><a href="Chttps://www.oecd.org/pisa/data/pisa2022technicalreport/PISA-2022-Technical-Report-Ch-19-PISA-Scaling-Procedures-Construct-Validation-Context-Questionnaire-Data.pdf"><img src="images/ESCS.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
 </figure>
 </div>
 <p>In this report, only “Vocational Training” and “Home Possessions” from the above figure will be used as representatives for the analysis of socioeconomic status. By examining <a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf">the student questionnaire</a>, relevant questions pertaining to “Vocational Training” and “Home Possessions” have been selected to streamline data processing.</p>
@@ -637,7 +643,7 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf"><img src="images/ST006.png" class="img-fluid" data-fig-align="left" width="293"></a></td>
+<td><a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf"><img src="images/ST006.png" class="img-fluid quarto-figure quarto-figure-left" width="293"></a></td>
 <td><a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_STQ_CBA_NoNotes.pdf"><img src="images/ST008.png" class="img-fluid" width="292"></a></td>
 </tr>
 </tbody>
@@ -669,7 +675,7 @@ Note
 <p>Calculate the PV mean for each subject to obtain the representative score for each subject. Add the mean scores of the three subjects and take the average to derive the representative score for the overall knowledge performance.</p>
 <p>We can get a glimpse of the calculation results from the following output:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>Avg_PVMath <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(stu_qqq_SG[, <span class="fu">c</span>(<span class="st">"PV1MATH"</span>, <span class="st">"PV2MATH"</span>, <span class="st">"PV3MATH"</span>, <span class="st">"PV4MATH"</span>, <span class="st">"PV5MATH"</span>, <span class="st">"PV6MATH"</span>, <span class="st">"PV7MATH"</span>, <span class="st">"PV8MATH"</span>, <span class="st">"PV9MATH"</span>, <span class="st">"PV10MATH"</span>)])</span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
@@ -709,7 +715,7 @@ Note
 <p>First, let’s see the frequency of the performance scores by subjects.</p>
 <p><strong>Histogram</strong></p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, <span class="fu">aes</span>(<span class="at">x=</span>Avg_PVMath)) <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">20</span>, <span class="at">boundary =</span> <span class="dv">100</span>, <span class="at">color=</span><span class="st">"grey25"</span>, <span class="at">fill=</span><span class="st">"grey90"</span>) <span class="sc">+</span></span>
@@ -777,13 +783,17 @@ Note
 <span id="cb8-64"><a href="#cb8-64"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3<span class="sc">+</span>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The four histograms above all illustrate a left-skewed distribution, indicating that the scores are concentrated around higher values. Additionally, the dashed line in the graphs shows a mean score lower than the median. This could be attributed to some students with extremely low scores, pulling down the mean.</p>
 <p><strong>Box plot</strong></p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>PV_Avg_tidy <span class="ot">&lt;-</span> PV_Avg <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Avg_PVMath, Avg_PVRead, Avg_PVScience, Avg_PVOverall), <span class="at">names_to =</span> <span class="st">"Subject"</span>, <span class="at">values_to =</span> <span class="st">"Score"</span>)</span>
@@ -801,7 +811,11 @@ Note
 <span id="cb9-14"><a href="#cb9-14"></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The four box plots reveal:</p>
@@ -814,7 +828,7 @@ Note
 <p>Next, by using density curve, we can see more of the distribution and central tendency of the performance scores.</p>
 <p><strong>Density curve</strong></p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>  peak_math <span class="ot">&lt;-</span> <span class="fu">density</span>(PV_Avg<span class="sc">$</span>Avg_PVMath)<span class="sc">$</span>x[<span class="fu">which.max</span>(<span class="fu">density</span>(PV_Avg<span class="sc">$</span>Avg_PVMath)<span class="sc">$</span>y)]</span>
 <span id="cb10-2"><a href="#cb10-2"></a>  peak_read <span class="ot">&lt;-</span> <span class="fu">density</span>(PV_Avg<span class="sc">$</span>Avg_PVRead)<span class="sc">$</span>x[<span class="fu">which.max</span>(<span class="fu">density</span>(PV_Avg<span class="sc">$</span>Avg_PVRead)<span class="sc">$</span>y)]</span>
@@ -850,7 +864,11 @@ Note
 <span id="cb10-32"><a href="#cb10-32"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The four density curves above reveal:</p>
@@ -861,7 +879,7 @@ Note
 <p>Last, let’s present the distribution of performance scores by violin plots.</p>
 <p><strong>Violin plot</strong></p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg) <span class="sc">+</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"Math"</span>, <span class="at">y =</span> Avg_PVMath, <span class="at">fill =</span> <span class="st">"Math"</span>), <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
@@ -873,7 +891,11 @@ Note
 <span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">theme_classic</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The similarity in the thickness of the violin plots above suggests that the scores for mathematics, reading, science, and overall performance share a certain degree of similarity in the central tendency and dispersion of their data distributions. However, the violin plot for reading exhibits a noticeably longer tail, indicating that the values for reading scores in the tail are relatively scattered, with the presence of more outliers. In contrast, the tails for the other two subjects as well as the overall scores are shorter, indicating a relatively concentrated distribution of data in the lower score range.</p>
@@ -882,7 +904,7 @@ Note
 <h3 class="anchored" data-anchor-id="two-subjects">3.2.2 Two Subjects</h3>
 <p>Now, let’s see if there is any correlation between the scores in any two subjects.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
 <span id="cb12-2"><a href="#cb12-2"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
@@ -921,7 +943,11 @@ Note
 <span id="cb12-35"><a href="#cb12-35"></a>p5<span class="sc">/</span>p6<span class="sc">|</span>p7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>From the above three plots and their respective fit curves, it can be observed that the scores of the three subjects are positively correlated in pairs. As the scores in math increase, the scores in reading and science also increase, with science scores being higher. Similarly, when reading scores are higher, science scores also tend to be higher.</p>
@@ -934,7 +960,7 @@ Note
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
 <span id="cb13-2"><a href="#cb13-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
@@ -946,13 +972,17 @@ Note
 <span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">theme_clean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
 <span id="cb14-2"><a href="#cb14-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
@@ -966,13 +996,17 @@ Note
 <span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">theme_clean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg, </span>
 <span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVRead, </span>
@@ -986,7 +1020,11 @@ Note
 <span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">theme_clean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1011,7 +1049,7 @@ Note
 <h2 class="anchored" data-anchor-id="gender">4.1 Gender</h2>
 <p>Let’s incorporate the gender indicator into the analysis.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>PV_Avg_gender <span class="ot">&lt;-</span> <span class="fu">cbind</span>(PV_Avg, <span class="at">gender =</span> stu_qqq_SG<span class="sc">$</span>ST004D01T)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">write_rds</span>(PV_Avg_gender, <span class="st">"data/stu_qqq_SG_PV_Avg_gender.rds"</span>)</span>
@@ -1044,7 +1082,7 @@ Note
 <h3 class="anchored" data-anchor-id="analyse">4.1.1 Analyse</h3>
 <p>let’s see the frequency of performance scores in each subjects by gender.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>p8 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
 <span id="cb18-2"><a href="#cb18-2"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
@@ -1117,7 +1155,11 @@ Note
 <span id="cb18-69"><a href="#cb18-69"></a>p8<span class="sc">+</span>p9<span class="sc">+</span>p10<span class="sc">+</span>p11</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>From the three histograms above:</p>
@@ -1127,7 +1169,7 @@ Note
 </ol>
 <p>Next, let’s explore more by density curve.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>p12 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
 <span id="cb19-2"><a href="#cb19-2"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, </span>
@@ -1196,7 +1238,11 @@ Note
 <span id="cb19-65"><a href="#cb19-65"></a>p12<span class="sc">+</span>p13<span class="sc">+</span>p14<span class="sc">+</span>p15   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>From the above four density curves, we can get the following observation:</p>
@@ -1209,7 +1255,7 @@ Note
 </ol>
 <p>The following set of violin plots offers a clearer comparison:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>p16 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_gender, </span>
 <span id="cb20-2"><a href="#cb20-2"></a>              <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(gender), <span class="at">y =</span> Avg_PVMath, <span class="at">fill =</span> <span class="fu">as.factor</span>(gender))) <span class="sc">+</span></span>
@@ -1283,7 +1329,11 @@ Note
 <span id="cb20-70"><a href="#cb20-70"></a>p16 <span class="sc">+</span> p17 <span class="sc">+</span> p18 <span class="sc">+</span> p19</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The violin plots for male students in math, science, and overall performance exhibit characteristics of narrower and more concentrated distributions, especially with higher scores corresponding to the widest part. This suggests that male students’ scores in these subjects are more consistent and concentrated, with a substantial portion achieving higher scores. The narrowness of the plots indicates relatively small variability in scores among male students, signifying a more uniform performance. In the widest part of the violin plot, it demonstrates that a considerable number of males perform well within this score range, further emphasizing the trend of males exhibiting concentrated and superior performance in mathematics, science, and overall academic achievement.</p>
@@ -1311,7 +1361,7 @@ Note
 </div>
 </div>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>PV_Avg_school <span class="ot">&lt;-</span> <span class="fu">cbind</span>(PV_Avg, <span class="at">School_ID =</span> stu_qqq_SG<span class="sc">$</span>CNTSCHID)</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">write_rds</span>(PV_Avg_school, <span class="st">"data/stu_qqq_SG_PV_Avg_school.rds"</span>)</span>
@@ -1329,7 +1379,7 @@ Note
 </div>
 <p>This report will sum up and average the scores of survey participants from the same school to represent the school’s performance score.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>school_counts <span class="ot">&lt;-</span> PV_Avg_school <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">group_by</span>(School_ID) <span class="sc">%&gt;%</span></span>
@@ -1343,7 +1393,7 @@ Note
 </div>
 <p>The code chunk below calculates the mean scores for math, reading, and science, as well as overall performance, for all surveyed students in each school. This process provides representative scores for three subjects and overall performance for each school.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>PV_Avg_school_group <span class="ot">&lt;-</span> PV_Avg_school <span class="sc">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">group_by</span>(School_ID) <span class="sc">%&gt;%</span></span>
@@ -1372,7 +1422,7 @@ Note
 <h3 class="anchored" data-anchor-id="analyse-1">4.2.1 Analyse</h3>
 <p>The following violin plots with accompanying boxes illustrate the distribution of scores in math, reading, science, and overall performance across different schools:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Pivot the data to a longer format</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>Score_long <span class="ot">&lt;-</span> PV_Avg_school_group <span class="sc">%&gt;%</span></span>
@@ -1424,7 +1474,11 @@ Note
 <span id="cb27-48"><a href="#cb27-48"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>From plots above, we can get the following observation:</p>
@@ -1447,12 +1501,12 @@ Note
 <p>In the questionnaire, the educational level of parents is recorded using the <a href="https://en.wikipedia.org/wiki/International_Standard_Classification_of_Education">ISCED level</a>. This report categorizes the ISCED levels of students’ parents into the following groups: ISCED Level &lt;4, ISCED Level 4, ISCED Level 5, ISCED Level 6, ISCED Level 7, ISCED Level 8. The chart below illustrates the educational levels corresponding to different ISCED levels.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ISCED-levels.png" class="img-fluid figure-img"></p>
+<p><img src="images/ISCED-levels.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Comparing the ISCED levels of parents and incorporating the highest level into the analysis, the following code block implements this process:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Mom's edu level</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>MomEdu <span class="ot">&lt;-</span> <span class="fu">cbind</span>(stu_qqq_SG[, <span class="fu">c</span>(<span class="st">"CNTSTUID"</span>, <span class="st">"ST006Q01JA"</span>, <span class="st">"ST006Q02JA"</span>, <span class="st">"ST006Q03JA"</span>, <span class="st">"ST006Q04JA"</span>, <span class="st">"ST006Q05JA"</span>)])</span>
@@ -1515,7 +1569,7 @@ Note
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVMath, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
@@ -1529,13 +1583,17 @@ Note
 <span id="cb30-10"><a href="#cb30-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVRead, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
@@ -1549,13 +1607,17 @@ Note
 <span id="cb31-10"><a href="#cb31-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVScience, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
@@ -1569,13 +1631,17 @@ Note
 <span id="cb32-10"><a href="#cb32-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Avg_PVOverall, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
@@ -1589,7 +1655,11 @@ Note
 <span id="cb33-10"><a href="#cb33-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1603,7 +1673,7 @@ Note
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Parent_highest_level, <span class="at">y =</span> Avg_PVMath, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
@@ -1617,13 +1687,17 @@ Note
 <span id="cb34-10"><a href="#cb34-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Parent_highest_level, <span class="at">y =</span> Avg_PVRead, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
@@ -1637,13 +1711,17 @@ Note
 <span id="cb35-10"><a href="#cb35-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Parent_highest_level, <span class="at">y =</span> Avg_PVScience, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
@@ -1657,13 +1735,17 @@ Note
 <span id="cb36-10"><a href="#cb36-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_Parent_edu_highestlevel, <span class="fu">aes</span>(<span class="at">x =</span> Parent_highest_level, <span class="at">y =</span> Avg_PVOverall, <span class="at">fill =</span> Parent_highest_level)) <span class="sc">+</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
@@ -1677,7 +1759,11 @@ Note
 <span id="cb37-10"><a href="#cb37-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1695,7 +1781,7 @@ Note
 <p>In this section, the report will sum up some data in the student questionnaire data set that reflects aspects of home processions (HOMEPOS). The sum of this data will be used to represent the HOMEPOS. Subsequently, an analysis will be conducted to examine the impact of HOMEPOS on student performance.</p>
 <p>By the following code block, the calculation of HOMOPOS can be carried out:</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>HOMEPOS <span class="ot">&lt;-</span> stu_qqq_SG <span class="sc">%&gt;%</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">mutate</span>(<span class="at">HOMEPOS_Number =</span> <span class="fu">coalesce</span>(ST251Q01JA, <span class="dv">0</span>) <span class="sc">+</span></span>
@@ -1726,7 +1812,7 @@ Note
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_HOMEPOS, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Home_Possessions), <span class="at">y =</span> Avg_PVMath)) <span class="sc">+</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
@@ -1735,13 +1821,17 @@ Note
 <span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_HOMEPOS, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Home_Possessions), <span class="at">y =</span> Avg_PVRead)) <span class="sc">+</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
@@ -1750,13 +1840,17 @@ Note
 <span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_HOMEPOS, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Home_Possessions), <span class="at">y =</span> Avg_PVScience)) <span class="sc">+</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"pink"</span>) <span class="sc">+</span></span>
@@ -1765,13 +1859,17 @@ Note
 <span id="cb42-5"><a href="#cb42-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r code-overflow-scroll number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> PV_Avg_HOMEPOS, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Home_Possessions), <span class="at">y =</span> Avg_PVOverall)) <span class="sc">+</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"#D2B4E8"</span>) <span class="sc">+</span></span>
@@ -1780,7 +1878,11 @@ Note
 <span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1885,10 +1987,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1898,8 +1999,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1912,6 +2022,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1955,6 +2184,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1980,6 +2210,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2039,15 +2295,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../In-class_Ex/In-class_Ex03/In-class_Ex03.html" class="pagination-link">
+      <a href="../../In-class_Ex/In-class_Ex03/In-class_Ex03.html" class="pagination-link  aria-label=" tableau02:="" make="" dashboard="" &amp;="" story"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tableau02: Make Dashboard &amp; Story</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html" class="pagination-link">
+      <a href="../../Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html" class="pagination-link" aria-label="Peer Critique &amp; DataVis Makeover">
         <span class="nav-page-text">Peer Critique &amp; DataVis Makeover</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2061,9 +2316,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Copyright 2024<img src="images/Name_logo(1).png" class="img-fluid" width="100"></div>
+    <div class="nav-footer-right">
+<p>Copyright 2024<img src="images/Name_logo(1).png" class="img-fluid" width="100"></p>
+</div>
   </div>
 </footer>
+
 
 
 

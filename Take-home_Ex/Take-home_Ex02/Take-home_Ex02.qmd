@@ -1,6 +1,6 @@
 ---
 title: "Peer Critique & DataVis Makeover"
-title-block-banner: "#F0FFFF"
+title-block-banner: true
 author: "Wang Yaling"
 date: "Jan 26, 2024"
 date-modified: last-modified

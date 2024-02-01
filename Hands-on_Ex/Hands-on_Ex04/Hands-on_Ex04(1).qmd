@@ -1,6 +1,6 @@
 ---
 title: "Visualising Distribution: Ridgeline Plot & Raincloud Plot"
-title-block-banner: "#F0FFFF"
+title-block-banner: True
 author: "Wang Yaling"
 date: "Jan 30, 2024"
 date-modified: last-modified

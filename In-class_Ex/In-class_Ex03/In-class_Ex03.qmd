@@ -1,6 +1,6 @@
 ---
 title: "Tableau02: Make Dashboard & Story"
-title-block-banner: "#F0FFFF"
+title-block-banner: true
 author: "Wang Yaling"
 date: "Jan 27, 2024"
 date-modified: last-modified

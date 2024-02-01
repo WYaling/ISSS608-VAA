@@ -1,6 +1,6 @@
 ---
 title: "A Layered Grammar of Graphics: ggplot2 methods"
-title-block-banner: "#F0FFFF"
+title-block-banner: True
 author: "Wang Yaling"
 date: "Jan 11, 2024"
 date-modified: last-modified
