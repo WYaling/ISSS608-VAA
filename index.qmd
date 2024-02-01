@@ -37,7 +37,7 @@ Welcome to Yaling's Visual Analysis Wonderland !
 
 ![](images/Visual_analysis_wonderland.gif)
 
-::: {style="text-align: center; color:black; font-size: 18px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;padding-top: 13px; background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
+::: {style="text-align: center; color:black; font-size: 18px;  font-family:Georgia Pro; border: 2px solid DeepSkyBlue; border-radius: 12px;background-color:Azure;  border: 15px solid LightSkyBlue; margin: 10px;"}
 ![](images/loading.png!bw700){fig-align="center" width="146"}
 
 At present, this website is only for showcasing coursework of
