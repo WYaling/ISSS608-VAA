@@ -59,7 +59,7 @@ ggplot(exam,
        aes(x = ENGLISH, 
            y = CLASS)) +
   geom_density_ridges(
-    scale = 3,
+    scale = 4,
     rel_min_height = 0.01,
     bandwidth = 3.4,
     fill = lighten("#7097BB", .3),
@@ -87,7 +87,7 @@ ggplot(exam,
   geom_density_ridges_gradient(
     scale = 3,
     rel_min_height = 0.01) +
-  scale_fill_viridis_c(name = "Temp. [F]",
+  scale_fill_viridis_c(name = "Student Score",
                        option = "H") +
   scale_x_continuous(
     name = "English grades",
