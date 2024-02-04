@@ -63,7 +63,7 @@
     "href": "index.html#hands-on-exercise",
     "title": "Yaling's VAA journey",
     "section": "Hands-on Exercise",
-    "text": "Hands-on Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nVisualising Uncertainty\n\n\n12 min\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFunnel Plots for Fair Comparisons\n\n\n7 min\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nVisualising Distribution: Ridgeline Plot & Raincloud Plot\n\n\n8 min\n\n\n\nJan 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nVisual Statistical Analysis: add statistical information in chart\n\n\n4 min\n\n\n\nJan 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nProgramming Interactive Data Visualisation with R\n\n\n20 min\n\n\n\nJan 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nProgramming Animated Statistical Graphics with R\n\n\n6 min\n\n\n\nJan 22, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Hands-on Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nCreating Ternary Plot with R\n\n\n2 min\n\n\n\nFeb 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nVisual Correlation Analysis\n\n\n10 min\n\n\n\nFeb 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHeatmap for Visualising and Analysing Multivariate Data\n\n\n10 min\n\n\n\nFeb 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nVisual Multivariate Analysis with Parallel Coordinates Plot\n\n\n6 min\n\n\n\nFeb 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nTreemap Visualisation with R\n\n\n13 min\n\n\n\nFeb 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nVisualising Uncertainty\n\n\n12 min\n\n\n\nJan 31, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#in-class-exercise",
@@ -481,7 +481,7 @@
     "href": "Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(1).html#tooltip",
     "title": "Programming Interactive Data Visualisation with R",
     "section": "1.1 Tooltip",
-    "text": "1.1 Tooltip\n\n\nCode Demo 1: tooltip\np &lt;- ggplot(data = exam_data,\n            aes(x = MATHS)) +\n        geom_dotplot_interactive(aes(tooltip = ID),\n                                 stackgroups = TRUE,\n                                 binwidth = 1,\n                                 method = \"histodot\") +\n        scale_y_continuous(NULL, \n                           breaks = NULL)\ngirafe(ggobj = p,\n       width_svg = 6,\n       height_svg = 6*0.618)\n\n\n\n\n\n\nBy hovering the mouse pointer on an data point of interest, the student’s ID will be displayed.\n\n\nCode Demo 2: custimise tooltip list\n# first, choose variable for tooltip list\nexam_data$tooltip &lt;- c(paste0(\"Name = \", exam_data$ID, \n                              \"\\n Class = \", exam_data$CLASS)) \n\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(\n    aes(tooltip = exam_data$tooltip), \n    stackgroups = TRUE,\n    binwidth = 1,\n    method = \"histodot\") +\n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(\n  ggobj = p,\n  width_svg = 8,\n  height_svg = 8*0.618\n)\n\n\n\n\n\n\n\n\nCode Demo 3: custimise tooltip style\n# first, design tooltip\ntooltip_css &lt;- \"background-color:white; #&lt;&lt;\nfont-style:bold; color:black;\" #&lt;&lt;\n\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(tooltip = ID),                   \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(    #&lt;&lt;\n    opts_tooltip(    #&lt;&lt;\n      css = tooltip_css)) #&lt;&lt;\n)                                        \n\n\n\n\n\n\nNotice that the background colour of the tooltip is black and the font colour is white and bold.\nRefer to Customizing girafe objects to learn more about how to customise ggiraph objects.\n\n\nCode Demo 4: tooltip with calculated data\ntooltip &lt;- function(y, ymax, accuracy = .01) {\n  mean &lt;- scales::number(y, accuracy = accuracy)\n  sem &lt;- scales::number(ymax - y, accuracy = accuracy)\n  paste(\"Mean maths scores:\", mean, \"+/-\", sem)\n}\n\ngg_point &lt;- ggplot(data=exam_data, \n                   aes(x = RACE),\n) +\n  stat_summary(aes(y = MATHS, \n                   tooltip = after_stat(  \n                     tooltip(y, ymax))),  \n    fun.data = \"mean_se\", \n    geom = GeomInteractiveCol,  \n    fill = \"light blue\"\n  ) +\n  stat_summary(aes(y = MATHS),\n    fun.data = mean_se,\n    geom = \"errorbar\", width = 0.2, linewidth = 0.2\n  )\n\ngirafe(ggobj = gg_point,\n       width_svg = 8,\n       height_svg = 8*0.618)\n\n\n\n\n\n\nIn this example, a function is used to compute 90% confident interval of the mean. The derived statistics are then displayed in the tooltip.\n\n\n\n\n\n\nNote\n\n\n\nThe “mean_se” function calculates the mean and standard error, and as a result, the length of the error bars is based on the standard error. The standard error measures the difference between the sample mean and the true population mean. Therefore, a larger standard error indicates that the sample mean may not accurately estimate the population mean, leading to longer error bars. Conversely, a smaller standard error suggests that the sample mean is relatively accurate, resulting in shorter error bars.",
+    "text": "1.1 Tooltip\n\n\nCode Demo 1: tooltip\np &lt;- ggplot(data = exam_data,\n            aes(x = MATHS)) +\n        geom_dotplot_interactive(aes(tooltip = ID),\n                                 stackgroups = TRUE,\n                                 binwidth = 1,\n                                 method = \"histodot\") +\n        scale_y_continuous(NULL, \n                           breaks = NULL)\ngirafe(ggobj = p,\n       width_svg = 6,\n       height_svg = 6*0.618)\n\n\n\n\n\n\nBy hovering the mouse pointer on an data point of interest, the student’s ID will be displayed.\n\n\nCode Demo 2: custimise tooltip list\n# first, choose variable for tooltip list\nexam_data$tooltip &lt;- c(paste(\"Name = \", exam_data$ID, \n                              \"\\n Class = \", exam_data$CLASS)) \n\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(\n    aes(tooltip = exam_data$tooltip), \n    stackgroups = TRUE,\n    binwidth = 1,\n    method = \"histodot\"\n   ) +\n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(\n  ggobj = p,\n  width_svg = 8,\n  height_svg = 8*0.618\n)\n\n\n\n\n\n\n\n\nCode Demo 3: custimise tooltip style\n# first, design tooltip\ntooltip_css &lt;- \"background-color:white; #&lt;&lt;\nfont-style:bold; color:black;\" #&lt;&lt;\n\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(tooltip = ID),                   \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(    #&lt;&lt;\n    opts_tooltip(    #&lt;&lt;\n      css = tooltip_css)) #&lt;&lt;\n)                                        \n\n\n\n\n\n\nNotice that the background colour of the tooltip is black and the font colour is white and bold.\nRefer to Customizing girafe objects to learn more about how to customise ggiraph objects.\n\n\nCode Demo 4: tooltip with calculated data\ntooltip &lt;- function(y, ymax, accuracy = .01) {\n  mean &lt;- scales::number(y, accuracy = accuracy)\n  sem &lt;- scales::number(ymax - y, accuracy = accuracy)\n  paste(\"Mean maths scores:\", mean, \"+/-\", sem)\n}\n\ngg_point &lt;- ggplot(data=exam_data, \n                   aes(x = RACE),\n) +\n  stat_summary(aes(y = MATHS, \n                   tooltip = after_stat(  \n                     tooltip(y, ymax))),  \n    fun.data = \"mean_se\", \n    geom = GeomInteractiveCol,  \n    fill = \"light blue\"\n  ) +\n  stat_summary(aes(y = MATHS),\n    fun.data = mean_se,\n    geom = \"errorbar\", width = 0.2, linewidth = 0.2\n  )\n\ngirafe(ggobj = gg_point,\n       width_svg = 8,\n       height_svg = 8*0.618)\n\n\n\n\n\n\nIn this example, a function is used to compute 90% confident interval of the mean. The derived statistics are then displayed in the tooltip.\n\n\n\n\n\n\nNote\n\n\n\nThe “mean_se” function calculates the mean and standard error, and as a result, the length of the error bars is based on the standard error. The standard error measures the difference between the sample mean and the true population mean. Therefore, a larger standard error indicates that the sample mean may not accurately estimate the population mean, leading to longer error bars. Conversely, a smaller standard error suggests that the sample mean is relatively accurate, resulting in shorter error bars.",
     "crumbs": [
       "Home",
       "Hands-on Exercise",
@@ -494,7 +494,7 @@
     "href": "Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03(1).html#hover-effect-data_id",
     "title": "Programming Interactive Data Visualisation with R",
     "section": "1.2 Hover effect: data_id",
-    "text": "1.2 Hover effect: data_id\n\n\nCode Demo 1: data_id\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(           \n    aes(data_id = CLASS),             \n    stackgroups = TRUE,               \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618                      \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over.\n\n\n\n\n\n\nNote\n\n\n\nNote that the default value of the hover css is hover_css = “fill:orange”.\n\n\n\n\nCode Demo 2: data_id with custimised hover style\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(data_id = CLASS),              \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(                        \n    opts_hover(css = \"fill: #202020;\"),  \n    opts_hover_inv(css = \"opacity:0.2;\") \n  )                                        \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over.\n\n\nCode Demo 3: comebine toolip and hover effect\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(tooltip = CLASS, \n        data_id = CLASS),              \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(                        \n    opts_hover(css = \"fill: #202020;\"),  \n    opts_hover_inv(css = \"opacity:0.2;\") \n  )                                        \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over. At the same time, the tooltip will show the CLASS.",
+    "text": "1.2 Hover effect: data_id\n\n\nCode Demo 1: data_id\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(  \n    aes(data_id = CLASS, tooltip = CLASS),             \n    stackgroups = TRUE,               \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618                      \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over.\n\n\n\n\n\n\nNote\n\n\n\nNote that the default value of the hover css is hover_css = “fill:orange”.\n\n\n\n\nCode Demo 2: data_id with custimised hover style\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(data_id = CLASS),              \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(                        \n    opts_hover(css = \"fill: #202020;\"),  \n    opts_hover_inv(css = \"opacity:0.2;\") \n  )                                        \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over.\n\n\nCode Demo 3: comebine toolip and hover effect\np &lt;- ggplot(data=exam_data, \n       aes(x = MATHS)) +\n  geom_dotplot_interactive(              \n    aes(tooltip = CLASS, \n        data_id = CLASS),              \n    stackgroups = TRUE,                  \n    binwidth = 1,                        \n    method = \"histodot\") +               \n  scale_y_continuous(NULL,               \n                     breaks = NULL)\ngirafe(                                  \n  ggobj = p,                             \n  width_svg = 6,                         \n  height_svg = 6*0.618,\n  options = list(                        \n    opts_hover(css = \"fill: #202020;\"),  \n    opts_hover_inv(css = \"opacity:0.2;\") \n  )                                        \n)                                        \n\n\n\n\n\n\nInteractivity: Elements associated with a data_id (i.e CLASS) will be highlighted upon mouse over. At the same time, the tooltip will show the CLASS.",
     "crumbs": [
       "Home",
       "Hands-on Exercise",
@@ -585,7 +585,7 @@
     "href": "Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html#create-plot-by-geom_density_ridges",
     "title": "Visualising Distribution: Ridgeline Plot & Raincloud Plot",
     "section": "2.1 Create plot by geom_density_ridges()",
-    "text": "2.1 Create plot by geom_density_ridges()\nrefer to this link for geom_density_ridges()\n\n\nShow the code: making ridgeline plot by geom_density_ridges()\nggplot(exam, \n       aes(x = ENGLISH, \n           y = CLASS)) +\n  geom_density_ridges(\n    scale = 3,\n    rel_min_height = 0.01,\n    bandwidth = 3.4,\n    fill = lighten(\"#7097BB\", .3),\n    color = \"white\"\n  ) +\n  scale_x_continuous(\n    name = \"English grades\",\n    expand = c(0, 0)\n    ) +\n  scale_y_discrete(name = \"Class\", expand = expansion(add = c(0.2, 2.6))) +\n  theme_ridges()",
+    "text": "2.1 Create plot by geom_density_ridges()\nrefer to this link for geom_density_ridges()\n\n\nShow the code: making ridgeline plot by geom_density_ridges()\nggplot(exam, \n       aes(x = ENGLISH, \n           y = CLASS)) +\n  geom_density_ridges(\n    scale = 4,\n    rel_min_height = 0.01,\n    bandwidth = 3.4,\n    fill = lighten(\"#7097BB\", .3),\n    color = \"white\"\n  ) +\n  scale_x_continuous(\n    name = \"English grades\",\n    expand = c(0, 0)\n    ) +\n  scale_y_discrete(name = \"Class\", expand = expansion(add = c(0.2, 2.6))) +\n  theme_ridges()",
     "crumbs": [
       "Home",
       "Hands-on Exercise",
@@ -598,7 +598,7 @@
     "href": "Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04(1).html#design-color-of-ridgeline-plot",
     "title": "Visualising Distribution: Ridgeline Plot & Raincloud Plot",
     "section": "2.2 Design color of ridgeline plot",
-    "text": "2.2 Design color of ridgeline plot\n\n2.2.1 Fill gradients along the x axis\n\n\nShow the code: fill color by geom_density_ridges_gradient()\nggplot(exam, \n       aes(x = ENGLISH, \n           y = CLASS,\n           fill = stat(x))) +\n  geom_density_ridges_gradient(\n    scale = 3,\n    rel_min_height = 0.01) +\n  scale_fill_viridis_c(name = \"Temp. [F]\",\n                       option = \"H\") +\n  scale_x_continuous(\n    name = \"English grades\",\n    expand = c(0, 0)\n  ) +\n  scale_y_discrete(name = \"Class\", expand = expansion(add = c(0.2, 2.6))) +\n  theme_ridges()\n\n\nWarning: `stat(x)` was deprecated in ggplot2 3.4.0.\nℹ Please use `after_stat(x)` instead.\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nDesign color by geom_density_ridges_gradient()or geom_ridgeline_gradient()\nFor example, in the code chunk above:\ngeom_density_ridges_gradient( scale = 3, rel_min_height = 0.01) +\nscale_fill_viridis_c(name = \"Temp. [F]\", option = \"H\")\n\n\n\n\n2.2.2 Mapping the probabilities directly onto color\n\n\nShow the code: fill color by stat_density_ridges()\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = 0.5 - abs(0.5-stat(ecdf)))) +\n  stat_density_ridges(geom = \"density_ridges_gradient\", \n                      calc_ecdf = TRUE) +\n  scale_fill_viridis_c(name = \"Tail probability\",\n                       direction = -1) +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt is important include the argument calc_ecdf = TRUE in stat_density_ridges().\n\n\n\n\n2.2.3 Ridgeline plots with quantile lines\n\n\nShow the code: fill quantile lines(quantiles = 4)\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = factor(stat(quantile))\n           )) +\n  stat_density_ridges(\n    geom = \"density_ridges_gradient\",\n    calc_ecdf = TRUE, \n    quantiles = 4,\n    quantile_lines = TRUE) +\n  scale_fill_viridis_d(name = \"Quartiles\") +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\nInstead of using number to define the quantiles, we can also specify quantiles by cut points such as 2.5% and 97.5% tails to colour the ridgeline plot.\n\n\nShow the code: fill quantile lines(cut points)\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = factor(stat(quantile))\n           )) +\n  stat_density_ridges(\n    geom = \"density_ridges_gradient\",\n    calc_ecdf = TRUE, \n    quantiles = c(0.025, 0.975)\n    ) +\n  scale_fill_manual(\n    name = \"Probability\",\n    values = c(\"#FF0000A0\", \"#A0A0A0A0\", \"#0000FFA0\"),\n    labels = c(\"(0, 0.025]\", \"(0.025, 0.975]\", \"(0.975, 1]\")\n  ) +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18",
+    "text": "2.2 Design color of ridgeline plot\n\n2.2.1 Fill gradients along the x axis\n\n\nShow the code: fill color by geom_density_ridges_gradient()\nggplot(exam, \n       aes(x = ENGLISH, \n           y = CLASS,\n           fill = stat(x))) +\n  geom_density_ridges_gradient(\n    scale = 3,\n    rel_min_height = 0.01) +\n  scale_fill_viridis_c(name = \"Student Score\",\n                       option = \"H\") +\n  scale_x_continuous(\n    name = \"English grades\",\n    expand = c(0, 0)\n  ) +\n  scale_y_discrete(name = \"Class\", expand = expansion(add = c(0.2, 2.6))) +\n  theme_ridges()\n\n\nWarning: `stat(x)` was deprecated in ggplot2 3.4.0.\nℹ Please use `after_stat(x)` instead.\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nDesign color by geom_density_ridges_gradient()or geom_ridgeline_gradient()\nFor example, in the code chunk above:\ngeom_density_ridges_gradient( scale = 3, rel_min_height = 0.01) +\nscale_fill_viridis_c(name = \"Temp. [F]\", option = \"H\")\n\n\n\n\n2.2.2 Mapping the probabilities directly onto color\n\n\nShow the code: fill color by stat_density_ridges()\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = 0.5 - abs(0.5-stat(ecdf)))) +\n  stat_density_ridges(geom = \"density_ridges_gradient\", \n                      calc_ecdf = TRUE) +\n  scale_fill_viridis_c(name = \"Tail probability\",\n                       direction = -1) +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt is important include the argument calc_ecdf = TRUE in stat_density_ridges().\n\n\n\n\n2.2.3 Ridgeline plots with quantile lines\n\n\nShow the code: fill quantile lines(quantiles = 4)\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = factor(stat(quantile))\n           )) +\n  stat_density_ridges(\n    geom = \"density_ridges_gradient\",\n    calc_ecdf = TRUE, \n    quantiles = 4,\n    quantile_lines = TRUE) +\n  scale_fill_viridis_d(name = \"Quartiles\") +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18\n\n\n\n\n\n\n\n\n\nInstead of using number to define the quantiles, we can also specify quantiles by cut points such as 2.5% and 97.5% tails to colour the ridgeline plot.\n\n\nShow the code: fill quantile lines(cut points)\nggplot(exam,\n       aes(x = ENGLISH, \n           y = CLASS, \n           fill = factor(stat(quantile))\n           )) +\n  stat_density_ridges(\n    geom = \"density_ridges_gradient\",\n    calc_ecdf = TRUE, \n    quantiles = c(0.025, 0.975)\n    ) +\n  scale_fill_manual(\n    name = \"Probability\",\n    values = c(\"#FF0000A0\", \"#A0A0A0A0\", \"#0000FFA0\"),\n    labels = c(\"(0, 0.025]\", \"(0.025, 0.975]\", \"(0.975, 1]\")\n  ) +\n  theme_ridges()\n\n\nPicking joint bandwidth of 3.18",
     "crumbs": [
       "Home",
       "Hands-on Exercise",
@@ -812,6 +812,786 @@
       "Take-home Exercise",
       "Take Home Ex01",
       "Analysis of Singaporean Students' Performance"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html",
+    "title": "Creating Ternary Plot with R",
+    "section": "",
+    "text": "Show the code: load R packages\npacman::p_load(plotly, ggtern, tidyverse)\nMain packages to be used for creating ternary plot: ggtern and plotlyr\nShow the code: Import data\n#Reading the data into R environment\npop_data &lt;- read_csv(\"data/respopagsex2000to2018_tidy.csv\") \n\n\nRows: 108126 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): PA, SZ, AG\ndbl (2): Year, Population\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nShow the code: Prepare data\n#Deriving the young, economy active and old measures\nagpop_mutated &lt;- pop_data %&gt;%\n  mutate(`Year` = as.character(Year))%&gt;%\n  spread(AG, Population) %&gt;%\n  mutate(YOUNG = rowSums(.[4:8]))%&gt;%\n  mutate(ACTIVE = rowSums(.[9:16]))  %&gt;%\n  mutate(OLD = rowSums(.[17:21])) %&gt;%\n  mutate(TOTAL = rowSums(.[22:24])) %&gt;%\n  filter(Year == 2018)%&gt;%\n  filter(TOTAL &gt; 0)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html#plotting-a-static-ternary-diagram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html#plotting-a-static-ternary-diagram",
+    "title": "Creating Ternary Plot with R",
+    "section": "1.1 Plotting a static ternary diagram",
+    "text": "1.1 Plotting a static ternary diagram\n\n#Building the static ternary plot\nggtern(data=agpop_mutated,aes(x=YOUNG,y=ACTIVE, z=OLD)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n#Building the static ternary plot\nggtern(data=agpop_mutated, aes(x=YOUNG,y=ACTIVE, z=OLD)) +\n  geom_point() +\n  labs(title=\"Population structure, 2015\") +\n  theme_rgbw()",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html#plotting-an-interative-ternary-diagram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(1).html#plotting-an-interative-ternary-diagram",
+    "title": "Creating Ternary Plot with R",
+    "section": "1.2 Plotting an interative ternary diagram",
+    "text": "1.2 Plotting an interative ternary diagram\n\n\nShow the code: Plotting an interative ternary diagram\n# reusable function for creating annotation object\nlabel &lt;- function(txt) {\n  list(\n    text = txt, \n    x = 0.1, y = 1,\n    ax = 0, ay = 0,\n    xref = \"paper\", yref = \"paper\", \n    align = \"center\",\n    font = list(family = \"serif\", size = 15, color = \"white\"),\n    bgcolor = \"#b3b3b3\", bordercolor = \"black\", borderwidth = 2\n  )\n}\n\n# reusable function for axis formatting\naxis &lt;- function(txt) {\n  list(\n    title = txt, tickformat = \".0%\", tickfont = list(size = 10)\n  )\n}\n\nternaryAxes &lt;- list(\n  aaxis = axis(\"Young\"), \n  baxis = axis(\"Active\"), \n  caxis = axis(\"Old\")\n)\n\n# Initiating a plotly visualization \nplot_ly(\n  agpop_mutated, \n  a = ~YOUNG, \n  b = ~ACTIVE, \n  c = ~OLD, \n  color = I(\"black\"), \n  type = \"scatterternary\"\n) %&gt;%\n  layout(\n    annotations = label(\"Ternary Markers\"), \n    ternary = ternaryAxes\n  )\n\n\nNo scatterternary mode specifed:\n  Setting the mode to markers\n  Read more about this attribute -&gt; https://plotly.com/r/reference/#scatter-mode",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html",
+    "title": "Visual Correlation Analysis",
+    "section": "",
+    "text": "# load R packages\npacman::p_load(corrplot, ggstatsplot, tidyverse)\n# import data\nwine &lt;- read_csv(\"data/wine_quality.csv\")\n\nRows: 6497 Columns: 13\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (1): type\ndbl (12): fixed acidity, volatile acidity, citric acid, residual sugar, chlo...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#building-a-basic-correlation-matrix",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#building-a-basic-correlation-matrix",
+    "title": "Visual Correlation Analysis",
+    "section": "1.1 Building a basic correlation matrix",
+    "text": "1.1 Building a basic correlation matrix\n\npairs(wine[,1:11])\n\n\n\n\n\n\n\n\nThe required input of pairs() can be a matrix or data frame. The code chunk used to create the scatterplot matrix is relatively simple. It uses the default pairs function. Columns 2 to 12 of wine dataframe is used to build the scatterplot matrix. The variables are: fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates and alcohol.\n\npairs(wine[,2:12])",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#drawing-the-corner",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#drawing-the-corner",
+    "title": "Visual Correlation Analysis",
+    "section": "1.2 Drawing the corner",
+    "text": "1.2 Drawing the corner\n\npairs(wine[,2:12], upper.panel = NULL)\n\n\n\n\n\n\n\n\n\npairs(wine[,2:12], lower.panel = NULL)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#including-with-correlation-coefficients",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#including-with-correlation-coefficients",
+    "title": "Visual Correlation Analysis",
+    "section": "1.3 Including with correlation coefficients",
+    "text": "1.3 Including with correlation coefficients\nTo show the correlation coefficient of each pair of variables instead of a scatter plot,panel.corfunction will be used. This will also show higher correlations in a larger font.\n\npanel.cor &lt;- function(x, y, digits=2, prefix=\"\", cex.cor, ...) {\nusr &lt;- par(\"usr\")\non.exit(par(usr))\npar(usr = c(0, 1, 0, 1))\nr &lt;- abs(cor(x, y, use=\"complete.obs\"))\ntxt &lt;- format(c(r, 0.123456789), digits=digits)[1]\ntxt &lt;- paste(prefix, txt, sep=\"\")\nif(missing(cex.cor)) cex.cor &lt;- 0.8/strwidth(txt)\ntext(0.5, 0.5, txt, cex = cex.cor * (1 + r) / 2)\n}\n\npairs(wine[,2:12], \n      upper.panel = panel.cor)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#the-basic-plot",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05(2).html#the-basic-plot",
+    "title": "Visual Correlation Analysis",
+    "section": "2.1 The basic plot",
+    "text": "2.1 The basic plot\n\nggstatsplot::ggcorrmat(\n  data = wine, \n  cor.vars = 1:11)\n\n\n\n\n\n\n\n\n\nggstatsplot::ggcorrmat(\n  data = wine, \n  cor.vars = 1:11,\n  ggcorrplot.args = list(outline.color = \"black\", \n                         hc.order = TRUE,\n                         tl.cex = 10),\n  title    = \"Correlogram for wine dataset\",\n  subtitle = \"Four pairs are no significant at p &lt; 0.05\"\n)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html",
+    "title": "Visual Correlation Analysis",
+    "section": "",
+    "text": "# load R packages\npacman::p_load(corrplot, ggstatsplot, tidyverse, theme)\n\nInstalling package into 'C:/Users/yaling/AppData/Local/R/win-library/4.3'\n(as 'lib' is unspecified)\n\n\nWarning: package 'theme' is not available for this version of R\n\nA version of this package for your version of R might be available elsewhere,\nsee the ideas at\nhttps://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages\n\n\nWarning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3:\n  cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3/PACKAGES'\n\n\nWarning: 'BiocManager' not available.  Could not check Bioconductor.\n\nPlease use `install.packages('BiocManager')` and then retry.\n\n\nWarning in p_install(package, character.only = TRUE, ...):\n\n\nWarning in library(package, lib.loc = lib.loc, character.only = TRUE,\nlogical.return = TRUE, : there is no package called 'theme'\n\n\nWarning in pacman::p_load(corrplot, ggstatsplot, tidyverse, theme): Failed to install/load:\ntheme\n# import data\nwine &lt;- read_csv(\"data/wine_quality.csv\")\n\nRows: 6497 Columns: 13\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (1): type\ndbl (12): fixed acidity, volatile acidity, citric acid, residual sugar, chlo...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#building-a-basic-correlation-matrix",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#building-a-basic-correlation-matrix",
+    "title": "Visual Correlation Analysis",
+    "section": "1.1 Building a basic correlation matrix",
+    "text": "1.1 Building a basic correlation matrix\n\npairs(wine[,1:11])\n\n\n\n\n\n\n\n\nThe required input of pairs() can be a matrix or data frame. The code chunk used to create the scatterplot matrix is relatively simple. It uses the default pairs function. Columns 2 to 12 of wine dataframe is used to build the scatterplot matrix. The variables are: fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates and alcohol.\n\npairs(wine[,2:12])",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#drawing-the-corner",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#drawing-the-corner",
+    "title": "Visual Correlation Analysis",
+    "section": "1.2 Drawing the corner",
+    "text": "1.2 Drawing the corner\n\npairs(wine[,2:12], upper.panel = NULL)\n\n\n\n\n\n\n\n\n\npairs(wine[,2:12], lower.panel = NULL)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#including-with-correlation-coefficients",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#including-with-correlation-coefficients",
+    "title": "Visual Correlation Analysis",
+    "section": "1.3 Including with correlation coefficients",
+    "text": "1.3 Including with correlation coefficients\nTo show the correlation coefficient of each pair of variables instead of a scatter plot,panel.corfunction will be used. This will also show higher correlations in a larger font.\n\npanel.cor &lt;- function(x, y, digits=2, prefix=\"\", cex.cor, ...) {\nusr &lt;- par(\"usr\")\non.exit(par(usr))\npar(usr = c(0, 1, 0, 1))\nr &lt;- abs(cor(x, y, use=\"complete.obs\"))\ntxt &lt;- format(c(r, 0.123456789), digits=digits)[1]\ntxt &lt;- paste(prefix, txt, sep=\"\")\nif(missing(cex.cor)) cex.cor &lt;- 0.8/strwidth(txt)\ntext(0.5, 0.5, txt, cex = cex.cor * (1 + r) / 2)\n}\n\npairs(wine[,2:12], \n      upper.panel = panel.cor)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#getting-started-with-corrplot",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#getting-started-with-corrplot",
+    "title": "Visual Correlation Analysis",
+    "section": "4.1 Getting started with corrplot",
+    "text": "4.1 Getting started with corrplot\n\nwine.cor &lt;- cor(wine[, 1:11])\ncorrplot(wine.cor)\n\n\n\n\n\n\n\n\nNotice that the default visual object used to plot the corrgram is circle. The default layout of the corrgram is a symmetric matrix. The default colour scheme is diverging blue-red. Blue colours are used to represent pair variables with positive correlation coefficients and red colours are used to represent pair variables with negative correlation coefficients. The intensity of the colour or also know as saturation is used to represent the strength of the correlation coefficient. Darker colours indicate relatively stronger linear relationship between the paired variables. On the other hand, lighter colours indicates relatively weaker linear relationship.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-visual-geometrics",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-visual-geometrics",
+    "title": "Visual Correlation Analysis",
+    "section": "4.2 Working with visual geometrics",
+    "text": "4.2 Working with visual geometrics\n\ncorrplot(wine.cor, \n         method = \"ellipse\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-layout",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-layout",
+    "title": "Visual Correlation Analysis",
+    "section": "4.3 Working with layout",
+    "text": "4.3 Working with layout\n\ncorrplot(wine.cor, \n         method = \"ellipse\", \n         type=\"lower\")\n\n\n\n\n\n\n\n\nThe default layout of the corrgram can be further customised. For example, arguments diag and tl.col are used to turn off the diagonal cells and to change the axis text label colour to black colour respectively as shown in the code chunk and figure below.\n\ncorrplot(wine.cor, \n         method = \"ellipse\", \n         type=\"lower\",\n         diag = FALSE,\n         tl.col = \"black\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-mixed-layout",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#working-with-mixed-layout",
+    "title": "Visual Correlation Analysis",
+    "section": "4.4 Working with mixed layout",
+    "text": "4.4 Working with mixed layout\nWith corrplot package, it is possible to design corrgram with mixed visual matrix of one half and numerical matrix on the other half. In order to create a coorgram with mixed layout, the corrplot.mixed(), a wrapped function for mixed visualisation style will be used.\nFigure below shows a mixed layout corrgram plotted using wine quality data.\n\ncorrplot.mixed(wine.cor, \n               lower = \"ellipse\", \n               upper = \"number\",\n               tl.pos = \"lt\",\n               diag = \"l\",\n               tl.col = \"black\")\n\n\n\n\n\n\n\n\nThe code chunk used to plot the corrgram are shown below.\n\ncorrplot.mixed(wine.cor, \n               lower = \"ellipse\", \n               upper = \"number\",\n               tl.pos = \"lt\",\n               diag = \"l\",\n               tl.col = \"black\")\n\n\n\n\n\n\n\n\nNotice that argument lower and upper are used to define the visualisation method used. In this case ellipse is used to map the lower half of the corrgram and numerical matrix (i.e. number) is used to map the upper half of the corrgram. The argument tl.pos, on the other, is used to specify the placement of the axis label. Lastly, the diag argument is used to specify the glyph on the principal diagonal of the corrgram.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#combining-corrgram-with-the-significant-test",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#combining-corrgram-with-the-significant-test",
+    "title": "Visual Correlation Analysis",
+    "section": "4.5 Combining corrgram with the significant test",
+    "text": "4.5 Combining corrgram with the significant test\nIn statistical analysis, we are also interested to know which pair of variables their correlation coefficients are statistically significant.\nFigure below shows a corrgram combined with the significant test. The corrgram reveals that not all correlation pairs are statistically significant. For example the correlation between total sulfur dioxide and free surfur dioxide is statistically significant at significant level of 0.1 but not the pair between total sulfur dioxide and citric acid.\n\nWith corrplot package, we can use the cor.mtest() to compute the p-values and confidence interval for each pair of variables.\n\nwine.sig = cor.mtest(wine.cor, conf.level= .95)\n\nWe can then use the p.mat argument of corrplot function as shown in the code chunk below.\n\ncorrplot(wine.cor,\n         method = \"number\",\n         type = \"lower\",\n         diag = FALSE,\n         tl.col = \"black\",\n         tl.srt = 45,\n         p.mat = wine.sig$p,\n         sig.level = .05)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#reorder-a-corrgram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#reorder-a-corrgram",
+    "title": "Visual Correlation Analysis",
+    "section": "4.6 Reorder a corrgram",
+    "text": "4.6 Reorder a corrgram\nMatrix reorder is very important for mining the hiden structure and pattern in a corrgram. By default, the order of attributes of a corrgram is sorted according to the correlation matrix (i.e. “original”). The default setting can be over-write by using the order argument of corrplot(). Currently, corrplot package support four sorting methods, they are:\n\n“AOE” is for the angular order of the eigenvectors. See Michael Friendly (2002) for details.\n“FPC” for the first principal component order.\n“hclust” for hierarchical clustering order, and “hclust.method” for the agglomeration method to be used.\n\n“hclust.method” should be one of “ward”, “single”, “complete”, “average”, “mcquitty”, “median” or “centroid”.\n\n“alphabet” for alphabetical order.\n\n“AOE”, “FPC”, “hclust”, “alphabet”. More algorithms can be found in seriation package.\n\ncorrplot.mixed(wine.cor, \n               lower = \"ellipse\", \n               upper = \"number\",\n               tl.pos = \"lt\",\n               diag = \"l\",\n               order=\"AOE\",\n               tl.col = \"black\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#reordering-a-correlation-matrix-using-hclust",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_2.html#reordering-a-correlation-matrix-using-hclust",
+    "title": "Visual Correlation Analysis",
+    "section": "4.7 Reordering a correlation matrix using hclust",
+    "text": "4.7 Reordering a correlation matrix using hclust\nIf using hclust, corrplot() can draw rectangles around the corrgram based on the results of hierarchical clustering.\n\ncorrplot(wine.cor, \n         method = \"ellipse\", \n         tl.pos = \"lt\",\n         tl.col = \"black\",\n         order=\"hclust\",\n         hclust.method = \"ward.D\",\n         addrect = 3)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Correlation Analysis"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "",
+    "text": "# load R packages\npacman::p_load(seriation, dendextend, heatmaply, tidyverse)\n\n# import data\nwh &lt;- read_csv(\"data/WHData-2018.csv\")\n\nRows: 156 Columns: 12\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): Country, Region\ndbl (10): Happiness score, Whisker-high, Whisker-low, Dystopia, GDP per capi...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n# prepare data\nrow.names(wh) &lt;- wh$Country\n\nWarning: Setting row names on a tibble is deprecated.\n\n# Transforming the data frame into a matrix\nwh1 &lt;- dplyr::select(wh, c(3, 7:12))\nwh_matrix &lt;- data.matrix(wh)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html",
+    "title": "Creating Ternary Plot with R",
+    "section": "",
+    "text": "Show the code: load R packages\npacman::p_load(plotly, ggtern, tidyverse)\nMain packages to be used for creating ternary plot: ggtern and plotlyr\nShow the code: Import data\n#Reading the data into R environment\npop_data &lt;- read_csv(\"data/respopagsex2000to2018_tidy.csv\") \n\n\nRows: 108126 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): PA, SZ, AG\ndbl (2): Year, Population\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nShow the code: Prepare data\n#Deriving the young, economy active and old measures\nagpop_mutated &lt;- pop_data %&gt;%\n  mutate(`Year` = as.character(Year))%&gt;%\n  spread(AG, Population) %&gt;%\n  mutate(YOUNG = rowSums(.[4:8]))%&gt;%\n  mutate(ACTIVE = rowSums(.[9:16]))  %&gt;%\n  mutate(OLD = rowSums(.[17:21])) %&gt;%\n  mutate(TOTAL = rowSums(.[22:24])) %&gt;%\n  filter(Year == 2018)%&gt;%\n  filter(TOTAL &gt; 0)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html#plotting-a-static-ternary-diagram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html#plotting-a-static-ternary-diagram",
+    "title": "Creating Ternary Plot with R",
+    "section": "1.1 Plotting a static ternary diagram",
+    "text": "1.1 Plotting a static ternary diagram\n\n#Building the static ternary plot\nggtern(data=agpop_mutated,aes(x=YOUNG,y=ACTIVE, z=OLD)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n#Building the static ternary plot\nggtern(data=agpop_mutated, aes(x=YOUNG,y=ACTIVE, z=OLD)) +\n  geom_point() +\n  labs(title=\"Population structure, 2015\") +\n  theme_rgbw()",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html#plotting-an-interative-ternary-diagram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_1.html#plotting-an-interative-ternary-diagram",
+    "title": "Creating Ternary Plot with R",
+    "section": "1.2 Plotting an interative ternary diagram",
+    "text": "1.2 Plotting an interative ternary diagram\n\n\nShow the code: Plotting an interative ternary diagram\n# reusable function for creating annotation object\nlabel &lt;- function(txt) {\n  list(\n    text = txt, \n    x = 0.1, y = 1,\n    ax = 0, ay = 0,\n    xref = \"paper\", yref = \"paper\", \n    align = \"center\",\n    font = list(family = \"serif\", size = 15, color = \"white\"),\n    bgcolor = \"#b3b3b3\", bordercolor = \"black\", borderwidth = 2\n  )\n}\n\n# reusable function for axis formatting\naxis &lt;- function(txt) {\n  list(\n    title = txt, tickformat = \".0%\", tickfont = list(size = 10)\n  )\n}\n\nternaryAxes &lt;- list(\n  aaxis = axis(\"Young\"), \n  baxis = axis(\"Active\"), \n  caxis = axis(\"Old\")\n)\n\n# Initiating a plotly visualization \nplot_ly(\n  agpop_mutated, \n  a = ~YOUNG, \n  b = ~ACTIVE, \n  c = ~OLD, \n  color = I(\"black\"), \n  type = \"scatterternary\"\n) %&gt;%\n  layout(\n    annotations = label(\"Ternary Markers\"), \n    ternary = ternaryAxes\n  )\n\n\nNo scatterternary mode specifed:\n  Setting the mode to markers\n  Read more about this attribute -&gt; https://plotly.com/r/reference/#scatter-mode",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Creating Ternary Plot with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#working-with-heatmaply",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#working-with-heatmaply",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.1 Working with heatmaply",
+    "text": "2.1 Working with heatmaply\n\nheatmaply(mtcars)\n\n\n\n\n\nThe code chunk below shows the basic syntax needed to create n interactive heatmap by using heatmaply package.\n\nheatmaply(wh_matrix[, -c(1, 2, 4, 5)])\n\n\n\n\n\nNote that:\n\nDifferent from heatmap(), for heatmaply() the default horizontal dendrogram is placed on the left hand side of the heatmap.\nThe text label of each raw, on the other hand, is placed on the right hand side of the heat map.\nWhen the x-axis marker labels are too long, they will be rotated by 135 degree from the north.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#data-transformation",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#data-transformation",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.2 Data transformation",
+    "text": "2.2 Data transformation\n\n2.2.1 Scaling method\n\nWhen all variables are came from or assumed to come from some normal distribution, then scaling (i.e.: subtract the mean and divide by the standard deviation) would bring them all close to the standard normal distribution.\nIn such a case, each value would reflect the distance from the mean in units of standard deviation.\nThe scale argument in heatmaply() supports column and row scaling.\n\nThe code chunk below is used to scale variable values columewise.\n\nheatmaply(wh_matrix[, -c(1, 2, 4, 5)],\n          scale = \"column\")\n\n\n\n\n\n\n\n2.2.2 Normalising method\n\nWhen variables in the data comes from possibly different (and non-normal) distributions, the normalize function can be used to bring data to the 0 to 1 scale by subtracting the minimum and dividing by the maximum of all observations.\nThis preserves the shape of each variable’s distribution while making them easily comparable on the same “scale”.\n\nDifferent from Scaling, the normalise method is performed on the input data set i.e. wh_matrix as shown in the code chunk below.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]))\n\n\n\n\n\n\n\n2.2.3 Percentising method\n\nThis is similar to ranking the variables, but instead of keeping the rank values, divide them by the maximal rank.\nThis is done by using the ecdf of the variables on their own values, bringing each value to its empirical percentile.\nThe benefit of the percentize function is that each value has a relatively clear interpretation, it is the percent of observations that got that value or below it.\n\nSimilar to Normalize method, the Percentize method is also performed on the input data set i.e. wh_matrix as shown in the code chunk below.\n\nheatmaply(percentize(wh_matrix[, -c(1, 2, 4, 5)]))",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#clustering-algorithm",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#clustering-algorithm",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.3 Clustering algorithm",
+    "text": "2.3 Clustering algorithm\nheatmaply supports a variety of hierarchical clustering algorithm. The main arguments provided are:\n\ndistfun: function used to compute the distance (dissimilarity) between both rows and columns. Defaults to dist. The options “pearson”, “spearman” and “kendall” can be used to use correlation-based clustering, which uses as.dist(1 - cor(t(x))) as the distance metric (using the specified correlation method).\nhclustfun: function used to compute the hierarchical clustering when Rowv or Colv are not dendrograms. Defaults to hclust.\ndist_method default is NULL, which results in “euclidean” to be used. It can accept alternative character strings indicating the method to be passed to distfun. By default distfun is “dist”” hence this can be one of “euclidean”, “maximum”, “manhattan”, “canberra”, “binary” or “minkowski”.\nhclust_method default is NULL, which results in “complete” method to be used. It can accept alternative character strings indicating the method to be passed to hclustfun. By default hclustfun is hclust hence this can be one of “ward.D”, “ward.D2”, “single”, “complete”, “average” (= UPGMA), “mcquitty” (= WPGMA), “median” (= WPGMC) or “centroid” (= UPGMC).\n\nIn general, a clustering model can be calibrated either manually or statistically.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#manual-approach",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#manual-approach",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.4 Manual approach",
+    "text": "2.4 Manual approach\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          dist_method = \"euclidean\",\n          hclust_method = \"ward.D\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#statistical-approach",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#statistical-approach",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.5 Statistical approach",
+    "text": "2.5 Statistical approach\nIn order to determine the best clustering method and number of cluster the dend_expend() and find_k() functions of dendextend package will be used.\nFirst, the dend_expend() will be used to determine the recommended clustering method to be used.\n\nwh_d &lt;- dist(normalize(wh_matrix[, -c(1, 2, 4, 5)]), method = \"euclidean\")\ndend_expend(wh_d)[[3]]\n\n  dist_methods hclust_methods     optim\n1      unknown         ward.D 0.6137851\n2      unknown        ward.D2 0.6289186\n3      unknown         single 0.4774362\n4      unknown       complete 0.6434009\n5      unknown        average 0.6701688\n6      unknown       mcquitty 0.5020102\n7      unknown         median 0.5901833\n8      unknown       centroid 0.6338734\n\n\nThe output table shows that “average” method should be used because it gave the high optimum value.\nNext, find_k() is used to determine the optimal number of cluster.\n\nwh_clust &lt;- hclust(wh_d, method = \"average\")\nnum_k &lt;- find_k(wh_clust)\nplot(num_k)\n\n\n\n\n\n\n\n\nFigure above shows that k=3 would be good.\nWith reference to the statistical analysis results, we can prepare the code chunk as shown below.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          dist_method = \"euclidean\",\n          hclust_method = \"average\",\n          k_row = 3)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#seriation",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#seriation",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.6 Seriation",
+    "text": "2.6 Seriation\nOne of the problems with hierarchical clustering is that it doesn’t actually place the rows in a definite order, it merely constrains the space of possible orderings. Take three items A, B and C. If you ignore reflections, there are three possible orderings: ABC, ACB, BAC. If clustering them gives you ((A+B)+C) as a tree, you know that C can’t end up between A and B, but it doesn’t tell you which way to flip the A+B cluster. It doesn’t tell you if the ABC ordering will lead to a clearer-looking heatmap than the BAC ordering.\nheatmaply uses the seriation package to find an optimal ordering of rows and columns. Optimal means to optimize the Hamiltonian path length that is restricted by the dendrogram structure. This, in other words, means to rotate the branches so that the sum of distances between each adjacent leaf (label) will be minimized. This is related to a restricted version of the travelling salesman problem.\nHere we meet our first seriation algorithm: Optimal Leaf Ordering (OLO). This algorithm starts with the output of an agglomerative clustering algorithm and produces a unique ordering, one that flips the various branches of the dendrogram around so as to minimize the sum of dissimilarities between adjacent leaves. Here is the result of applying Optimal Leaf Ordering to the same clustering result as the heatmap above.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          seriate = \"OLO\")\n\n\n\n\n\nThe default options is “OLO” (Optimal leaf ordering) which optimizes the above criterion (in O(n^4)). Another option is “GW” (Gruvaeus and Wainer) which aims for the same goal but uses a potentially faster heuristic.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          seriate = \"GW\")\n\nRegistered S3 method overwritten by 'gclus':\n  method         from     \n  reorder.hclust seriation\n\n\n\n\n\n\nThe option “mean” gives the output we would get by default from heatmap functions in other packages such as gplots::heatmap.2.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          seriate = \"mean\")\n\n\n\n\n\nThe option “none” gives us the dendrograms without any rotation that is based on the data matrix.\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          seriate = \"none\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#working-with-colour-palettes",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#working-with-colour-palettes",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.7 Working with colour palettes",
+    "text": "2.7 Working with colour palettes\nThe default colour palette uses by heatmaply is viridis. heatmaply users, however, can use other colour palettes in order to improve the aestheticness and visual friendliness of the heatmap.\nIn the code chunk below, the Blues colour palette of rColorBrewer is used\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          seriate = \"none\",\n          colors = Blues)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#the-finishing-touch",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_3.html#the-finishing-touch",
+    "title": "Heatmap for Visualising and Analysing Multivariate Data",
+    "section": "2.8 The finishing touch",
+    "text": "2.8 The finishing touch\nBeside providing a wide collection of arguments for meeting the statistical analysis needs, heatmaply also provides many plotting features to ensure cartographic quality heatmap can be produced.\nIn the code chunk below the following arguments are used:\n\nk_row is used to produce 5 groups.\nmargins is used to change the top margin to 60 and row margin to 200.\nfontsizw_row and fontsize_col are used to change the font size for row and column labels to 4.\nmain is used to write the main title of the plot.\nxlab and ylab are used to write the x-axis and y-axis labels respectively.\n\n\nheatmaply(normalize(wh_matrix[, -c(1, 2, 4, 5)]),\n          Colv=NA,\n          seriate = \"none\",\n          colors = Blues,\n          k_row = 5,\n          margins = c(NA,200,60,NA),\n          fontsize_row = 4,\n          fontsize_col = 5,\n          main=\"World Happiness Score and Variables by Country, 2018 \\nDataTransformation using Normalise Method\",\n          xlab = \"World Happiness Indicators\",\n          ylab = \"World Countries\"\n          )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Heatmap for Visualising and Analysing Multivariate Data"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "",
+    "text": "# load R packages\npacman::p_load(GGally, parallelPlot, tidyverse)\n\n# import data\nwh &lt;- read_csv(\"data/WHData-2018.csv\")\n\nRows: 156 Columns: 12\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): Country, Region\ndbl (10): Happiness score, Whisker-high, Whisker-low, Dystopia, GDP per capi...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#plotting-a-simple-parallel-coordinates",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#plotting-a-simple-parallel-coordinates",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "1.1 Plotting a simple parallel coordinates",
+    "text": "1.1 Plotting a simple parallel coordinates\n\nggparcoord(data = wh, \n           columns = c(7:12))\n\n\n\n\n\n\n\n\nNotice that only two argument namely data and columns is used. Data argument is used to map the data object (i.e. wh) and columns is used to select the columns for preparing the parallel coordinates plot.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#plotting-a-parallel-coordinates-with-boxplot",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#plotting-a-parallel-coordinates-with-boxplot",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "1.2 Plotting a parallel coordinates with boxplot",
+    "text": "1.2 Plotting a parallel coordinates with boxplot\n\nggparcoord(data = wh, \n           columns = c(7:12), \n           groupColumn = 2,\n           scale = \"uniminmax\",\n           alphaLines = 0.2,\n           boxplot = TRUE, \n           title = \"Parallel Coordinates Plot of World Happines Variables\")\n\n\n\n\n\n\n\n\nThings to learn from the code chunk above.\n\ngroupColumn argument is used to group the observations (i.e. parallel lines) by using a single variable (i.e. Region) and colour the parallel coordinates lines by region name.\nscale argument is used to scale the variables in the parallel coordinate plot by using uniminmax method. The method univariately scale each variable so the minimum of the variable is zero and the maximum is one.\nalphaLines argument is used to reduce the intensity of the line colour to 0.2. The permissible value range is between 0 to 1.\nboxplot argument is used to turn on the boxplot by using logical TRUE. The default is FALSE.\ntitle argument is used to provide the parallel coordinates plot a title.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#parallel-coordinates-with-facet",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#parallel-coordinates-with-facet",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "1.3 Parallel coordinates with facet",
+    "text": "1.3 Parallel coordinates with facet\nSince ggparcoord() is developed by extending ggplot2 package, we can combination use some of the ggplot2 function when plotting a parallel coordinates plot.\nIn the code chunk below, facet_wrap() of ggplot2 is used to plot 10 small multiple parallel coordinates plots. Each plot represent one geographical region such as East Asia.\n\nggparcoord(data = wh, \n           columns = c(7:12), \n           groupColumn = 2,\n           scale = \"uniminmax\",\n           alphaLines = 0.2,\n           boxplot = TRUE, \n           title = \"Multiple Parallel Coordinates Plots of World Happines Variables by Region\") +\n  facet_wrap(~ Region)\n\n\n\n\n\n\n\n\nOne of the aesthetic defect of the current design is that some of the variable names overlap on x-axis.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#rotating-x-axis-text-label",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#rotating-x-axis-text-label",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "1.4 Rotating x-axis text label",
+    "text": "1.4 Rotating x-axis text label\nTo make the x-axis text label easy to read, let us rotate the labels by 30 degrees. We can rotate axis text labels using theme() function in ggplot2 as shown in the code chunk below\n\nggparcoord(data = wh, \n           columns = c(7:12), \n           groupColumn = 2,\n           scale = \"uniminmax\",\n           alphaLines = 0.2,\n           boxplot = TRUE, \n           title = \"Multiple Parallel Coordinates Plots of World Happines Variables by Region\") +\n  facet_wrap(~ Region) + \n  theme(axis.text.x = element_text(angle = 30))\n\n\n\n\n\n\n\n\nThing to learn from the code chunk above:\n\nTo rotate x-axis text labels, we use axis.text.x as argument to theme() function. And we specify element_text(angle = 30) to rotate the x-axis text by an angle 30 degree.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#adjusting-the-rotated-x-axis-text-label",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#adjusting-the-rotated-x-axis-text-label",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "1.5 Adjusting the rotated x-axis text label",
+    "text": "1.5 Adjusting the rotated x-axis text label\nRotating x-axis text labels to 30 degrees makes the label overlap with the plot and we can avoid this by adjusting the text location using hjust argument to theme’s text element with element_text(). We use axis.text.x as we want to change the look of x-axis text.\n\nggparcoord(data = wh, \n           columns = c(7:12), \n           groupColumn = 2,\n           scale = \"uniminmax\",\n           alphaLines = 0.2,\n           boxplot = TRUE, \n           title = \"Multiple Parallel Coordinates Plots of World Happines Variables by Region\") +\n  facet_wrap(~ Region) + \n  theme(axis.text.x = element_text(angle = 30, hjust=1))",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#the-basic-plot",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#the-basic-plot",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "2.1 The basic plot",
+    "text": "2.1 The basic plot\nThe code chunk below plot an interactive parallel coordinates plot by using parallelPlot().\n\nwh &lt;- wh %&gt;%\n  select(\"Happiness score\", c(7:12))\nparallelPlot(wh,\n             width = 320,\n             height = 250)\n\n\n\n\n\nNotice that some of the axis labels are too long. You will learn how to overcome this problem in the next step.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#rotate-axis-label",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#rotate-axis-label",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "2.2 Rotate axis label",
+    "text": "2.2 Rotate axis label\nIn the code chunk below, rotateTitle argument is used to avoid overlapping axis labels.\n\nparallelPlot(wh,\n             rotateTitle = TRUE)\n\n\n\n\n\nOne of the useful interactive feature of parallelPlot is we can click on a variable of interest, for example Happiness score, the monotonous blue colour (default) will change a blues with different intensity colour scheme will be used.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#changing-the-colour-scheme",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#changing-the-colour-scheme",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "2.3 Changing the colour scheme",
+    "text": "2.3 Changing the colour scheme\nWe can change the default blue colour scheme by using continousCS argument as shown in the code chunl below.\n\nparallelPlot(wh,\n             continuousCS = \"YlOrRd\",\n             rotateTitle = TRUE)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#parallel-coordinates-plot-with-histogram",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_4.html#parallel-coordinates-plot-with-histogram",
+    "title": "Visual Multivariate Analysis with Parallel Coordinates Plot",
+    "section": "2.4 Parallel coordinates plot with histogram",
+    "text": "2.4 Parallel coordinates plot with histogram\nIn the code chunk below, histoVisibility argument is used to plot histogram along the axis of each variables.\n\nhistoVisibility &lt;- rep(TRUE, ncol(wh))\nparallelPlot(wh,\n             rotateTitle = TRUE,\n             histoVisibility = histoVisibility)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Visual Multivariate Analysis with Parallel Coordinates Plot"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html",
+    "title": "Treemap Visualisation with R",
+    "section": "",
+    "text": "# load R packages\npacman::p_load(treemap, treemapify, tidyverse)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#import-data",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#import-data",
+    "title": "Treemap Visualisation with R",
+    "section": "1.1 Import data",
+    "text": "1.1 Import data\n\n# import data\nrealis2018 &lt;- read_csv(\"data/realis2018.csv\")\n\nRows: 23205 Columns: 20\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (12): Project Name, Address, Type of Area, Nett Price($), Sale Date, Pro...\ndbl  (8): No. of Units, Area (sqm), Transacted Price ($), Unit Price ($ psm)...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#wrangling-and-manipulation",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#wrangling-and-manipulation",
+    "title": "Treemap Visualisation with R",
+    "section": "1.2 Wrangling and Manipulation",
+    "text": "1.2 Wrangling and Manipulation\nThe data.frame realis2018 is in trasaction record form, which is highly disaggregated and not appropriate to be used to plot a treemap. In this section, we will perform the following steps to manipulate and prepare a data.frtame that is appropriate for treemap visualisation:\n\ngroup transaction records by Project Name, Planning Region, Planning Area, Property Type and Type of Sale, and\ncompute Total Unit Sold, Total Area, Median Unit Price and Median Transacted Price by applying appropriate summary statistics on No. of Units, Area (sqm), Unit Price ($ psm) and Transacted Price ($) respectively.\n\nTwo key verbs of dplyr package, namely: group_by() and summarize() will be used to perform these steps.\ngroup_by() breaks down a data.frame into specified groups of rows. When you then apply the verbs above on the resulting object they’ll be automatically applied “by group”.\nGrouping affects the verbs as follows:\n\ngrouped select() is the same as ungrouped select(), except that grouping variables are always retained.\ngrouped arrange() is the same as ungrouped; unless you set .by_group = TRUE, in which case it orders first by the grouping variables.\nmutate() and filter() are most useful in conjunction with window functions (like rank(), or min(x) == x). They are described in detail in vignette(“window-functions”).\nsample_n() and sample_frac() sample the specified number/fraction of rows in each group.\nsummarise() computes the summary for each group.\n\nIn our case, group_by() will used together with summarise() to derive the summarised data.frame.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#grouped-summaries-without-the-pipe",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#grouped-summaries-without-the-pipe",
+    "title": "Treemap Visualisation with R",
+    "section": "1.3 Grouped summaries without the Pipe",
+    "text": "1.3 Grouped summaries without the Pipe\n\nrealis2018_grouped &lt;- group_by(realis2018, `Project Name`,\n                               `Planning Region`, `Planning Area`, \n                               `Property Type`, `Type of Sale`)\nrealis2018_summarised &lt;- summarise(realis2018_grouped, \n                          `Total Unit Sold` = sum(`No. of Units`, na.rm = TRUE),\n                          `Total Area` = sum(`Area (sqm)`, na.rm = TRUE),\n                          `Median Unit Price ($ psm)` = median(`Unit Price ($ psm)`, na.rm = TRUE), \n                          `Median Transacted Price` = median(`Transacted Price ($)`, na.rm = TRUE))\n\n`summarise()` has grouped output by 'Project Name', 'Planning Region',\n'Planning Area', 'Property Type'. You can override using the `.groups`\nargument.\n\n\n\n\n\n\n\n\nNote\n\n\n\nAggregation functions such as sum() and meadian() obey the usual rule of missing values: if there’s any missing value in the input, the output will be a missing value. The argument na.rm = TRUE removes the missing values prior to computation.\n\n\nThe code chunk above is not very efficient because we have to give each intermediate data.frame a name, even though we don’t have to care about it.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#grouped-summaries-with-the-pipe",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#grouped-summaries-with-the-pipe",
+    "title": "Treemap Visualisation with R",
+    "section": "1.4 Grouped summaries with the pipe",
+    "text": "1.4 Grouped summaries with the pipe\nThe code chunk below shows a more efficient way to tackle the same processes by using the pipe, %&gt;%\n\nrealis2018_summarised &lt;- realis2018 %&gt;% \n  group_by(`Project Name`,`Planning Region`, \n           `Planning Area`, `Property Type`, \n           `Type of Sale`) %&gt;%\n  summarise(`Total Unit Sold` = sum(`No. of Units`, na.rm = TRUE), \n            `Total Area` = sum(`Area (sqm)`, na.rm = TRUE),\n            `Median Unit Price ($ psm)` = median(`Unit Price ($ psm)`, na.rm = TRUE),\n            `Median Transacted Price` = median(`Transacted Price ($)`, na.rm = TRUE))\n\n`summarise()` has grouped output by 'Project Name', 'Planning Region',\n'Planning Area', 'Property Type'. You can override using the `.groups`\nargument.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-a-static-treemap",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-a-static-treemap",
+    "title": "Treemap Visualisation with R",
+    "section": "2.1 Designing a static treemap",
+    "text": "2.1 Designing a static treemap\nIn this section, treemap() of Treemap package is used to plot a treemap showing the distribution of median unit prices and total unit sold of resale condominium by geographic hierarchy in 2017.\nFirst, we will select records belongs to resale condominium property type from realis2018_selected data frame.\n\nrealis2018_selected &lt;- realis2018_summarised %&gt;%\n  filter(`Property Type` == \"Condominium\", `Type of Sale` == \"Resale\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#using-the-basic-arguments",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#using-the-basic-arguments",
+    "title": "Treemap Visualisation with R",
+    "section": "2.2 Using the basic arguments",
+    "text": "2.2 Using the basic arguments\nThe code chunk below designed a treemap by using three core arguments of treemap(), namely: index, vSize and vColor.\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )\n\n\n\n\n\n\n\n\nThings to learn from the three arguments used:\n\nindex\n\nThe index vector must consist of at least two column names or else no hierarchy treemap will be plotted.\nIf multiple column names are provided, such as the code chunk above, the first name is the highest aggregation level, the second name the second highest aggregation level, and so on.\n\nvSize\n\nThe column must not contain negative values. This is because it’s vaues will be used to map the sizes of the rectangles of the treemaps.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe treemap above was wrongly coloured. For a correctly designed treemap, the colours of the rectagles should be in different intensity showing, in our case, median unit prices.\n\n\nFor treemap(), vColor is used in combination with the argument type to determines the colours of the rectangles. Without defining type, like the code chunk above, treemap() assumes type = index, in our case, the hierarchy of planning areas.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#working-with-vcolor-and-type-arguments",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#working-with-vcolor-and-type-arguments",
+    "title": "Treemap Visualisation with R",
+    "section": "2.3 Working with vColor and type arguments",
+    "text": "2.3 Working with vColor and type arguments\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type = \"value\",\n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )\n\n\n\n\n\n\n\n\nThinking to learn from the conde chunk above.\n\nThe rectangles are coloured with different intensity of green, reflecting their respective median unit prices.\nThe legend reveals that the values are binned into ten bins, i.e. 0-5000, 5000-10000, etc. with an equal interval of 5000.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#colours-in-treemap-package",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#colours-in-treemap-package",
+    "title": "Treemap Visualisation with R",
+    "section": "2.4 Colours in treemap package",
+    "text": "2.4 Colours in treemap package\nThere are two arguments that determine the mapping to color palettes: mapping and palette. The only difference between “value” and “manual” is the default value for mapping. The “value” treemap considers palette to be a diverging color palette (say ColorBrewer’s “RdYlBu”), and maps it in such a way that 0 corresponds to the middle color (typically white or yellow), -max(abs(values)) to the left-end color, and max(abs(values)), to the right-end color. The “manual” treemap simply maps min(values) to the left-end color, max(values) to the right-end color, and mean(range(values)) to the middle color.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#the-value-type-treemap",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#the-value-type-treemap",
+    "title": "Treemap Visualisation with R",
+    "section": "2.5 The “value” type treemap",
+    "text": "2.5 The “value” type treemap\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"value\",\n        palette=\"RdYlBu\", \n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )\n\n\n\n\n\n\n\n\nThing to learn from the code chunk above:\n\nalthough the colour palette used is RdYlBu but there are no red rectangles in the treemap above. This is because all the median unit prices are positive.\nThe reason why we see only 5000 to 45000 in the legend is because the range argument is by default c(min(values, max(values)) with some pretty rounding.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#the-manual-type-treemap",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#the-manual-type-treemap",
+    "title": "Treemap Visualisation with R",
+    "section": "2.6 The “manual” type treemap",
+    "text": "2.6 The “manual” type treemap\nThe “manual” type does not interpret the values as the “value” type does. Instead, the value range is mapped linearly to the colour palette.\nThe code chunk below shows a manual type treemap.\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"manual\",\n        palette=\"RdYlBu\", \n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )\n\n\n\n\n\n\n\n\nThings to learn from the code chunk above:\n\nThe colour scheme used is very copnfusing. This is because mapping = (min(values), mean(range(values)), max(values)). It is not wise to use diverging colour palette such as RdYlBu if the values are all positive or negative\n\nTo overcome this problem, a single colour palette such as Blues should be used.\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"manual\",\n        palette=\"Blues\", \n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#treemap-layout",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#treemap-layout",
+    "title": "Treemap Visualisation with R",
+    "section": "2.7 Treemap Layout",
+    "text": "2.7 Treemap Layout\ntreemap() supports two popular treemap layouts, namely: “squarified” and “pivotSize”. The default is “pivotSize”.\nThe squarified treemap algorithm (Bruls et al., 2000) produces good aspect ratios, but ignores the sorting order of the rectangles (sortID). The ordered treemap, pivot-by-size, algorithm (Bederson et al., 2002) takes the sorting order (sortID) into account while aspect ratios are still acceptable.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#working-with-algorithm-argument",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#working-with-algorithm-argument",
+    "title": "Treemap Visualisation with R",
+    "section": "2.8 Working with algorithm argument",
+    "text": "2.8 Working with algorithm argument\nThe code chunk below plots a squarified treemap by changing the algorithm argument.\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"manual\",\n        palette=\"Blues\", \n        algorithm = \"squarified\",\n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#using-sortid",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#using-sortid",
+    "title": "Treemap Visualisation with R",
+    "section": "2.9 Using sortID",
+    "text": "2.9 Using sortID\nWhen “pivotSize” algorithm is used, sortID argument can be used to dertemine the order in which the rectangles are placed from top left to bottom right.\n\ntreemap(realis2018_selected,\n        index=c(\"Planning Region\", \"Planning Area\", \"Project Name\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"manual\",\n        palette=\"Blues\", \n        algorithm = \"pivotSize\",\n        sortID = \"Median Transacted Price\",\n        title=\"Resale Condominium by Planning Region and Area, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-a-basic-treemap",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-a-basic-treemap",
+    "title": "Treemap Visualisation with R",
+    "section": "3.1 Designing a basic treemap",
+    "text": "3.1 Designing a basic treemap\n\nggplot(data=realis2018_selected, \n       aes(area = `Total Unit Sold`,\n           fill = `Median Unit Price ($ psm)`),\n       layout = \"scol\",\n       start = \"bottomleft\") + \n  geom_treemap() +\n  scale_fill_gradient(low = \"light blue\", high = \"blue\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#defining-hierarchy",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#defining-hierarchy",
+    "title": "Treemap Visualisation with R",
+    "section": "3.2 Defining hierarchy",
+    "text": "3.2 Defining hierarchy\n\nGroup by Planning RegionGroup by Planning AreaAdding boundary line\n\n\n\nggplot(data=realis2018_selected, \n       aes(area = `Total Unit Sold`,\n           fill = `Median Unit Price ($ psm)`,\n           subgroup = `Planning Region`),\n       start = \"topleft\") + \n  geom_treemap()\n\n\n\n\n\n\n\n\n\n\n\nggplot(data=realis2018_selected, \n       aes(area = `Total Unit Sold`,\n           fill = `Median Unit Price ($ psm)`,\n           subgroup = `Planning Region`,\n           subgroup2 = `Planning Area`)) + \n  geom_treemap()\n\n\n\n\n\n\n\n\n\n\n\nggplot(data=realis2018_selected, \n       aes(area = `Total Unit Sold`,\n           fill = `Median Unit Price ($ psm)`,\n           subgroup = `Planning Region`,\n           subgroup2 = `Planning Area`)) + \n  geom_treemap() +\n  geom_treemap_subgroup2_border(colour = \"gray40\",\n                                size = 2) +\n  geom_treemap_subgroup_border(colour = \"gray20\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#installing-d3treer-package",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#installing-d3treer-package",
+    "title": "Treemap Visualisation with R",
+    "section": "4.1 Installing d3treeR package",
+    "text": "4.1 Installing d3treeR package\n\n#install.packages(\"devtools\")\nlibrary(devtools)\n\nLoading required package: usethis\n\n\n\n#install_github(\"timelyportfolio/d3treeR\")\nlibrary(d3treeR)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-an-interactive-treemap---step1",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-an-interactive-treemap---step1",
+    "title": "Treemap Visualisation with R",
+    "section": "4.1 Designing An Interactive Treemap - Step1",
+    "text": "4.1 Designing An Interactive Treemap - Step1\ntreemap() is used to build a treemap by using selected variables in condominium data.frame. The treemap created is save as object called tm.\n\ntm &lt;- treemap(realis2018_summarised,\n        index=c(\"Planning Region\", \"Planning Area\"),\n        vSize=\"Total Unit Sold\",\n        vColor=\"Median Unit Price ($ psm)\",\n        type=\"value\",\n        title=\"Private Residential Property Sold, 2017\",\n        title.legend = \"Median Unit Price (S$ per sq. m)\"\n        )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
+    ]
+  },
+  {
+    "objectID": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-an-interactive-treemap---step2",
+    "href": "Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05_5.html#designing-an-interactive-treemap---step2",
+    "title": "Treemap Visualisation with R",
+    "section": "4.2 Designing An Interactive Treemap - Step2",
+    "text": "4.2 Designing An Interactive Treemap - Step2\nThen d3tree() is used to build an interactive treemap.\n\nd3tree(tm,rootname = \"Singapore\" )",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercise",
+      "Hands on Ex05",
+      "Treemap Visualisation with R"
     ]
   }
 ]
