@@ -111,7 +111,7 @@ format:
     toc: true
     theme: cerulean
     mainfont: Times New Roman
-    fontsize: 1.1 em
+    fontsize: 1.2 em
     linestretch: 1.5
     grid:
       sidebar-width: 300px
