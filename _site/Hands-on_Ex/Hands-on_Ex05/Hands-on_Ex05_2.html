@@ -782,15 +782,11 @@ dbl (12): fixed acidity, volatile acidity, citric acid, residual sugar, chlo...
 <span id="cb12-14"><a href="#cb12-14"></a>    <span class="at">subtitle =</span> <span class="st">"The measures are: alcohol, sulphates, fixed acidity, citric acid, chlorides, residual sugar, density, free sulfur dioxide and volatile acidity"</span>,</span>
 <span id="cb12-15"><a href="#cb12-15"></a>    <span class="at">caption =</span> <span class="st">"Dataset: UCI Machine Learning Repository"</span></span>
 <span id="cb12-16"><a href="#cb12-16"></a>  )</span>
-<span id="cb12-17"><a href="#cb12-17"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Hands-on_Ex05_2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<span id="cb12-17"><a href="#cb12-17"></a>)</span>
+<span id="cb12-18"><a href="#cb12-18"></a></span>
+<span id="cb12-19"><a href="#cb12-19"></a><span class="fu">ggsave</span>(<span class="st">"images/MultiplePlot.jpg"</span>, <span class="at">width =</span> <span class="dv">40</span>, <span class="at">height =</span> <span class="dv">40</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
+<p><img src="images/MultiplePlot.jpg" class="img-fluid"></p>
 <p>Things to learn from the code chunk above:</p>
 <ul>
 <li><p>to build a facet plot, the only argument needed is <code>grouping.var</code>.</p></li>
