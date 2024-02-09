@@ -59,16 +59,19 @@ website:
           href: "Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html"
         - text: "2. Peer Critique & DataVis Makeover"
           href: "Take-home_Ex/Take-home_Ex02/Take-home_Ex02.html"        
-        - text: "3"
+        - text: "3. Be Weatherwise or Otherwise"
+          href: "Take-home_Ex/Take-home_Ex03/Take-home_Ex03.html" 
     - text: "Project"
       menu:
         - text: "introduction"
-    right:
-      - text: "Home"
-        href: index.qmd
+    #right:
+      #- text: "Home"
+        #href: index.qmd
       #- text: "About"
         #href: about.qmd
     tools:
+      - icon: house-heart
+        href: https://isss608-vaa-wyaling.netlify.app/
       - icon: linkedin
       - icon: envelope-at
         href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
