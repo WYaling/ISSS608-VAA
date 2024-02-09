@@ -71,7 +71,7 @@ website:
         #href: about.qmd
     tools:
       - icon: house-heart
-        href: https://isss608-vaa-wyaling.netlify.app/
+        href: index.qmd
       - icon: linkedin
       - icon: envelope-at
         href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
