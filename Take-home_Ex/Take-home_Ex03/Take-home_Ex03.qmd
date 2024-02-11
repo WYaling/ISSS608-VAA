@@ -6,3 +6,75 @@ date: "Feb 10, 2024"
 date-modified: last-modified
 date-format: medium
 ---
+
+![](images/Weather_in_SG.png){fig-align="center"}
+
+::: {style="color: orange; font-size: 30px;"}
+**How do you feel living in Singapore ?**![](images/Hot_weather_girl2.jpg){width="93"}
+:::
+
+------------------------------------------------------------------------
+
+Singapore is located near the equator and falls under a tropical rainforest climate, characterized by high temperatures, high humidity, and abundant rainfall throughout the year. The lack of seasonal variations lull many into thinking that Singapore’s weather is predictable and unchanging. Nothing is further from the truth, with climate change making the city state’s weather even more unpredictable. The global climate change has led to higher temperatures, increased rainfall, and rising sea levels in Singapore.
+
+According to an office report as shown in the info graphic below, by the end of this century,
+
+-   Daily mean temperature are projected to increase by 1.4 to 4.6
+-   The contrast between the wet months (November to January) and dry month (February and June to September) is likely to be more pronounced.
+
+![](images/Climate_Change_In_Singapore.jpg){fig-align="center"}
+
+*Source: Ministry of Sustainability and the Environment*
+
+To gain a deeper understanding of the climate change process, I will employ the art of data visualization analysis to illustrate the variations in **temperature** and **rainfall** in Singapore over the years.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Load packages"
+pacman::p_load(tidyverse, dplyr)
+```
+
+# 1. Data Preparation
+
+## 1.1 Data Source
+
+1.  Open the [Meteorological Service Singapore](http://www.weather.gov.sg/home/) website and navigate to the [Historical Daily Records](http://www.weather.gov.sg/climate-historical-daily/) page.
+2.  Select **Changi** as the location and download historical data for **December** in the years **1983**, **1993**, **2003**, **2013**, and **2023**.
+3.  Merge the above five `.csv` data files together to get the "**Historical_Records.csv**" data file.
+
+## 1.2 Data Cleaning
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Glimpse of Historical_Records.csv"
+Historical_Records <- read.csv("data/Historical_Records.csv")
+glimpse(Historical_Records)
+```
+
+::: callout-note
+## The data was processed as follows:
+
+1.  Since all data originated from Changi station in December, columns "Station" and "Month" were removed.
+2.  Columns "Highest 30 Min Rainfall (mm)", "Highest 60 Min Rainfall (mm)", and "Highest 60 Min Rainfall (mm)" contained data only for December 2023, with insufficient data for comparison; hence, these three columns were deleted.
+3. Change the format of column names. For example, replace "Daily.Rainfall.Total..mm." with "Daily Rainfall Total (mm)".
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Glimpse of the cleaned data"
+
+# Select columns to keep
+Historical_Records2 <- select(Historical_Records, Year, Day, Daily.Rainfall.Total..mm., Mean.Temperature...C., Maximum.Temperature...C., Minimum.Temperature...C., Mean.Wind.Speed..km.h., Max.Wind.Speed..km.h.)
+
+# Replace column names
+colnames(Historical_Records2) <- gsub("Daily.Rainfall.Total..mm.", "Daily Rainfall Total (mm)", colnames(Historical_Records2))
+colnames(Historical_Records2) <- gsub("Mean.Temperature...C.", "Mean Temperature (°C)", colnames(Historical_Records2))
+colnames(Historical_Records2) <- gsub("Maximum.Temperature...C.", "Maximum Temperature (°C)", colnames(Historical_Records2))
+colnames(Historical_Records2) <- gsub("Minimum.Temperature...C.", "Minimum Temperature (°C)", colnames(Historical_Records2))
+colnames(Historical_Records2) <- gsub("Mean.Wind.Speed..km.h.", "Mean Wind Speed (km/h)", colnames(Historical_Records2))
+colnames(Historical_Records2) <- gsub("Max.Wind.Speed..km.h.", "Max Wind Speed (km/h)", colnames(Historical_Records2))
+
+# View the structure of Historical_Records2
+glimpse(Historical_Records2)
+
+```
