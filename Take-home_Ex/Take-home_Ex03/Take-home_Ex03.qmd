@@ -51,7 +51,7 @@ The data source for this analysis was obtained by the following steps:
 3.  Merge the above five `.csv` data files together to get the "**Historical_Records.csv**" data file. (The merging process was performed in Excel due to the low volume of data.)
 
 ::: callout-note
-The selection of the data source is based on the requirements of the take-home exercise of ISSS608 Visual Analytics and Applications, which may introduce limitations to the analysis. However, I strive to utilize data visualization techniques as much as possible in the following analysis.
+The selection of the data source is based on the requirements of the take-home exercise of ISSS608 Visual Analytics and Applications, which may introduce limitations to the climate change analysis. However, I strive to utilize data visualization techniques as much as possible in the following analysis.
 :::
 
 ## 1.2 Data Cleaning
