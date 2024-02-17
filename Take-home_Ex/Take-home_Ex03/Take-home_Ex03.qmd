@@ -424,7 +424,7 @@ From bottom (1983) to top (2023), the number of blue-green blocks decreases noti
 ------------------------------------------------------------------------
 
 ::: {style="column-count: 2;"}
-**Conclusion**
+## **Conclusion**
 
 From the visualization above, we can infer that the data observed in the Singapore Changi region from 1983 to 2023 indicate a clear upward trend in temperature. Comparing 2023 to 40 years ago, there has been a significant increase of 2°C. Such a difference is notable both in terms of human perception and its impact on the environment. See: [**Impact Of Climate Change In Singapore**](https://www.nccs.gov.sg/singapores-climate-action/impact-of-climate-change-in-singapore/)
 
@@ -820,7 +820,7 @@ The total rainfall and maximum daily rainfall in December 1983 were the highest,
 ------------------------------------------------------------------------
 
 ::: {style="column-count: 2; column-span: all; text-align: left;"}
-**Conclusion**
+## **Conclusion**
 
 Based on the data set, we cannot discern a pattern in the total rainfall amount. However, it is evident that compared to 40 years ago, there has been a significant increase in the number of rainy days in December 2023, confirming that the frequency of rainfall events is increasing.
 
