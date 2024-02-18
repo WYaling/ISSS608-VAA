@@ -77,7 +77,7 @@
     "href": "index.html#take-home-exercise",
     "title": "Yaling's VAA journey",
     "section": "Take-home Exercise",
-    "text": "Take-home Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nBe Weatherwise or Otherwise\n\n\n64 min\n\n\n\n\n\n\n\n\n\n\n\nPeer Critique & DataVis Makeover\n\n\n24 min\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis of Singaporean Students’ Performance\n\n\n55 min\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Take-home Exercise\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nBe Weatherwise or Otherwise\n\n\n32 min\n\n\n\nFeb 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPeer Critique & DataVis Makeover\n\n\n24 min\n\n\n\nJan 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis of Singaporean Students’ Performance\n\n\n55 min\n\n\n\nJan 21, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "In-class_Ex/In-class_Ex02/In-class_Ex02.html",
@@ -1646,7 +1646,7 @@
     "href": "Take-home_Ex/Take-home_Ex03/Take-home_Ex03.html",
     "title": "Be Weatherwise or Otherwise",
     "section": "",
-    "text": "&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nSingapore is located near the equator and falls under a tropical rainforest climate, characterized by high temperatures, high humidity, and abundant rainfall throughout the year. The lack of seasonal variations lull many into thinking that Singapore’s weather is predictable and unchanging. Nothing is further from the truth, with climate change making the city state’s weather even more unpredictable. The global climate change has led to higher temperatures, increased rainfall, and rising sea levels in Singapore.\nAccording to an office report as shown in the info graphic below, by the end of this century,\nSource: Ministry of Sustainability and the Environment\nTo gain a deeper understanding of the climate change process, I will employ the art of data visualization analysis to illustrate the variations in temperature and rainfall in Singapore over the years.\nShow the code: Load R packages\npacman::p_load(tidyverse, dplyr, plotly, tidyr, highcharter, ggstatsplot,  htmlwidgets)",
+    "text": "Singapore is located near the equator and falls under a tropical rainforest climate, characterized by high temperatures, high humidity, and abundant rainfall throughout the year. The lack of seasonal variations lull many into thinking that Singapore’s weather is predictable and unchanging. Nothing is further from the truth, with climate change making the city state’s weather even more unpredictable. The global climate change has led to higher temperatures, increased rainfall, and rising sea levels in Singapore.\nAccording to an office report as shown in the info graphic below, by the end of this century,\nSource: Ministry of Sustainability and the Environment\nTo gain a deeper understanding of the climate change process, I will employ the art of data visualization analysis to illustrate the variations in temperature and rainfall in Singapore over the years.\nShow the code: Load R packages\npacman::p_load(tidyverse, dplyr, plotly, tidyr, highcharter, ggstatsplot,  htmlwidgets)",
     "crumbs": [
       "Home",
       "Take-home Exercise",
