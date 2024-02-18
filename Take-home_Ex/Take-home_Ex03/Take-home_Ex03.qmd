@@ -525,7 +525,7 @@ ggplotly(ggplot_obj) %>%
 #| code-summary: "Show the code: Static Stats Plot: December Daily Mean Temperature (Singapore, Changi)"
 #| warning: false
 
-ggbetweenstats(
+Stats_temp <- ggbetweenstats(
   data = Historical_Records2,
   x = Year, 
   y = Mean_Temperature,
@@ -548,7 +548,11 @@ ggbetweenstats(
   title = element_text(family = "Calibri", size = 25, face = "bold"),
   strip.text.x = element_text(size = 8)
 )
+
+ggsave("images/Stats_temp.png", Stats_temp, width = 10, height = 10, units = "in")
 ```
+
+![](images/Stats_temp.png){fig-align="center"}
 :::
 
 ::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
@@ -881,8 +885,9 @@ Stats_rainfall <- ggplot_obj +
 
 ggsave("images/Stats_rainfall.png", Stats_rainfall, width = 10, height = 10, units = "in")
 
-Stats_rainfall
 ```
+
+![](images/Stats_rainfall.png){fig-align="center"}
 :::
 
 ::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
