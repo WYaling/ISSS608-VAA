@@ -549,7 +549,7 @@ Stats_temp <- ggbetweenstats(
   strip.text.x = element_text(size = 8)
 )
 
-ggsave("images/Stats_temp.png", plot = Stats_temp, width = 8, height = 8, dpi = 300)
+ggsave("images/Stats_temp.png", Stats_temp, width = 8, height = 8, dpi = 300)
 ```
 
 ![](images/Stats_temp.png){fig-align="center"}
@@ -883,7 +883,7 @@ Stats_rainfall <- ggplot_obj +
 )
 
 
-ggsave("images/Stats_rainfall.png", plot = Stats_rainfall, width = 8, height = 8, dpi = 300)
+ggsave("images/Stats_rainfall.png", Stats_rainfall, width = 8, height = 8, dpi = 300)
 ```
 
 ![](images/Stats_rainfall.png){fig-align="center"}
