@@ -47,12 +47,7 @@ website:
           href: "In-class_Ex/In-class_Ex02/In-class_Ex02.html"
         - text: "3. Tableau02: Make Dashboard & Story"
           href: "In-class_Ex/In-class_Ex03/In-class_Ex03.html"
-        - text: "4"
-        - text: "5"
-        - text: "6"
-        - text: "7"
-        - text: "8"
-        - text: "9"
+          
     - text: "Take-home Exercise"
       menu:
         - text: "1. Analysis of Singaporean Students’ Performance"
@@ -64,18 +59,17 @@ website:
     - text: "Project"
       menu:
         - text: "introduction"
+        
     right:
-      - text: "Home"
+      - icon: house
         href: index.qmd
-      #- text: "About"
-        #href: about.qmd
-    tools:
-      #- icon: house-heart
-        #href: index.qmd
+        text: " "
       - icon: linkedin
+        #href:
       - icon: envelope-at
         href: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=yalingsayhi@gmail.com
       - icon: github
+        #href:
         menu:
           - text: Source Code
           - text: Report a bug
@@ -114,14 +108,13 @@ format:
     toc: true
     theme: cerulean
     mainfont: Times New Roman
-    fontsize: 1.2 em
+    fontsize: 1.3 em
     linestretch: 1.5
     grid:
       sidebar-width: 300px
       body-width: 900px
       margin-width: 300px
       gutter-width: 1.5rem
-
     css: styles.css
     code-block-bg: true
     code-block-border-left: "#31BAE9"

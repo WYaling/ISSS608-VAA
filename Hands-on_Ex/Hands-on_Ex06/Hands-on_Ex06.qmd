@@ -1,0 +1,93 @@
+---
+title: "Visualising and Analysing Time-oriented Data"
+title-block-banner: True
+author: "Wang Yaling"
+date: "Feb 17, 2024"
+date-modified: last-modified
+date-format: medium
+excute:
+  eval: true
+  echo: true
+  warning: false
+editor: visual
+---
+
+# 1. Learning Outcome
+
+By the end of this hands-on exercise you will be able create the followings data visualisation by using R packages:
+
+-   plotting a calender heatmap by using ggplot2 functions,
+-   plotting a cycle plot by using ggplot2 function,
+-   plotting a slopegraph
+-   plotting a horizon chart
+
+```{r}
+#|code-fold: true
+#|code-summary: "Load R pacages"
+
+
+pacman::p_load(scales, viridis, lubridate, ggthemes, gridExtra, readxl, knitr, data.table, CGPfunctions, ggHoriPlot, tidyverse)
+```
+
+# 2. Data For the Exercise
+
+```{r}
+#| code-fold: true
+#| code-summary: "Load data for the exercise"
+
+
+attacks <- read_csv("data/eventlog.csv")
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Examining the data structure"
+
+
+kable(head(attacks))
+```
+
+There are three columns, namely timestamp, source_country and tz.
+
+1.  timestamp field stores date-time values in POSIXct format.
+2.  source_country field stores the source of the attack. It is in ISO 3166-1 alpha-2 country code.
+3.  tz field stores time zone of the source IP address.
+
+# 3. Plotting Calendar Heatmap
+
+In order to plot heatmap, we need to make the useful data.
+
+Before we can plot the calender heatmap, two new fields namely wkday and hour need to be derived. In this step, we will write a function to perform the task.
+
+**Step 1**: Deriving weekday and hour of day fields
+
+```{r}
+#| code-fold: true
+#| code-summary: "Deriving weekday and hour of day fields"
+
+make_hr_wkday <- function(ts, sc, tz) {
+  real_times <- ymd_hms(ts, 
+                        tz = tz[1], 
+                        quiet = TRUE)
+  dt <- data.table(source_country = sc,
+                   wkday = weekdays(real_times),
+                   hour = hour(real_times))
+  return(dt)
+  }
+
+```
+
+-   [`ymd_hms()`](https://lubridate.tidyverse.org/reference/ymd_hms.html) and [`hour()`](https://lubridate.tidyverse.org/reference/hour.html) are from [**lubridate**](https://lubridate.tidyverse.org/) package, and
+-   [`weekdays()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/weekdays) is a **base** R function.
+
+**Step 2**: Deriving the attacks tibble data frame
+
+The below heatmap chart is made by `ggplot2` package.
+
+```{r}
+#| code-fold: true
+#| code-summary: ""
+
+
+
+```

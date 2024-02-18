@@ -36,7 +36,7 @@ To gain a deeper understanding of the climate change process, I will employ the 
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code: Load R packages"
-pacman::p_load(tidyverse, dplyr, plotly, tidyr, gganimate, highcharter)
+pacman::p_load(tidyverse, dplyr, plotly, tidyr, highcharter, ggstatsplot,  htmlwidgets)
 
 ```
 
@@ -61,7 +61,6 @@ The selection of the data source is based on the requirements of the take-home e
 #| code-summary: "Show the code: Glimpse of Historical_Records.csv"
 #| warning: false
 
-
 Historical_Records <- read.csv("data/Historical_Records.csv")
 glimpse(Historical_Records)
 ```
@@ -70,9 +69,10 @@ glimpse(Historical_Records)
 **Then, the** **`Historical_Records.csv`** **was processed as follows:**
 
 1.  Since all data originated from Changi station and December, columns "Station" and "Month" were removed.
-2.  Columns "Highest 30 Min Rainfall (mm)", "Highest 60 Min Rainfall (mm)", and "Highest 60 Min Rainfall (mm)" contained data only for December 2023, with insufficient data for comparison; hence, these three columns were deleted.
-3.  Change the format of column names. For example, replace "Daily.Rainfall.Total..mm." with "Daily_Rainfall_Total".
-4.  The following analysis is solely focused on temperature and rainfall; therefore, the column "Mean Wind Speed" and "Max Wind Speed" are also excluded.
+2.  The following analysis is solely focused on temperature and rainfall; therefore, the column "Mean Wind Speed" and "Max Wind Speed" are also excluded.
+3.  Columns "Highest 30 Min Rainfall (mm)", "Highest 60 Min Rainfall (mm)", and "Highest 60 Min Rainfall (mm)" contained data only for December 2023, with insufficient data for comparison; hence, these three columns were deleted.
+4.  Change the format of column names. For example, replace "Daily.Rainfall.Total..mm." with "Daily_Rainfall_Total".
+5.  As “Year” is expected to be a categorical variable, convert the data type of “Year” using as.factor().
 :::
 
 ```{r}
@@ -87,6 +87,9 @@ colnames(Historical_Records2) <- gsub("Daily.Rainfall.Total..mm.", "Daily_Rainfa
 colnames(Historical_Records2) <- gsub("Mean.Temperature...C.", "Mean_Temperature", colnames(Historical_Records2))
 colnames(Historical_Records2) <- gsub("Maximum.Temperature...C.", "Maximum_Temperature", colnames(Historical_Records2))
 colnames(Historical_Records2) <- gsub("Minimum.Temperature...C.", "Minimum_Temperature", colnames(Historical_Records2))
+
+# Change the data type of Year
+Historical_Records2$Year <- as.factor(Historical_Records2$Year)
 
 # View the structure of Historical_Records2
 glimpse(Historical_Records2)
@@ -111,9 +114,6 @@ december_data <- Historical_Records2 %>%
     Dec_Rainfall_Total = sum(Daily_Rainfall_Total)
   )
 
-# Change the data type of "Year" from INT to CHR
-december_data$Year <- as.character(december_data$Year)
-
 #create interactive chart for the average temperature and rainfall for each December
 highchart() %>%
   hc_title(text = "<b>Area-line Chart: December Average Temperature and Total Rainfall Trend (Singapore, Changi)</b>", style = list(fontSize = '1.5em')) %>%
@@ -132,7 +132,7 @@ highchart() %>%
     backgroundColor = list(
       linearGradient = c(0, 0, 500, 500),
       stops = list(
-        list(0, 'rgb(250, 250, 250)'),
+        list(0, 'rgb(189, 189, 189)'),
         list(1, 'rgb(189, 189, 189)')
         )
       )
@@ -144,7 +144,7 @@ highchart() %>%
 ::: {style="background-color: #D6EAF8;    border-radius: 10px;    padding: 20px;"}
 **Observation from the area-line chart:**
 
-From this chart, we can clearly see a significant rise in temperatures in the Changi region of Singapore compared to 1983, but there is no clear pattern in rainfall.
+From this chart, we can clearly see a significant rise in temperatures in the Changi region of Singapore compared to 1983. Roughly speaking, the average temperature increased by 1ºC from 1983 to 1993, remained relatively stable from 1993 to 2013, and then rose by another 1 ºC from 2013 to 2023. The current daily mean temperature in December has risen by 2ºC compared to forty years ago. However, there is no clear pattern in rainfall.
 :::
 
 ------------------------------------------------------------------------
@@ -153,97 +153,64 @@ In the following section, I will showcase more visualized data regarding tempera
 
 # 2. Temperature
 
-## 2.1 Monthly Average Temperature
+## 2.1 
 
-Firstly, let's observe the trends in the average of daily mean, maximum, and minimum temperatures recorded in December through the animated charts below.
-
-::: panel-tabset
-## Animated line chart: Mean & Max & Min temp. trend
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Animated Line Chart: December Temperature Trends (Singapore, Changi)"
-#| warning: false
-
-# Calculate the average temperature for each December
-december_data_temp <- Historical_Records2 %>%
-  group_by(Year) %>%
-  summarise(Mean = mean(Mean_Temperature),
-            Max = mean(Maximum_Temperature),
-            Min = mean(Minimum_Temperature))
-
-december_data_temp <- december_data_temp %>%
-  pivot_longer(cols = starts_with("M"),
-               names_to = "Temperature.Type",
-               values_to = "Temperature")
-
-# create animated chart for the december temp trend
-ggplot(december_data_temp, aes(x = Year, y = Temperature, color = Temperature.Type, group = Temperature.Type)) +
-  geom_line(linewidth=1.2) +
-  geom_point(size = 3.5) + 
-  geom_text(aes(label = sprintf("%.2f", Temperature)), nudge_y = 0.5, show.legend = FALSE) + 
-  scale_x_continuous(breaks = unique(december_data_temp$Year)) +
-  labs(x = "Year", y = "Temperature (ºC)") +
-  ggtitle("Animated Line Chart: December Temperature Trends (Singapore, Changi)") +
-  theme_grey() +
-  shadow_mark() +
-  theme(
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor.y = element_blank(),
-    plot.title = element_text(face = "bold", size = 12, hjust = 0.5),
-    axis.title = element_text(face = "bold", size = 10),
-    legend.title = element_text(face = "bold", size = 10),
-    axis.text.y = element_text(size = 10), # Adjust Y axis text size
-    axis.ticks.y = element_line(color = "black"), # Adjust Y axis ticks
-    axis.line.y = element_line(color = "black"), # Adjust Y axis line color
-    axis.ticks.x = element_line(color = "black"), 
-    axis.line.x = element_line(color = "black")
-  ) +
-  scale_color_manual(values = c("Max" = "black", "Min" = "#28B463", "Mean" = "#3498DB")) +
-  transition_reveal(Year)
-
-```
-:::
-
-Let's explore more detailed data from the interactive chart below.
+Firstly, let's take an overall look. See the trends of daily mean, maximum, and minimum temperatures recorded in December by the interactive chart below.
 
 ::: panel-tabset
 ## Interactive area-line chart: Mean & Max & Min temp. trend
 
 ```{r}
 #| code-fold: true
-#| code-summary: "Show the code: Area-line Chart: December Temperature Trends (Singapore, Changi)"
+#| code-summary: "Show the code: Area-line Chart: December Daily Temperature Trends (Singapore, Changi)"
 #| warning: false
 
-averages <- december_data_temp %>%
+# 计算每天平均温度
+daily_data_temp <- Historical_Records2 %>%
+  group_by(Year, Day) %>%
+  summarise(Mean = Mean_Temperature,
+            Max = Maximum_Temperature,
+            Min = Minimum_Temperature,
+            .groups = "drop")
+
+daily_data_temp <- daily_data_temp %>%
+  pivot_longer(cols = starts_with("M"),
+               names_to = "Temperature.Type",
+               values_to = "Temperature")
+
+# 分别提取每天的平均、最高和最低温度数据
+averages <- daily_data_temp %>%
   filter(Temperature.Type == "Mean") %>%
-  select(Year, Temperature) 
+  select(Year, Day, Temperature) 
 
-max_temps <- december_data_temp %>%
+max_temps <- daily_data_temp %>%
   filter(Temperature.Type == "Max") %>%
-  select(Year, Temperature)
+  select(Year, Day, Temperature)
 
-min_temps <- december_data_temp %>%
+min_temps <- daily_data_temp %>%
   filter(Temperature.Type == "Min") %>%
-  select(Year, Temperature)
+  select(Year, Day, Temperature)
 
+# 创建温度范围数据框
 ranges <- data.frame(
   Year = max_temps$Year,
+  Day = max_temps$Day,
   Min_Temperature = min_temps$Temperature,
   Max_Temperature = max_temps$Temperature
 )
 
+# 绘制高级图表
 highchart() %>%
-  hc_title(text = "Area-line Chart: December Temperature Trends (Singapore, Changi)", style = list(fontSize = '1.5em')) %>%
-  hc_xAxis(categories = unique(ranges$Year), title = list(text = "Year")) %>%
+  hc_title(text = "<b>Area-line Chart: December Daily Temperature Trends (Singapore, Changi)<b>", style = list(fontSize = '1.5em')) %>%
+  hc_xAxis(categories = unique(paste(ranges$Year, ranges$Day, sep = "-")), title = list(text = "Year-Day")) %>%
   hc_yAxis(title = list(text = "Temperature (ºC)")) %>%
   hc_tooltip(useHTML = TRUE,crosshairs = TRUE, shared = TRUE, valueSuffix = "ºC", valueDecimals = 2) %>%
   hc_legend(itemStyle = list(fontWeight = "bold", fontSize = "12px"))%>%
   hc_series(
     list(name = "Mean", data = averages$Temperature, zIndex = 1, 
-         marker = list(fillColor = "white", lineWidth = 1, lineColor = "red" )),
+         marker = list(fillColor = "white", lineWidth = 1, lineColor = "#2E86C1" )),
     list(name = "Max", data = ranges$Max_Temperature, zIndex = 1, 
-         marker = list(fillColor = "white", lineWidth = 1, lineColor = "#2E86C1")),
+         marker = list(fillColor = "white", lineWidth = 1, lineColor = "black")),
     list(name = "Min", data = ranges$Min_Temperature, zIndex = 1, 
          marker = list(fillColor = "white", lineWidth = 1, lineColor = "green")),
     list(name = "Temperature Range", 
@@ -259,11 +226,12 @@ highchart() %>%
     backgroundColor = list(
       linearGradient = c(0, 0, 500, 500),
       stops = list(
-        list(0, 'rgb(250, 250, 250)'),
+        list(0, 'rgb(189, 189, 189)'),
         list(1, 'rgb(189, 189, 189)')
         )
       )
     )
+
 
 ```
 :::
@@ -271,12 +239,10 @@ highchart() %>%
 ::: {style="background-color: #D6EAF8;    border-radius: 10px;    padding: 20px;"}
 **Observation from the temperature trends charts:**
 
-There appears to be no significant variation in values from 1993 to 2013, as indicated by the nearly horizontal line during this period in the charts. However, when considering a longer time span, there is a notable increase in temperature values from 1983 to 2023. The temperature value in 2023 is significantly higher than that in 1983.
-
-Roughly speaking, the average temperature increased by 1ºC from 1983 to 1993, remained relatively stable from 1993 to 2013, and then rose by another 1 ºC from 2013 to 2023.
+From the above chart, we can see that most of the time, the difference between the maximum temperature and the average temperature is greater than the difference between the average temperature and the minimum temperature. Some days exhibit significant temperature variations, while others show relatively minor differences. The fluctuations in the maximum temperature are the most pronounced, with sudden highs and lows.
 :::
 
-Then, let's take a look at the volatility of the data. The error bar chart below illustrates the fluctuations in temperature values
+Let's take a look at the volatility of the temperatures. The error bar chart below illustrates the fluctuations in the daily maximum, mean and minimum temperature values.
 
 ::: panel-tabset
 ## Errorbar Chart: Mean & Max & Min temp.
@@ -285,6 +251,18 @@ Then, let's take a look at the volatility of the data. The error bar chart below
 #| code-fold: true
 #| code-summary: "Show the code: Error-bar Chart: December Temperature (Singapore, Changi)"
 #| warning: false
+
+# Calculate the average temperature for each December
+december_data_temp <- Historical_Records2 %>%
+  group_by(Year) %>%
+  summarise(Mean = mean(Mean_Temperature),
+            Max = mean(Maximum_Temperature),
+            Min = mean(Minimum_Temperature))
+
+december_data_temp <- december_data_temp %>%
+  pivot_longer(cols = starts_with("M"),
+               names_to = "Temperature.Type",
+               values_to = "Temperature")
 
 # Calculate sd
 sd_max <- tapply(Historical_Records2$Maximum_Temperature, Historical_Records2$Year, sd)
@@ -307,7 +285,7 @@ december_temp_sd_data$Year <- as.character(december_temp_sd_data$Year)
 
 # create error-bar chart
 hchart(december_temp_sd_data, "column", hcaes(x = Year, y = Temperature, group = Temperature.Type), id = c("a", "b", "c")) %>%
-  hc_title(text = "Error-bar Chart: December Temperature (Singapore, Changi)", style = list(fontSize = '1.5em')) %>%
+  hc_title(text = "<b>Error-bar Chart: December Temperature (Singapore, Changi)<b>", style = list(fontSize = '1.5em')) %>%
   hc_xAxis(categories = unique(december_temp_sd_data$Year), title = list(text = "Year")) %>%
   hc_yAxis(min = 20, max = 35, title = list(text = "Temperature (ºC)")) %>%
   hc_tooltip(useHTML = TRUE,crosshairs = TRUE,valueSuffix = "ºC", valueDecimals = 2) %>%
@@ -327,11 +305,11 @@ hchart(december_temp_sd_data, "column", hcaes(x = Year, y = Temperature, group =
     backgroundColor = list(
       linearGradient = c(0, 0, 500, 500),
       stops = list(
-        list(0, 'rgb(250, 250, 250)'),
+        list(0, 'rgb(189, 189, 189)'),
         list(1, 'rgb(189, 189, 189)')
         )
       )
-    )
+    ) 
 ```
 :::
 
@@ -358,7 +336,7 @@ Historical_Records2$Year <- as.character(Historical_Records2$Year)
 # create Polar-line chart
 highchart() %>%
   hc_chart(polar = TRUE) %>%
-  hc_title(text = "Polar-line Chart: December Daily Mean Temperature Comparison (Singapore, Changi)",
+  hc_title(text = "<b>Polar-line Chart: December Daily Mean Temperature Comparison (Singapore, Changi)<b>",
            style = list(fontSize = '1.5em')) %>%
   hc_xAxis(categories = 0:31) %>%
   hc_yAxis(labels = list(format = "{value} °C")) %>%
@@ -367,22 +345,27 @@ highchart() %>%
                 type = "line", hcaes(x = Day, y = Mean_Temperature, group = Year),
                 tooltip = list(pointFormat = "Dec {point.x}, Temperature: {point.y} ºC"),
                 zIndex = 1) %>%
-  hc_chart(borderColor = '#757575',
-           borderRadius = 10,
-           borderWidth = 2,
-           backgroundColor = list(
-             linearGradient = c(0, 0, 500, 500),
-             stops = list(
-               list(0, 'rgb(250, 250, 250)'),
-               list(1, 'rgb(189, 189, 189)')
-             )))
+  hc_chart(
+    borderColor = '#757575',
+    borderRadius = 10,
+    borderWidth = 2,
+    backgroundColor = list(
+      linearGradient = c(0, 0, 500, 500),
+      stops = list(
+        list(0, 'rgb(189, 189, 189)'),
+        list(1, 'rgb(189, 189, 189)')
+        )
+      )
+    ) %>%
+  hc_size(height = 650, width = 650)
+
 ```
 :::
 
 ::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
 **Observation from the polar-line chart:**
 
-From a rough glance, the polar-line for 2023 is on the outermost circle, while the polar-line for 1983 is on the innermost circle. This implies that for most days in December 2023, the average temperature is higher compared to the same days in 1983. This further confirms the conclusion drawn earlier regarding the rise in temperatures.
+At a rough glance, the majority of data points for December 2023 are located on the outermost circle, while the majority of data points for December 1983 are located on the innermost circle. This implies that for most days in December 2023, the average temperature is higher compared to the same days in 1983. If you wish to see a more pronounced contrast, the heatmap below might be more useful.
 :::
 
 ::: panel-tabset
@@ -406,7 +389,7 @@ hchart(Historical_Records2, type = "heatmap", hcaes(x = Day, y = Year, value = M
             reversed = TRUE,
             symbolHeight = 200) %>%
   hc_tooltip(useHTML = TRUE, pointFormat = "<br/>Dec {point.x}, Temperature: {point.value} ºC",valueDecimals = 2) %>%
-  hc_title(text = 'Heatmap: December Daily Mean Temperture (Singapore, Changi)', style = list(fontSize = '1.5em')) %>%
+  hc_title(text = '<b>Heatmap: December Daily Mean Temperture (Singapore, Changi)<b>', style = list(fontSize = '1.5em')) %>%
   hc_responsive(rules = list(list(condition = list(maxWidth = 500), 
                                   chartOptions = list(yAxis = 
                                                         list(labels = 
@@ -418,343 +401,177 @@ hchart(Historical_Records2, type = "heatmap", hcaes(x = Day, y = Year, value = M
 ::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
 **Observation from the heatmap:**
 
-From bottom (1983) to top (2023), the number of blue-green blocks decreases noticeably, indicating that hot days in December were increasing. The deep orange-red blocks are significantly more prevalent in 2023 than in other years, suggesting a clear trend of rising temperatures throughout December.
+From bottom (1983) to top (2023), the number of blue-green blocks decreases noticeably, indicating an increase in hot days in December. Compared to the same date in December 1983, the temperature in 2023 is significantly higher. The deep orange-red blocks are much more prevalent in 2023 than in other years, suggesting a clear trend of rising temperatures throughout December in the forty years period.
+:::
+
+However, the heatmap above may not provide a clear comparison between the daily average temperature and the monthly average temperature. Let's take a look at the box plot below for a clearer comparison.
+
+::: panel-tabset
+## Boxplot: December Daily Mean Temperature
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Boxplot: December Daily Mean Temperature (Singapore, Changi)"
+#| warning: false
+
+# Calculate the median for each year
+mean_values <- aggregate(Mean_Temperature ~ Year, data = Historical_Records2, FUN = mean)
+
+
+# Create a boxplot
+p <- plot_ly(
+  data = Historical_Records2,
+  type = "box",
+  x = ~Year,
+  y = ~Mean_Temperature,
+  color = I("#2E86C1"),  
+  boxpoints = "all",
+  marker = list(size = 3),
+  name = "Daily Mean Temp.",
+  jitter = 0.3           
+) %>%
+layout(
+  title = list(
+    text = "<b>Boxplot: December Daily Mean Temperature (Singapore, Changi)<b>",
+    x = 0.5  
+  ),
+  xaxis = list(title = "Year"),
+  yaxis = list(title = "Temperature (ºC)"),
+  showlegend = TRUE,  
+  margin = list(l = 50, r = 50, b = 50, t = 100),  
+  plot_bgcolor = "#EAECEE",  
+  paper_bgcolor = "#EAECEE"
+)
+
+# Add a scatter plot
+p <- add_trace(
+  p,
+  data = Historical_Records2,
+  type = "scatter",
+  mode = "markers",
+  x = ~Year,
+  y = ~Mean_Temperature,
+  color = I("#E74C3C"),      
+  marker = list(
+    size = 3,
+    symbol = "circle",
+    line = list(width = 0.5)  
+  ),
+  text = ~paste("Temperature: ", Mean_Temperature, "ºC"),
+  hoverinfo = "text"
+)
+
+# Add a median trend line
+p <- add_trace(
+  p,
+  data = mean_values,
+  type = "scatter",
+  mode = "lines+markers",
+  x = ~Year,
+  y = ~Mean_Temperature,
+  line = list(color = "green"),  
+  marker = list(symbol = "square-open"),
+  name = "Dec. Mean Temp."
+)
+
+# Show the plot
+p
+
+```
+:::
+
+::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
+**Observation from the boxplot:**
+
+Apart from 1983, in December of all other years, the daily mean temperature exceeds the monthly mean temperature for over half of the month(The median lines are above the mean data points). It's particularly noticeable that the box plot for 2023 is situated at the highest position, with four days' daily mean temperature surpassing the highest daily mean temperature recorded in 2013, and over half of the month's daily mean temperature surpassing that of 1983. This clearly suggests a substantial rise in temperature in 2023 compared to 1983.
+:::
+
+Let's used the below charts to conduct the statistical analysis.
+
+::: panel-tabset
+## Interactive Stats Plot
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Interactive Stats Plot: December Daily Mean Temperature (Singapore, Changi)"
+#| warning: false
+
+ggplot_obj <- ggbetweenstats(
+  data = Historical_Records2,
+  x = Year, 
+  y = Mean_Temperature,
+  type = "p",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = TRUE
+)
+
+ggplotly(ggplot_obj) %>%
+  layout(
+    xaxis = list(title = "<b>Year</b>", tickfont = list(family = "Calibri")),    
+    yaxis = list(title = "<b>Temperature (ºC)</b>", tickfont = list(family = "Calibri")), 
+    title = "<b>Interactive Stats Plot: December Daily Mean Temperature (Singapore, Changi)</b>",
+    font = list(family = "Calibri")
+  )
+
+```
+
+## Static Stats Plot
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Static Stats Plot: December Daily Mean Temperature (Singapore, Changi)"
+#| warning: false
+
+ggbetweenstats(
+  data = Historical_Records2,
+  x = Year, 
+  y = Mean_Temperature,
+  type = "p",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)+ 
+  labs(x = "Year", y = "Temperature (ºC)", title = "Stats Plot: December Daily Temperature (Singapore, Changi)") +
+  theme(
+  text = element_text(size = 10),
+  axis.text.x = element_text(size = 10),
+  axis.text.y = element_text(size = 10),
+  plot.caption = element_text(size = 10),
+  plot.subtitle = element_text(size = 10),
+  axis.title.x = element_text(family = "Calibri", size = 10, face = "bold"),
+  axis.title.y = element_text(family = "Calibri", size = 10, face = "bold"),
+  title = element_text(family = "Calibri", size = 25, face = "bold"),
+  strip.text.x = element_text(size = 8)
+)
+```
+:::
+
+::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
+**Observation from the stats plot:**
+
+This chart is similar to the boxplot above, but provides a more detailed display of the data and presents the results of the analysis of variance. According to the results of the Static Stats Plot, there is no significant difference in the December daily mean temperatures among the middle three years (1993, 2003, 2013). However, each of these three years shows significant differences when compared to 1983 and 2023 individually. The difference between 1983 and 2023 is the most prominent. Through data analysis, these findings further confirm the conclusions drawn from the previous visual analysis.
 :::
 
 ------------------------------------------------------------------------
 
 ::: {style="column-count: 2;"}
-## **Conclusion**
+**Conclusion**
 
-From the visualization above, we can infer that the data observed in the Singapore Changi region from 1983 to 2023 indicate a clear upward trend in temperature. Comparing 2023 to 40 years ago, there has been a significant increase of 2°C. Such a difference is notable both in terms of human perception and its impact on the environment. See: [**Impact Of Climate Change In Singapore**](https://www.nccs.gov.sg/singapores-climate-action/impact-of-climate-change-in-singapore/)
+From the visualization above, we can infer that the data observed in the Singapore Changi region from 1983 to 2023 indicate a clear upward trend in temperature. Comparing year 2023 to 40 years ago, there has been a significant increase of 2°C. The temperature on most days in December 2023 has risen compared to the same days forty years ago (1983), and there are significantly more hot days in 2023 than in 1983. However, such a difference is notable both in terms of human perception and its impact on the environment. See: [**Impact Of Climate Change In Singapore**](https://www.nccs.gov.sg/singapores-climate-action/impact-of-climate-change-in-singapore/)
 
-![](images/thermometer.jpg){width="252"}
+![](images/thermometer.jpg){width="339"}
 :::
 
 Next, let's take a look at the rainfall.
 
 # 3. Rainfall
 
-## 3.1 December Total Rainfall
-
-::: panel-tabset
-## Interactive Bar Chart
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Bar Chart: December Total Rainfall (Singapore, Changi)"
-#| warning: false
-
-highchart() %>%
-  hc_chart(type = "column") %>%
-  hc_xAxis(categories = december_data$Year, title = list(text = "Year")) %>%
-  hc_yAxis(title = list(text = "Rainfall (mm)")) %>%
-  hc_title(text = "Bar Chart: December Total Rainfall (Singapore, Changi)",
-           style = list(fontSize = '1.5em')) %>%
-  hc_add_series(december_data, "column", hcaes(x = Year, y = Dec_Rainfall_Total, color = Dec_Rainfall_Total)) %>%
-  hc_add_series(december_data, "line", hcaes(x = Year, y = Dec_Rainfall_Total, color = Dec_Rainfall_Total), yAxis = 0) %>%
-  hc_tooltip(useHTML = TRUE, pointFormat = "<b>Total rainfall: {point.y} mm<b>",valueDecimals = 2) %>%
-  hc_colorAxis(minColor = "#EBF5FB", maxColor = "#2E86C1", stops = color_stops(n = 10)) %>%
-  hc_chart(borderColor = '#757575',
-           borderRadius = 10,
-           borderWidth = 2,
-           backgroundColor = list(
-             linearGradient = c(0, 0, 500, 500),
-             stops = list(
-               list(0, 'rgb(250, 250, 250)'),
-               list(1, 'rgb(189, 189, 189)')
-             ))) %>%
-  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE)),
-                 line = list(marker = list(enabled = TRUE)))
-
-
-```
-:::
-
-::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
-**Observation from the bar chart:**
-
-The chart above doesn't show a clear trend. The total rainfall fluctuates between high and low for these five years, but what we can see is that the total rainfall in December 2023 is the lowest compared to the other years.
-:::
-
-## 3.2 December Daily Rainfall
-
-First, let's take a look at which days in December were raining through an interesting animated plot. You can also explore the detailed data of daily rainfall through the corresponding interactive graph.
-
-::: panel-tabset
-## Animated Scatter Plot
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Animated Scatter Plot: December Daily Rainfall(Singapore, Changi)"
-#| warning: false
-
-
-# Convert Year to factor to avoid treating it as a continuous variable
-#Historical_Records2$Year <- as.factor(Historical_Records2$Year)
-
-# Create ggplot object
-p <- ggplot(Historical_Records2, aes(Year, Day, size = Daily_Rainfall_Total, color = Year, group = interaction(Year, Day))) +
-  geom_point() +
-  scale_x_discrete() +
-  scale_size(range = c(0,15))+
-  theme_bw() +
-  labs(title = 'Animated Scatter Plot: December Daily Rainfall(Singapore, Changi)', 
-       x = 'Year', 
-       y = 'Day in December', 
-       size = "Rainfall (mm)") +  # Modify labels accordingly
-  transition_states(Day, transition_length = 2, state_length = 1) + 
-  shadow_mark() +
-  theme(
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor.y = element_blank(),
-    plot.title = element_text(face = "bold", size = 12, hjust = 0.5),
-    axis.title = element_text(face = "bold", size = 10),
-    legend.title = element_text(face = "bold", size = 10),
-    axis.text.y = element_text(size = 10), # Adjust Y axis text size
-    axis.ticks.y = element_line(color = "black"), # Adjust Y axis ticks
-    axis.line.y = element_line(color = "black"), # Adjust Y axis line color
-    axis.ticks.x = element_line(color = "black"), 
-    axis.line.x = element_line(color = "black")
-  ) +
-  scale_y_continuous(breaks = 1:31, expand = c(0, 0)) 
-animate(p)
-
-```
-
-## Interactive Scatter Plot
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Interactive Scatter Plot: December Daily Rainfall (Singapore, Changi)"
-#| warning: false
-
-# Create ggplot 
-p <- ggplot(Historical_Records2, aes(Year, Day, color = Year)) +
-  geom_point(aes(size = Daily_Rainfall_Total)) +
-  scale_x_discrete() +  
-  scale_size(range = c(0,15))+
-  theme_bw() +
-  labs(title = 'Interactive Scatter Plot: December Daily Rainfall (Singapore, Changi)', 
-       x = 'Year', 
-       y = 'Day in Dec.') +  
-  transition_states(Day, transition_length = 2, state_length = 1) +  
-  shadow_mark() +
-  theme(
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor.y = element_blank(),
-    plot.title = element_text(face = "bold",size = 10, hjust = 0.5),
-    axis.title = element_text(face = "bold",size = 8),
-    legend.title = element_text(face = "bold",size = 8),
-    axis.text.y = element_text(size = 10),
-    axis.ticks.y = element_line(color = "black"),
-    axis.line.y = element_line(color = "black"),
-    axis.ticks.x = element_line(color = "black"), 
-    axis.line.x = element_line(color = "black")
-  ) +
-  scale_y_continuous(breaks = 1:31, expand = c(0, 0))
-
-ggplotly(p, tooltip = c("Day", "Daily_Rainfall_Total")) %>%
-  layout(
-    #autosize = TRUE,width = 600,height = 800,
-    showlegend = TRUE,
-         legend = list(
-           title = list(text = "Year"),
-           itemsizing = "constant",
-           itemwidth = 50
-         ))
-
-```
-:::
-
-::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
-**Observation from the scatter plot:**
-
-While there isn't a clear trend in the data for December in 1993, 2003, and 2013, it's evident that December 2023 had more rainy days compared to December 1983. This is visually represented on the graph by more data points for 2023 than for 1983.
-:::
-
-Next, let's dig into it. Take a look at the area chart below.
-
-::: panel-tabset
-## Area Chart: December Daily Rainfall
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Area Chart: December Daily Rainfall (Singapore, Changi)"
-#| warning: false
-
-highchart() %>%
-  hc_add_series(data = subset(Historical_Records2, Year %in% c("1983", "1993", "2003", "2013", "2023")),
-                type = "area", hcaes(x = Day, y = Daily_Rainfall_Total, group = Year),
-                zIndex = 1) %>%
-  hc_title(text="Area Chart: December Daily Rainfall (Singapore, Changi)", style = list(fontSize = '1.5em'))%>%
-  hc_xAxis(categories = 0:31, title = list(text = "Day in December")) %>%
-  hc_yAxis(title = list(text = "Rainfall (mm)")) %>%
-  hc_tooltip(
-    useHTML = TRUE,crosshairs = TRUE,valueDecimals = 2,
-    pointFormat = "<br/>Dec {point.x}, Rainfall: {point.y} mm"
-  )%>%
-  hc_chart(
-    borderColor = '#757575',
-    borderRadius = 10,
-    borderWidth = 2,
-    backgroundColor = list(
-      linearGradient = c(0, 0, 500, 500),
-      stops = list(
-        list(0, 'rgb(250, 250, 250)'),
-        list(1, 'rgb(189, 189, 189)')
-        )))
-
-```
-:::
-
-::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
-**Observation from the area chart:**
-
-While there's no obvious trend, it seems like 2023 had less rainfall compared to other years(with the smallest area). Also, the biggest rain days in December for other years had much more rain than the biggest day in 2023. One standout is the heavy rainfall on December 25th, 1983.
-:::
-
-::: panel-tabset
-## Polar-scatter Chart
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code: Polar-scatter Chart: December Daily Rainfall Comparison (Singapore, Changi)"
-#| warning: false
-
-
-# Extract rainfall data for each year
-rainfall_1983 <- subset(Historical_Records2, Year == 1983)
-rainfall_1993 <- subset(Historical_Records2, Year == 1993)
-rainfall_2003 <- subset(Historical_Records2, Year == 2003)
-rainfall_2013 <- subset(Historical_Records2, Year == 2013)
-rainfall_2023 <- subset(Historical_Records2, Year == 2023)
-
-highchart() %>%
-  hc_chart(
-    type = "scatter",
-    polar = TRUE,
-    borderColor = '#757575',
-    borderRadius = 10,
-    borderWidth = 2,
-    backgroundColor = list(
-      linearGradient = c(0, 0, 500, 500),
-      stops = list(
-        list(0, 'rgb(250, 250, 250)'),
-        list(1, 'rgb(189, 189, 189)')
-      )
-    )
-  ) %>%
-  hc_title(text = "Polar-scatter Chart: December Daily Rainfall Comparison (Singapore, Changi)") %>%
-  hc_xAxis(
-    categories = 0:31,
-    labels = list(format = "{value}") # Set x-axis labels format
-  ) %>%
-  hc_yAxis(
-    labels = list(
-      format = "{value} mm",
-      style = list(
-        color = "#333333" # Set y-axis labels color
-      )
-    ),
-    tickPositions = c(0, 25, 50, 100, 150, 200) # Set y-axis tick positions
-  ) %>%
-  hc_add_series(
-    data = data.frame(x = rainfall_1983$Day, y = rainfall_1983$Daily_Rainfall_Total, size = rainfall_1983$Daily_Rainfall_Total),
-    name = "1983",
-    color = "rgba(255, 165, 0, 0.5)", # Set transparency
-    marker = list(symbol = "circle"),
-    tooltip = list(pointFormat = "<b>Dec {point.x}<b>: {point.y} mm")
-  ) %>%
-  hc_add_series(
-    data = data.frame(x = rainfall_1993$Day, y = rainfall_1993$Daily_Rainfall_Total, size = rainfall_1993$Daily_Rainfall_Total),
-    name = "1993",
-    color = "rgba(0, 128, 0, 0.5)", # Set transparency
-    marker = list(symbol = "circle"),
-    tooltip = list(pointFormat = "<b>Dec {point.x}<b>: {point.y} mm")
-  ) %>%
-  hc_add_series(
-    data = data.frame(x = rainfall_2003$Day, y = rainfall_2003$Daily_Rainfall_Total, size = rainfall_2003$Daily_Rainfall_Total),
-    name = "2003",
-    color = "rgba(0, 0, 255, 0.5)", # Set transparency
-    marker = list(symbol = "circle"),
-    tooltip = list(pointFormat = "<b>Dec {point.x}<b>: {point.y} mm")
-  ) %>%
-  hc_add_series(
-    data = data.frame(x = rainfall_2013$Day, y = rainfall_2013$Daily_Rainfall_Total, size = rainfall_2013$Daily_Rainfall_Total),
-    name = "2013",
-    color = "rgba(255, 0, 0, 0.5)", # Set transparency
-    marker = list(symbol = "circle"),
-    tooltip = list(pointFormat = "<b>Dec {point.x}<b>: {point.y} mm")
-  ) %>%
-  hc_add_series(
-    data = data.frame(x = rainfall_2023$Day, y = rainfall_2023$Daily_Rainfall_Total, size = rainfall_2023$Daily_Rainfall_Total),
-    name = "2023",
-    color = "rgba(255, 255, 0, 0.5)", # Set transparency
-    marker = list(symbol = "circle"),
-    tooltip = list(pointFormat = "<b>Dec {point.x}<b>: {point.y} mm")
-  )
-
-```
-:::
-
-::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
-**Observation from the above polar-scatter chart:**
-
-In December, most days see rainfall below 50mm, with the majority experiencing less than 25mm. However, there are a few days of heavy rain, with some exceeding 100mm and even 150mm.
-:::
-
-Moving forward, let's examine the daily rainfall and total rainfall for December together.
-
-::: panel-tabset
-## Interactive Chart: Daily Rainfall & Total Rainfall
-
-```{r}
-#| warning: false
-#| code-fold: true
-#| code-summary: "Show the code: Scatter-Bar Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)"
-
-# Set marker size based on the size of Daily_Rainfall_Total
-max_rainfall <- max(Historical_Records2$Daily_Rainfall_Total)
-min_rainfall <- min(Historical_Records2$Daily_Rainfall_Total)
-
-# Calculate the range of marker sizes
-size_range <- c(1, 40)
-
-# Calculate normalized values for Daily_Rainfall_Total in [0, 1]
-normalized_rainfall <- (Historical_Records2$Daily_Rainfall_Total - min_rainfall) / (max_rainfall - min_rainfall)
-
-# Calculate marker size based on normalized values
-marker_size <- size_range[1] + normalized_rainfall * (size_range[2] - size_range[1])
-
-# Create an interactive scatter plot
-fig1 <- plot_ly(Historical_Records2, x = ~Year, y = ~Daily_Rainfall_Total,
-                marker = list(size = marker_size, 
-                              color = ~Daily_Rainfall_Total, 
-                              colorscale = "Blues",
-                              cmin = min_rainfall, 
-                              cmax = max_rainfall,                        
-                              reversescale = TRUE, # Make the color gradient from light to dark
-                              showscale = TRUE,
-                              colorbar = list(title = "Rainfall (mm)", len = 0.5, thickness = 20)),
-                hoverinfo = "text",
-                text = ~paste("Date: Dec ", Day, "<br>Year:", Year, "<br>Daily Rainfall Total:", Daily_Rainfall_Total, "mm"),
-                type = 'scatter', 
-                mode = 'markers',
-                name = "Daily Rainfall")%>%
-  layout(yaxis = list(autorange = "reversed", showgrid = FALSE))
-
-# Create a subplot with a dataframe beside the scatter plot
-fig2 <- plot_ly(data = december_data, x = ~Year, y = ~Dec_Rainfall_Total, type = 'bar', name = "Total Rainfall",marker = list(color = "#2E86C1"))%>%
-  layout(yaxis = list(autorange = "reversed", showgrid = FALSE))
-
-# Combine the plots into one subplot
-subplot(fig1, fig2, nrows = 1, shareX = TRUE, shareY = FALSE, titleX = FALSE)%>%
-  layout(title = "Scatter-Bar Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)")
-
-
-```
-:::
+First, let's take a rough look at the rainfall amount through an interesting bubble chart. (You can drag the bubble to see the funny part.)
 
 ::: panel-tabset
 ## Packedbubble Chart
@@ -765,12 +582,16 @@ subplot(fig1, fig2, nrows = 1, shareX = TRUE, shareY = FALSE, titleX = FALSE)%>%
 #| code-summary: "Show the code: Packedbubble Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)"
 
 q95 <- as.numeric(quantile(Historical_Records2$Daily_Rainfall_Total, .95))
-hchart(Historical_Records2, "packedbubble", hcaes(name = Day, value = Daily_Rainfall_Total, group = Year))%>%
+
+# Filter out rows where Daily_Rainfall_Total is zero
+filtered_records <- Historical_Records2[Historical_Records2$Daily_Rainfall_Total != 0,]
+
+hchart(filtered_records, "packedbubble", hcaes(name = Day, value = Daily_Rainfall_Total, group = Year)) %>%
   hc_tooltip(
     useHTML = TRUE,
     pointFormat = "<b>Dec {point.name}:</b> {point.value} mm"
   ) %>% 
-  hc_title(text = 'Packedbubble Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)',
+  hc_title(text = '<b>Packedbubble Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)<b>',
            style = list(fontSize = '1.5em')) %>%
   hc_chart(
     borderColor = '#757575',
@@ -779,14 +600,14 @@ hchart(Historical_Records2, "packedbubble", hcaes(name = Day, value = Daily_Rain
     backgroundColor = list(
       linearGradient = c(0, 0, 500, 500),
       stops = list(
-        list(0, 'rgb(250, 250, 250)'),
+        list(0, 'rgb(189, 189, 189)'),
         list(1, 'rgb(189, 189, 189)')
-        )
       )
-    )%>%
+    )
+  ) %>%
   hc_plotOptions(
     packedbubble = list(
-      maxSize = "150%",
+      maxSize = "200%",  # Adjust the maxSize parameter to make size differences more noticeable
       zMin = 0,
       layoutAlgorithm = list(
         gravitationalConstant =  0.05,
@@ -808,13 +629,266 @@ hchart(Historical_Records2, "packedbubble", hcaes(name = Day, value = Daily_Rain
           textOutline = "none",
           fontWeight = "normal"
         ))))
+
+
 ```
 :::
 
 ::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
-**Observation from the above two charts:**
+**Observation from the above bubble chart:**
 
-The total rainfall and maximum daily rainfall in December 1983 were the highest, while in the rest years, they were lower. Conversely, in December 2023, both the total rainfall and maximum daily rainfall were the lowest. The maximum daily rainfall in December 1983 was nearly three times as much as that in December 2023.
+We can see that the maximum daily rainfall in 1983 was particularly high, roughly three times that of 2023. Similarly, the maximum daily rainfall in 2013 was also significant, being twice that of 2023. The number of bubbles for 2013, 1993, and 2023 are slightly more compared to those for 1983 and 2003, indicating that there were more rainy days in December for these years (see more clear comparison by the following charts). However, the comparison of total rainfall amounts is not very clear. Let's take a look at the bar chart below to observe the total rainfall.
+:::
+
+Next, let's take a look at the below three interactive charts one by one.
+
+-   The left chart: shows the number of rainy days in December in a particular year.
+-   The middle chart: compares the amount of rainfall by year.
+-   The right chart: displays the total rainfall in December by year.
+
+::: panel-tabset
+## Scatter-Bar Chart
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Scatter-Bar Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)"
+#| warning: false
+
+# Create ggplot 
+fig1 <- ggplot(Historical_Records2, aes(Year, Day, color = Year)) +
+  geom_point(aes(size = Daily_Rainfall_Total)) +
+  scale_x_discrete() +  
+  scale_size(range = c(0,10))+
+  theme_bw() +
+  labs(title = '<b>Interactive Scatter Plot: December Daily Rainfall (Singapore, Changi)<b>', 
+       x = 'Year', 
+       y = 'Day in December') +  
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    plot.title = element_text(face = "bold",size = 10, hjust = 0.5),
+    axis.title = element_text(face = "bold",size = 8),
+    legend.title = element_text(face = "bold",size = 8),
+    axis.text.y = element_text(size = 10),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.x = element_line(color = "black"), 
+    axis.line.x = element_line(color = "black")
+  ) +
+  scale_y_continuous(breaks = 1:31, expand = c(0, 0))
+
+# Convert ggplot to plotly
+fig1 <- ggplotly(fig1, tooltip = c("Day", "Daily_Rainfall_Total"))%>%
+  layout(showlegend = FALSE)
+
+# Set marker size based on the size of Daily_Rainfall_Total
+max_rainfall <- max(Historical_Records2$Daily_Rainfall_Total)
+min_rainfall <- min(Historical_Records2$Daily_Rainfall_Total)
+
+# Calculate the range of marker sizes
+size_range <- c(1, 40)
+
+# Calculate normalized values for Daily_Rainfall_Total in [0, 1]
+normalized_rainfall <- (Historical_Records2$Daily_Rainfall_Total - min_rainfall) / (max_rainfall - min_rainfall)
+
+# Calculate marker size based on normalized values
+marker_size <- size_range[1] + normalized_rainfall * (size_range[2] - size_range[1])
+
+fig2 <- plot_ly(Historical_Records2, x = ~Year, y = ~Daily_Rainfall_Total,
+                marker = list(size = marker_size, 
+                              color = ~Daily_Rainfall_Total, 
+                              colorscale = "Blues",
+                              cmin = min_rainfall, 
+                              cmax = max_rainfall,                        
+                              reversescale = TRUE, # Make the color gradient from light to dark
+                              showscale = TRUE,
+                              colorbar = list(title = list(text = "Rainfall (mm)", font = list(size = 9)), len = 0.3, thickness = 10, x = 1.05, y = 0.2)),  # Adjust len and thickness here
+                hoverinfo = "text",
+                text = ~paste("Date: Dec ", Day, "<br>Year:", Year, "<br>Daily Rainfall Total:", Daily_Rainfall_Total, "mm"),
+                type = 'scatter', 
+                mode = 'markers',
+                name = "Daily Rainfall") %>%
+  layout(
+    yaxis = list(
+      autorange = "reversed", 
+      showgrid = FALSE, 
+      title = "Daily Rainfall Total",  # Adjust y-axis title here
+      titlefont = list(size = 10),     # Adjust title font size here
+      titleposition = "middle"         # Adjust title position here
+    ),
+    title = "<b>Interactive Scatter Plot: December Daily Rainfall (Singapore, Changi)<b>",  # Adjust title here
+    titlefont = list(size = 14),        # Adjust title font size here
+    titleposition = "middle",           # Adjust title position here
+    margin = list(
+      l = 50, 
+      r = 50, 
+      b = 50, 
+      t = 50
+    )
+  )
+
+
+# Create a subplot with a dataframe beside the scatter plot
+fig3 <- plot_ly(data = december_data, x = ~Year, y = ~Dec_Rainfall_Total, type = 'bar', name = "Total Rainfall",marker = list(color = "blue"))%>%
+  layout(yaxis = list(autorange = "reversed", showgrid = FALSE))
+
+# Combine the plots into one subplot
+subplot(
+  fig1, 
+  fig2, 
+  fig3, 
+  nrows = 1, 
+  shareY = FALSE, 
+  titleX = FALSE,
+  margin = 0.05
+) %>%
+layout(
+  title = "<b>Scatter-Bar Chart: December Daily Rainfall and Total Rainfall (Singapore, Changi)<b>",
+  margin = list(l = 50, r = 50, b = 50, t = 50),
+  width = 1000,
+  height = 1000
+)
+
+
+
+
+```
+:::
+
+::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
+**Observation and insights from the above three plots:**
+
+-   In the left chart, it's clear that the fewest points are in 1983, while other years have more points, indicating fewer rainy days in 1983 compared to other years.
+-   In the middle chart, comparing the maximum daily rainfall of all the years, 1983 has the highest, while 2023 has the lowest. Someday in 1983 has a significant rainfall.
+-   In the right chart, the total rainfall in December 1983 is the highest, while 2023 is the lowest.
+
+From the above observations, we can see that in 2023, compared to 40 years ago (1983), although the number of rainy days in December increased, the maximum daily rainfall decreased significantly.
+:::
+
+The following chart can help you see the differences in maximum daily rainfall in December more clearly.
+
+::: panel-tabset
+## Area Chart: December Daily Rainfall
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Area Chart: December Daily Rainfall (Singapore, Changi)"
+#| warning: false
+
+highchart() %>%
+  hc_add_series(data = subset(Historical_Records2, Year %in% c("1983", "1993", "2003", "2013", "2023")),
+                type = "area", hcaes(x = Day, y = Daily_Rainfall_Total, group = Year),
+                zIndex = 1) %>%
+  hc_title(text="<b>Area Chart: December Daily Rainfall (Singapore, Changi)<b>", style = list(fontSize = '1.5em'))%>%
+  hc_xAxis(categories = 0:31, title = list(text = "Day in December")) %>%
+  hc_yAxis(title = list(text = "Rainfall (mm)")) %>%
+  hc_tooltip(
+    useHTML = TRUE,crosshairs = TRUE,valueDecimals = 2,
+    pointFormat = "<br/>Dec {point.x}, Rainfall: {point.y} mm"
+  )%>%
+  hc_chart(
+    borderColor = '#757575',
+    borderRadius = 10,
+    borderWidth = 2,
+    backgroundColor = list(
+      linearGradient = c(0, 0, 500, 500),
+      stops = list(
+        list(0, 'rgb(189, 189, 189)'),
+        list(1, 'rgb(189, 189, 189)')
+        )))
+
+```
+:::
+
+::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
+**Observation from the area chart:**
+
+Comparing the highest points of different years, we can observe the differences in maximum daily rainfall. In December, the maximum daily rainfall was highest in 1983, followed by 2013, 2003, and 1993. The maximum daily rainfall in December 2023 was the smallest among these five years, only one-third of that in 1983.
+:::
+
+Finally, let's conduct some statistical analysis on rainfall data.
+
+::: callout-note
+The charts below only include data for rainy days in December.
+:::
+
+::: panel-tabset
+## Interactive Stats Chart
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Stats Plot: December Daily Rainfall (Singapore, Changi)"
+#| warning: false
+
+
+ggplotly(
+  ggbetweenstats(
+    data = subset(Historical_Records2, Daily_Rainfall_Total > 0),
+    x = Year, 
+    y = Daily_Rainfall_Total,
+    type = "p",
+    mean.ci = TRUE, 
+    pairwise.comparisons = TRUE, 
+    pairwise.display = "s",
+    p.adjust.method = "fdr",
+    messages = FALSE
+  )
+)%>%
+  layout(
+    xaxis = list(title = "<b>Year<b>", tickfont = list(family = "Calibri")),    
+    yaxis = list(title = "<b>Rainfall (mm)<b>", tickfont = list(family = "Calibri")), 
+    title = "<b>Interactive Stats Plot: December Daily Rainfall (Singapore, Changi)<b>",
+    font = list(family = "Calibri")
+  )
+
+```
+
+## Static Stats Chart
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code: Static Stats Plot: December Daily Rainfall (Singapore, Changi)"
+#| warning: false
+
+library(ggplot2)
+
+ggplot_obj <- ggbetweenstats(
+  data = subset(Historical_Records2, Daily_Rainfall_Total > 0),
+  x = Year, 
+  y = Daily_Rainfall_Total,
+  type = "p",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = TRUE
+)
+
+Stats_rainfall <- ggplot_obj + 
+  labs(x = "Year", y = "Rainfall (mm)", title = "Stats Plot: December Daily Rainfall (Singapore, Changi)") +
+  theme(
+  text = element_text(size = 10),
+  axis.text.x = element_text(size = 10),
+  axis.text.y = element_text(size = 10),
+  plot.caption = element_text(size = 10),
+  plot.subtitle = element_text(size = 10),
+  axis.title.x = element_text(family = "Calibri", size = 10, face = "bold"),
+  axis.title.y = element_text(family = "Calibri", size = 10, face = "bold"),
+  title = element_text(family = "Calibri", size = 25, face = "bold"),
+  strip.text.x = element_text(size = 8)
+)
+
+
+ggsave("images/Stats_rainfall.png", Stats_rainfall, width = 10, height = 10, units = "in")
+
+Stats_rainfall
+```
+:::
+
+::: {style="background-color: #D6EAF8; border-radius: 10px; padding: 20px;"}
+**Observation from the above stats plot:**
+
+From the n values in the above graph, we can observe that the number of rainy days has been increasing from 1983 to 2023, with 2023 having six more rainy days than 1983 (almost equivalent to a week). The graph also illustrates that the average daily rainfall in December 1983 was nearly double that of December 2023 (See the Static Stats Chart). However, within a 95% confidence interval, there was no significant difference in the daily rainfall for these years (The absence of lines connecting pairwise comparisons). Therefore, despite the increase in rainy days, there hasn't been a significant change in the amount of rainfall per day. This may reflect climate change or changes in observation methods, but further research is needed to determine the exact reasons. We will not delve into analyzing this matter further here.
 :::
 
 ------------------------------------------------------------------------
@@ -829,15 +903,9 @@ Based on the data set, we cannot discern a pattern in the total rainfall amount.
 
 # Reference
 
-[ggnimate: How to Create Plots with Beautiful Animation in R](https://www.datanovia.com/en/blog/gganimate-how-to-create-plots-with-beautiful-animation-in-r/)
-
 [Visualising Singapore’s Changing Weather Patterns: 1983–2019](https://towardsdatascience.com/visualising-singapores-changing-weather-patterns-1983-2019-a78605fadbdf)
 
-[3D Scatter Plots in R](https://plotly.com/r/3d-scatter-plots/)
-
 [Highchart Interactive Bar Plot in R](https://www.datanovia.com/en/lessons/highchart-interactive-bar-plot-in-r/)
-
-[Using gganimate with geom_point and geom_line](https://stackoverflow.com/questions/60022521/using-gganimate-with-geom-point-and-geom-line)
 
 [Charts with highcharts](https://jkunst.com/highcharter/articles/highcharts.html)
 
