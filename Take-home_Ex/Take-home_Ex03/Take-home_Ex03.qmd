@@ -165,7 +165,7 @@ Firstly, let's take an overall look. See the trends of daily mean, maximum, and 
 #| code-summary: "Show the code: Area-line Chart: December Daily Temperature Trends (Singapore, Changi)"
 #| warning: false
 
-# 计算每天平均温度
+
 daily_data_temp <- Historical_Records2 %>%
   group_by(Year, Day) %>%
   summarise(Mean = Mean_Temperature,
@@ -178,7 +178,7 @@ daily_data_temp <- daily_data_temp %>%
                names_to = "Temperature.Type",
                values_to = "Temperature")
 
-# 分别提取每天的平均、最高和最低温度数据
+
 averages <- daily_data_temp %>%
   filter(Temperature.Type == "Mean") %>%
   select(Year, Day, Temperature) 
@@ -191,7 +191,7 @@ min_temps <- daily_data_temp %>%
   filter(Temperature.Type == "Min") %>%
   select(Year, Day, Temperature)
 
-# 创建温度范围数据框
+
 ranges <- data.frame(
   Year = max_temps$Year,
   Day = max_temps$Day,
@@ -199,7 +199,7 @@ ranges <- data.frame(
   Max_Temperature = max_temps$Temperature
 )
 
-# 绘制高级图表
+
 highchart() %>%
   hc_title(text = "<b>Area-line Chart: December Daily Temperature Trends (Singapore, Changi)<b>", style = list(fontSize = '1.5em')) %>%
   hc_xAxis(categories = unique(paste(ranges$Year, ranges$Day, sep = "-")), title = list(text = "Year-Day")) %>%
