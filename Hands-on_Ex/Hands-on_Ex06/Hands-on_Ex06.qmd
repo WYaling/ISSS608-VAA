@@ -22,8 +22,9 @@ By the end of this hands-on exercise you will be able create the followings data
 -   plotting a horizon chart
 
 ```{r}
-#|code-fold: true
-#|code-summary: "Load R pacages"
+#| code-fold: true
+#| code-summary: "Load R pacages"
+#| warning: false
 
 
 pacman::p_load(scales, viridis, lubridate, ggthemes, gridExtra, readxl, knitr, data.table, CGPfunctions, ggHoriPlot, tidyverse)
