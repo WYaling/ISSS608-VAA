@@ -153,7 +153,7 @@ In the following section, I will showcase more visualized data regarding tempera
 
 # 2. Temperature
 
-## 2.1
+## 2.1 Mean & Max & Min
 
 Firstly, let's take an overall look. See the trends of daily mean, maximum, and minimum temperatures recorded in December by the interactive chart below.
 
