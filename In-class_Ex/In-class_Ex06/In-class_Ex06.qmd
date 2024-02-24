@@ -6,7 +6,7 @@ date-modified: "last-modified"
 execute: 
   eval: true
   echo: true
-  #freeze: true
+  freeze: false
   message: false
   warning: false
 ---
