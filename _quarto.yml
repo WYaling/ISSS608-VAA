@@ -61,6 +61,8 @@ website:
           href: "In-class_Ex/In-class_Ex02/In-class_Ex02.html"
         - text: "3. Tableau02: Make Dashboard & Story"
           href: "In-class_Ex/In-class_Ex03/In-class_Ex03.html"
+        - text: "4. In-class_Ex06"
+          href: "In-class_Ex/In-class_Ex06/In-class_Ex06.html"
           
     - text: "Take-home Exercise"
       menu:
